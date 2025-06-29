@@ -1,0 +1,54 @@
+
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Search, Microscope, Zap } from 'lucide-react';
+
+const PhilosophySection = () => {
+  const philosophies = [
+    {
+      icon: Search,
+      title: 'Precision Bug Detection',
+      quote: 'Every bug is a clue waiting to reveal the story of better software.',
+      description: 'Meticulous attention to detail in identifying and documenting defects with comprehensive analysis.'
+    },
+    {
+      icon: Microscope,
+      title: 'Deep System Analysis',
+      quote: 'Understanding the system is the first step to mastering its quality.',
+      description: 'Thorough examination of system behavior, user flows, and edge cases for comprehensive coverage.'
+    },
+    {
+      icon: Zap,
+      title: 'Automation Test Efficiency',
+      quote: 'Automation amplifies human intelligence, it doesn\'t replace human insight.',
+      description: 'Strategic automation implementation that enhances testing efficiency while maintaining quality focus.'
+    }
+  ];
+
+  return (
+    <section id="philosophy" className="section-padding bg-dark-900">
+      <div className="container mx-auto max-w-6xl">
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text">My Quality Philosophy</h2>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          {philosophies.map((philosophy, index) => (
+            <Card key={index} className="bg-dark-700/50 border-neon-teal/30 hover:border-neon-teal/60 transition-all duration-300 hover:shadow-lg hover:shadow-neon-teal/10 group text-center">
+              <CardContent className="p-8">
+                <div className="bg-neon-teal/10 p-4 rounded-full w-fit mx-auto mb-6 group-hover:bg-neon-teal/20 transition-colors animate-glow">
+                  <philosophy.icon className="w-8 h-8 text-neon-teal" />
+                </div>
+                <h3 className="text-xl font-semibold text-neon-teal mb-4">{philosophy.title}</h3>
+                <blockquote className="text-neon-gold italic mb-4 text-lg gold-glow">
+                  "{philosophy.quote}"
+                </blockquote>
+                <p className="text-gray-400">{philosophy.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PhilosophySection;
