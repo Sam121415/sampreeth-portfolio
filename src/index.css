@@ -19,7 +19,7 @@ All colors MUST be HSL.
     --popover: 210 40% 4%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 180 100% 50%;
+    --primary: 45 100% 51%;
     --primary-foreground: 210 40% 2%;
 
     --secondary: 45 100% 51%;
@@ -28,7 +28,7 @@ All colors MUST be HSL.
     --muted: 210 40% 10%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 180 100% 50%;
+    --accent: 45 100% 51%;
     --accent-foreground: 210 40% 2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -36,18 +36,18 @@ All colors MUST be HSL.
 
     --border: 210 40% 20%;
     --input: 210 40% 20%;
-    --ring: 180 100% 50%;
+    --ring: 45 100% 51%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 210 40% 2%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary: 45 100% 51%;
     --sidebar-primary-foreground: 210 40% 2%;
     --sidebar-accent: 210 40% 10%;
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 210 40% 20%;
-    --sidebar-ring: 180 100% 50%;
+    --sidebar-ring: 45 100% 51%;
   }
 }
 
@@ -57,7 +57,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-dark-900 text-foreground font-['Poppins',sans-serif];
+    @apply bg-slate-950 text-foreground font-['Poppins',sans-serif];
   }
 
   html {
@@ -66,61 +66,63 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Dark Blue Sky Background */
-  .night-sky-bg {
+  /* Ultra Dark Space Background with Falling Stars */
+  .dark-space-bg {
     background: 
-      radial-gradient(ellipse at top, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(30, 64, 175, 0.1) 0%, transparent 50%),
-      linear-gradient(180deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
+      radial-gradient(ellipse at top, rgba(15, 23, 42, 0.8) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(2, 6, 23, 0.9) 0%, transparent 50%),
+      linear-gradient(180deg, #020617 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #020617 100%);
   }
 
-  /* White Star Field */
-  .star-field {
+  /* Enhanced Falling White Stars - Globally Applied */
+  .falling-stars {
     background-image: 
       radial-gradient(2px 2px at 20px 30px, white, transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.9), transparent),
       radial-gradient(1px 1px at 90px 40px, white, transparent),
-      radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
-      radial-gradient(2px 2px at 160px 30px, white, transparent);
+      radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(3px 3px at 160px 30px, white, transparent),
+      radial-gradient(2px 2px at 10px 120px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 180px 100px, white, transparent);
     background-repeat: repeat;
     background-size: 200px 200px;
-    animation: stars-fall 20s linear infinite;
+    animation: stars-fall 25s linear infinite;
   }
 
-  /* Gentle Blue Glow Effects */
+  /* Gold Glow Effects */
   .profile-glow {
     box-shadow: 
-      0 0 20px rgba(59, 130, 246, 0.3),
-      0 0 40px rgba(59, 130, 246, 0.2);
+      0 0 30px rgba(255, 215, 0, 0.4),
+      0 0 60px rgba(255, 215, 0, 0.2);
   }
 
   .glow-text {
+    color: white;
     text-shadow: 
-      0 0 10px rgba(59, 130, 246, 0.8),
-      0 0 20px rgba(59, 130, 246, 0.4);
+      0 0 15px rgba(255, 215, 0, 0.8),
+      0 0 30px rgba(255, 215, 0, 0.4);
   }
 
-  .blue-glow {
+  .gold-glow {
+    color: #ffd700;
     text-shadow: 
-      0 0 10px rgba(59, 130, 246, 0.6),
-      0 0 20px rgba(59, 130, 246, 0.3);
-  }
-
-  .floating-icon {
-    animation: float 3s ease-in-out infinite;
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.4);
   }
 
   .section-padding {
     @apply py-20 px-4 lg:px-8;
   }
 
-  /* Professional Hover Effects */
+  /* Professional Hover Effects with Gold */
   .hover-glow {
     transition: all 0.3s ease;
+    color: white;
   }
 
   .hover-glow:hover {
-    text-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
     transform: translateY(-2px);
   }
 
@@ -131,15 +133,33 @@ All colors MUST be HSL.
 
   .card-hover:hover {
     box-shadow: 
-      0 10px 30px rgba(59, 130, 246, 0.2),
-      0 0 20px rgba(59, 130, 246, 0.1);
+      0 10px 30px rgba(255, 215, 0, 0.2),
+      0 0 20px rgba(255, 215, 0, 0.1);
     transform: translateY(-5px) scale(1.02);
+  }
+
+  /* Realistic Lighting Effects */
+  .light-beam {
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    animation: beam-sweep 4s ease-in-out infinite;
+  }
+
+  .ambient-glow {
+    box-shadow: 
+      inset 0 0 20px rgba(255, 215, 0, 0.1),
+      0 0 40px rgba(255, 215, 0, 0.05);
   }
 }
 
 @keyframes stars-fall {
   0% { transform: translateY(-100vh) translateX(0); }
   100% { transform: translateY(100vh) translateX(50px); }
+}
+
+@keyframes beam-sweep {
+  0% { opacity: 0; transform: translateX(-100%); }
+  50% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(100%); }
 }
 
 @keyframes float {
@@ -149,7 +169,7 @@ All colors MUST be HSL.
 }
 
 @keyframes glow-pulse {
-  0% { filter: drop-shadow(0 0 5px currentColor); }
-  50% { filter: drop-shadow(0 0 15px currentColor) drop-shadow(0 0 25px currentColor); }
-  100% { filter: drop-shadow(0 0 5px currentColor); }
+  0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+  50% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 25px rgba(255, 215, 0, 0.4)); }
+  100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
 }
