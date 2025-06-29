@@ -74,6 +74,44 @@ All colors MUST be HSL.
     animation: laser-pulse 3s ease-in-out infinite;
   }
 
+  .snowfall {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.4), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(0, 245, 255, 0.3), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(0, 255, 163, 0.3), transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.2), transparent),
+      radial-gradient(2px 2px at 160px 30px, rgba(0, 245, 255, 0.2), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: snowfall 20s linear infinite;
+  }
+
+  .laser-lines {
+    background-image: 
+      linear-gradient(45deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px;
+    animation: laser-move 8s linear infinite;
+  }
+
+  .profile-glow {
+    box-shadow: 
+      0 0 20px rgba(255, 215, 0, 0.3),
+      0 0 40px rgba(255, 215, 0, 0.2),
+      0 0 60px rgba(255, 215, 0, 0.1);
+  }
+
+  .golden-hover {
+    transition: all 0.3s ease;
+  }
+
+  .golden-hover:hover {
+    box-shadow: 
+      0 0 15px rgba(255, 215, 0, 0.4),
+      0 0 30px rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
   .glow-text {
     text-shadow: 0 0 10px #00f5ff;
   }
@@ -89,4 +127,26 @@ All colors MUST be HSL.
   .section-padding {
     @apply py-20 px-4 lg:px-8;
   }
+}
+
+@keyframes laser-pulse {
+  0% { opacity: 0.5; transform: scale(1) translateX(0); }
+  50% { opacity: 1; transform: scale(1.02) translateX(-10px); }
+  100% { opacity: 0.5; transform: scale(1) translateX(0); }
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(-100vh) translateX(0); }
+  100% { transform: translateY(100vh) translateX(100px); }
+}
+
+@keyframes laser-move {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 200px 200px, -200px 200px; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
 }

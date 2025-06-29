@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 import FloatingElements from '@/components/FloatingElements';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import LanguagesSection from '@/components/LanguagesSection';
 import EducationSection from '@/components/EducationSection';
 import SkillsSection from '@/components/SkillsSection';
 import AchievementsSection from '@/components/AchievementsSection';
@@ -22,7 +21,6 @@ const Index = () => {
       <main>
         <HeroSection />
         <AboutSection />
-        <LanguagesSection />
         <EducationSection />
         <SkillsSection />
         <AchievementsSection />
