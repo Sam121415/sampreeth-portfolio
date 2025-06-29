@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -65,102 +66,44 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Galaxy Background */
-  .galaxy-bg {
+  /* Dark Blue Sky Background */
+  .night-sky-bg {
     background: 
-      radial-gradient(ellipse at top, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(255, 20, 147, 0.2) 0%, transparent 50%),
-      radial-gradient(ellipse at left, rgba(0, 245, 255, 0.2) 0%, transparent 50%),
-      radial-gradient(ellipse at right, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
-      linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%);
-    animation: galaxy-pulse 8s ease-in-out infinite;
+      radial-gradient(ellipse at top, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(30, 64, 175, 0.1) 0%, transparent 50%),
+      linear-gradient(180deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
   }
 
-  /* Golden Snowfall */
-  .golden-snowfall {
+  /* White Star Field */
+  .star-field {
     background-image: 
-      radial-gradient(3px 3px at 20px 30px, rgba(255, 215, 0, 0.8), transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.6), transparent),
-      radial-gradient(2px 2px at 90px 40px, rgba(255, 215, 0, 0.7), transparent),
-      radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.5), transparent),
-      radial-gradient(3px 3px at 160px 30px, rgba(255, 20, 147, 0.4), transparent),
-      radial-gradient(2px 2px at 200px 90px, rgba(255, 215, 0, 0.9), transparent);
+      radial-gradient(2px 2px at 20px 30px, white, transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 90px 40px, white, transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(2px 2px at 160px 30px, white, transparent);
     background-repeat: repeat;
-    background-size: 250px 250px;
-    animation: golden-fall 15s linear infinite;
+    background-size: 200px 200px;
+    animation: stars-fall 20s linear infinite;
   }
 
-  /* Asteroid Field */
-  .asteroid-field {
-    background-image: 
-      radial-gradient(4px 4px at 100px 50px, rgba(255, 20, 147, 0.6), transparent),
-      radial-gradient(3px 3px at 200px 100px, rgba(0, 245, 255, 0.5), transparent),
-      radial-gradient(2px 2px at 300px 150px, rgba(255, 215, 0, 0.7), transparent);
-    background-repeat: repeat;
-    background-size: 400px 300px;
-    animation: asteroid-drift 20s linear infinite;
-  }
-
-  /* Light Beams */
-  .light-beams {
-    background-image: 
-      linear-gradient(45deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px),
-      linear-gradient(-45deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 20, 147, 0.05) 1px, transparent 1px);
-    background-size: 80px 80px, 120px 120px, 200px 200px;
-    animation: beam-sweep 12s linear infinite;
-  }
-
-  /* 3D Floating Icons */
-  .floating-3d-icons {
-    position: relative;
-  }
-
-  .floating-3d-icons::before,
-  .floating-3d-icons::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    animation: float-3d 4s ease-in-out infinite;
-  }
-
-  .floating-3d-icons::before {
-    top: 20%;
-    left: 10%;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0.3) 70%, transparent 100%);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), inset 0 0 10px rgba(255, 215, 0, 0.5);
-    animation-delay: 0s;
-  }
-
-  .floating-3d-icons::after {
-    top: 60%;
-    right: 15%;
-    background: radial-gradient(circle, rgba(0, 245, 255, 0.8) 0%, rgba(0, 245, 255, 0.3) 70%, transparent 100%);
-    box-shadow: 0 0 20px rgba(0, 245, 255, 0.8), inset 0 0 10px rgba(0, 245, 255, 0.5);
-    animation-delay: 2s;
-  }
-
+  /* Gentle Blue Glow Effects */
   .profile-glow {
     box-shadow: 
-      0 0 30px rgba(255, 215, 0, 0.4),
-      0 0 60px rgba(255, 215, 0, 0.3),
-      0 0 90px rgba(255, 215, 0, 0.2);
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.2);
   }
 
   .glow-text {
     text-shadow: 
-      0 0 10px #00f5ff,
-      0 0 20px #00f5ff,
-      0 0 30px #00f5ff;
+      0 0 10px rgba(59, 130, 246, 0.8),
+      0 0 20px rgba(59, 130, 246, 0.4);
   }
 
-  .gold-glow {
+  .blue-glow {
     text-shadow: 
-      0 0 10px #ffd700,
-      0 0 20px #ffd700,
-      0 0 30px #ffd700;
+      0 0 10px rgba(59, 130, 246, 0.6),
+      0 0 20px rgba(59, 130, 246, 0.3);
   }
 
   .floating-icon {
@@ -171,13 +114,13 @@ All colors MUST be HSL.
     @apply py-20 px-4 lg:px-8;
   }
 
-  /* Global Hover Effects */
+  /* Professional Hover Effects */
   .hover-glow {
     transition: all 0.3s ease;
   }
 
   .hover-glow:hover {
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
     transform: translateY(-2px);
   }
 
@@ -188,31 +131,15 @@ All colors MUST be HSL.
 
   .card-hover:hover {
     box-shadow: 
-      0 10px 30px rgba(255, 215, 0, 0.3),
-      0 0 20px rgba(255, 20, 147, 0.2);
+      0 10px 30px rgba(59, 130, 246, 0.2),
+      0 0 20px rgba(59, 130, 246, 0.1);
     transform: translateY(-5px) scale(1.02);
   }
 }
 
-@keyframes galaxy-pulse {
-  0% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.02); }
-  100% { opacity: 0.8; transform: scale(1); }
-}
-
-@keyframes golden-fall {
-  0% { transform: translateY(-100vh) translateX(0) rotate(0deg); }
-  100% { transform: translateY(100vh) translateX(50px) rotate(360deg); }
-}
-
-@keyframes asteroid-drift {
-  0% { transform: translateX(-100px) translateY(-50px) rotate(0deg); }
-  100% { transform: translateX(100vw) translateY(50px) rotate(180deg); }
-}
-
-@keyframes beam-sweep {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 200px 200px, -200px 200px, 400px 0; }
+@keyframes stars-fall {
+  0% { transform: translateY(-100vh) translateX(0); }
+  100% { transform: translateY(100vh) translateX(50px); }
 }
 
 @keyframes float {
@@ -221,16 +148,8 @@ All colors MUST be HSL.
   100% { transform: translateY(0px); }
 }
 
-@keyframes float-3d {
-  0% { transform: translateY(0px) translateX(0px) rotateZ(0deg); }
-  25% { transform: translateY(-15px) translateX(10px) rotateZ(90deg); }
-  50% { transform: translateY(-30px) translateX(0px) rotateZ(180deg); }
-  75% { transform: translateY(-15px) translateX(-10px) rotateZ(270deg); }
-  100% { transform: translateY(0px) translateX(0px) rotateZ(360deg); }
-}
-
 @keyframes glow-pulse {
-  0% { filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor); }
-  50% { filter: drop-shadow(0 0 20px currentColor) drop-shadow(0 0 40px currentColor) drop-shadow(0 0 60px currentColor); }
-  100% { filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor); }
+  0% { filter: drop-shadow(0 0 5px currentColor); }
+  50% { filter: drop-shadow(0 0 15px currentColor) drop-shadow(0 0 25px currentColor); }
+  100% { filter: drop-shadow(0 0 5px currentColor); }
 }
