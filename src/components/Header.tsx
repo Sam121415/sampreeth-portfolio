@@ -1,21 +1,22 @@
 
 import React, { useState, useEffect } from 'react';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [language, setLanguage] = useState('en');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Me' },
     { id: 'education', label: 'Education' },
-    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Professional Skills' },
     { id: 'achievements', label: 'Achievements' },
     { id: 'philosophy', label: 'Philosophy' },
     { id: 'quotes', label: 'QA Quotes' },
     { id: 'interests', label: 'Interests' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Get in Touch' }
   ];
 
   useEffect(() => {
@@ -41,20 +42,60 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <header className="fixed top-0 w-full bg-dark-900/95 backdrop-blur-md border-b border-neon-blue/20 z-50">
-      <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-8">
+    <>
+      <header className="fixed top-0 w-full bg-slate-950/95 backdrop-blur-md border-b border-blue-500/20 z-50">
+        <nav className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Brand */}
+            <div className="text-xl font-bold text-white glow-text">
+              Sampreeth Kannavar
+            </div>
+            
+            {/* Desktop Navigation - Right Aligned */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm font-medium transition-all duration-300 hover:text-blue-400 ${
+                    activeSection === item.id 
+                      ? 'text-yellow-400 glow-text' 
+                      : 'text-gray-300'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-white hover:text-blue-400 transition-colors p-2"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Menu */}
+      <div className={`fixed top-16 left-0 w-full bg-slate-950/98 backdrop-blur-md border-b border-blue-500/20 z-40 md:hidden transition-all duration-300 ${
+        isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      }`}>
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col space-y-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-all duration-300 hover:text-neon-blue ${
+                className={`text-left text-sm font-medium transition-all duration-300 hover:text-blue-400 py-2 ${
                   activeSection === item.id 
-                    ? 'text-neon-gold glow-text' 
+                    ? 'text-yellow-400 glow-text border-l-2 border-yellow-400 pl-3' 
                     : 'text-gray-300'
                 }`}
               >
@@ -62,20 +103,9 @@ const Header = () => {
               </button>
             ))}
           </div>
-          
-          <Select value={language} onValueChange={setLanguage}>
-            <SelectTrigger className="w-32 bg-dark-800 border-neon-blue/30">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent className="bg-dark-800 border-neon-blue/30">
-              <SelectItem value="en">English</SelectItem>
-              <SelectItem value="kn">ಕನ್ನಡ</SelectItem>
-              <SelectItem value="hi">हिन्दी</SelectItem>
-            </SelectContent>
-          </Select>
         </div>
-      </nav>
-    </header>
+      </div>
+    </>
   );
 };
 

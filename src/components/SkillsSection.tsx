@@ -38,11 +38,11 @@ const SkillsSection = () => {
       <div className="absolute inset-0 falling-stars opacity-70"></div>
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Technical Skills</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Professional Skills</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="bg-slate-900/80 border-yellow-500/30 hover:border-yellow-400/60 transition-all duration-300 card-hover backdrop-blur-sm">
+            <Card key={index} className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold gold-glow mb-4">{category.category}</h3>
                 <div className="flex flex-wrap gap-2">
@@ -50,7 +50,7 @@ const SkillsSection = () => {
                     <Badge 
                       key={skillIndex} 
                       variant="outline" 
-                      className="border-yellow-400/50 text-white hover:bg-yellow-500/10 transition-colors"
+                      className="border-blue-400/50 text-white hover:bg-blue-500/10 transition-colors"
                     >
                       {skill}
                     </Badge>

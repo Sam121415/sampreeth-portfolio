@@ -23,19 +23,23 @@ const InterestsSection = () => {
   ];
 
   return (
-    <section id="interests" className="section-padding bg-dark-900">
-      <div className="container mx-auto max-w-4xl">
+    <section id="interests" className="section-padding relative overflow-hidden">
+      {/* Dark Background with Falling Stars */}
+      <div className="absolute inset-0 dark-space-bg"></div>
+      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      
+      <div className="container mx-auto max-w-4xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">Interests & Hobbies</h2>
         
         <div className="grid md:grid-cols-3 gap-6">
           {interests.map((interest, index) => (
-            <Card key={index} className="bg-dark-700/50 border-neon-blue/30 hover:border-neon-blue/60 transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/10 group">
+            <Card key={index} className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm">
               <CardContent className="p-6 text-center">
-                <div className="bg-neon-blue/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-neon-blue/20 transition-colors">
-                  <interest.icon className="w-8 h-8 text-neon-blue" />
+                <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-blue-500/20 transition-colors">
+                  <interest.icon className="w-8 h-8 text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-neon-blue mb-3">{interest.title}</h3>
-                <p className="text-gray-400">{interest.description}</p>
+                <h3 className="text-lg font-semibold gold-glow mb-3">{interest.title}</h3>
+                <p className="text-gray-300">{interest.description}</p>
               </CardContent>
             </Card>
           ))}

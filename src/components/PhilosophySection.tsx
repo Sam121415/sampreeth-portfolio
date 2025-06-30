@@ -26,22 +26,26 @@ const PhilosophySection = () => {
   ];
 
   return (
-    <section id="philosophy" className="section-padding bg-dark-900">
-      <div className="container mx-auto max-w-6xl">
+    <section id="philosophy" className="section-padding relative overflow-hidden">
+      {/* Dark Background with Falling Stars */}
+      <div className="absolute inset-0 dark-space-bg"></div>
+      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">My Quality Philosophy</h2>
         
         <div className="grid md:grid-cols-3 gap-8">
           {philosophies.map((philosophy, index) => (
-            <Card key={index} className="bg-dark-700/50 border-neon-teal/30 hover:border-neon-teal/60 transition-all duration-300 hover:shadow-lg hover:shadow-neon-teal/10 group text-center">
+            <Card key={index} className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm text-center">
               <CardContent className="p-8">
-                <div className="bg-neon-teal/10 p-4 rounded-full w-fit mx-auto mb-6 group-hover:bg-neon-teal/20 transition-colors animate-glow">
-                  <philosophy.icon className="w-8 h-8 text-neon-teal" />
+                <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-6 group-hover:bg-blue-500/20 transition-colors">
+                  <philosophy.icon className="w-8 h-8 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-neon-teal mb-4">{philosophy.title}</h3>
-                <blockquote className="text-neon-gold italic mb-4 text-lg gold-glow">
+                <h3 className="text-xl font-semibold gold-glow mb-4">{philosophy.title}</h3>
+                <blockquote className="text-yellow-400 italic mb-4 text-lg gold-glow">
                   "{philosophy.quote}"
                 </blockquote>
-                <p className="text-gray-400">{philosophy.description}</p>
+                <p className="text-gray-300">{philosophy.description}</p>
               </CardContent>
             </Card>
           ))}

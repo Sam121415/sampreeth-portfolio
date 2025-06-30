@@ -5,6 +5,7 @@ import FloatingElements from '@/components/FloatingElements';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import EducationSection from '@/components/EducationSection';
+import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
 import AchievementsSection from '@/components/AchievementsSection';
 import PhilosophySection from '@/components/PhilosophySection';
@@ -14,7 +15,7 @@ import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-dark-900 text-white">
+    <div className="min-h-screen bg-slate-950 text-white">
       <Header />
       <FloatingElements />
       
@@ -22,6 +23,7 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <EducationSection />
+        <ProjectsSection />
         <SkillsSection />
         <AchievementsSection />
         <PhilosophySection />
@@ -30,9 +32,11 @@ const Index = () => {
         <ContactSection />
       </main>
       
-      <footer className="bg-dark-800 border-t border-neon-blue/20 py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
+      <footer className="bg-slate-900/80 border-t border-blue-500/20 py-8 relative">
+        <div className="absolute inset-0 dark-space-bg"></div>
+        <div className="absolute inset-0 falling-stars opacity-50"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <p className="text-gray-300">
             © 2024 Sampreeth Kannavar. Crafted with precision and passion for quality.
           </p>
         </div>

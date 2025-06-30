@@ -19,18 +19,24 @@ const HeroSection = () => {
     window.open('https://www.linkedin.com/in/sampreeth-k-1b5ba7263', '_blank');
   };
 
+  const handleLocationClick = () => {
+    window.open('https://maps.google.com/?q=Bengaluru,Karnataka,India', '_blank');
+  };
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:ksampreeth12@gmail.com';
+  };
+
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+919591491861';
+  };
+
   return (
     <>
       <section id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden">
-        {/* Ultra Dark Space Background */}
+        {/* Dark Background with Falling Stars */}
         <div className="absolute inset-0 dark-space-bg"></div>
-        
-        {/* Falling Stars Animation */}
         <div className="absolute inset-0 falling-stars opacity-90"></div>
-        
-        {/* Realistic Lighting Effects */}
-        <div className="absolute inset-0 light-beam"></div>
-        <div className="absolute inset-0 ambient-glow"></div>
         
         {/* Hero Content */}
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
@@ -40,7 +46,7 @@ const HeroSection = () => {
               <img 
                 src="/lovable-uploads/78339498-1920-4ca1-aa22-f4759e0b75a6.png" 
                 alt="Sampreeth Kannavar" 
-                className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-yellow-500 profile-glow cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-blue-500 profile-glow cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-yellow-400"
                 onClick={() => setShowImageModal(true)}
               />
             </div>
@@ -55,18 +61,27 @@ const HeroSection = () => {
           </h2>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 text-white">
-            <div className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-default">
-              <MapPin className="w-4 h-4 text-yellow-500" />
+            <button 
+              onClick={handleLocationClick}
+              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400"
+            >
+              <MapPin className="w-4 h-4 text-blue-400" />
               <span>Bengaluru, Karnataka, India</span>
-            </div>
-            <div className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-default">
-              <Mail className="w-4 h-4 text-yellow-500" />
+            </button>
+            <button 
+              onClick={handleEmailClick}
+              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400"
+            >
+              <Mail className="w-4 h-4 text-blue-400" />
               <span>ksampreeth12@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-default">
-              <Phone className="w-4 h-4 text-yellow-500" />
+            </button>
+            <button 
+              onClick={handlePhoneClick}
+              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400"
+            >
+              <Phone className="w-4 h-4 text-blue-400" />
               <span>+91 9591491861</span>
-            </div>
+            </button>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -80,7 +95,7 @@ const HeroSection = () => {
             <Button 
               onClick={handleLinkedInConnect}
               variant="outline" 
-              className="border-yellow-500 text-yellow-400 hover:bg-yellow-600 hover:text-black hover:border-yellow-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform"
+              className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform"
             >
               <Linkedin className="w-4 h-4 mr-2" />
               Connect LinkedIn
@@ -89,18 +104,18 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Image Modal */}
+      {/* Enhanced Image Modal */}
       {showImageModal && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="relative max-w-2xl max-h-2xl">
             <img 
               src="/lovable-uploads/78339498-1920-4ca1-aa22-f4759e0b75a6.png" 
               alt="Sampreeth Kannavar" 
-              className="w-full h-full object-contain rounded-lg shadow-2xl shadow-yellow-500/30"
+              className="w-full h-full object-contain rounded-lg shadow-2xl shadow-blue-500/30 max-w-lg max-h-lg"
             />
             <button 
               onClick={() => setShowImageModal(false)}
-              className="absolute -top-4 -right-4 bg-yellow-600 text-black rounded-full p-2 hover:bg-yellow-500 transition-all duration-300 hover:scale-110"
+              className="absolute -top-4 -right-4 bg-red-600 text-white rounded-full p-3 hover:bg-red-500 transition-all duration-300 hover:scale-110 shadow-lg"
             >
               <X className="w-6 h-6" />
             </button>

@@ -38,19 +38,23 @@ const AchievementsSection = () => {
   ];
 
   return (
-    <section id="achievements" className="section-padding bg-dark-800">
-      <div className="container mx-auto max-w-6xl">
+    <section id="achievements" className="section-padding relative overflow-hidden">
+      {/* Dark Background with Falling Stars */}
+      <div className="absolute inset-0 dark-space-bg"></div>
+      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">Achievements & Responsibilities</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((achievement, index) => (
-            <Card key={index} className="bg-dark-700/50 border-neon-gold/30 hover:border-neon-gold/60 transition-all duration-300 hover:shadow-lg hover:shadow-neon-gold/10 group">
+            <Card key={index} className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm">
               <CardContent className="p-6">
-                <div className="bg-neon-gold/10 p-3 rounded-lg w-fit mb-4 group-hover:bg-neon-gold/20 transition-colors">
-                  <achievement.icon className="w-6 h-6 text-neon-gold" />
+                <div className="bg-blue-500/10 p-3 rounded-lg w-fit mb-4 group-hover:bg-blue-500/20 transition-colors">
+                  <achievement.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-neon-gold mb-3">{achievement.title}</h3>
-                <p className="text-gray-400">{achievement.description}</p>
+                <h3 className="text-lg font-semibold gold-glow mb-3">{achievement.title}</h3>
+                <p className="text-gray-300">{achievement.description}</p>
               </CardContent>
             </Card>
           ))}

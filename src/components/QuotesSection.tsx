@@ -47,16 +47,20 @@ const QuotesSection = () => {
   };
 
   return (
-    <section id="quotes" className="section-padding bg-dark-800">
-      <div className="container mx-auto max-w-4xl">
+    <section id="quotes" className="section-padding relative overflow-hidden">
+      {/* Dark Background with Falling Stars */}
+      <div className="absolute inset-0 dark-space-bg"></div>
+      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      
+      <div className="container mx-auto max-w-4xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">QA Wisdom</h2>
         
-        <Card className="bg-dark-700/50 border-neon-pink/30 hover:border-neon-pink/60 transition-all duration-300">
+        <Card className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 backdrop-blur-sm">
           <CardContent className="p-12 text-center">
-            <Quote className="w-12 h-12 text-neon-pink mx-auto mb-6 animate-pulse" />
+            <Quote className="w-12 h-12 text-blue-400 mx-auto mb-6 animate-pulse" />
             
             <blockquote className="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed min-h-[120px] flex items-center justify-center">
-              <span className="animate-neon-pulse">"{quotes[currentQuote]}"</span>
+              <span>"{quotes[currentQuote]}"</span>
             </blockquote>
             
             <div className="flex items-center justify-center gap-4">
@@ -64,7 +68,7 @@ const QuotesSection = () => {
                 variant="outline"
                 size="sm"
                 onClick={prevQuote}
-                className="border-neon-pink/50 text-neon-pink hover:bg-neon-pink/10"
+                className="border-blue-500/50 text-blue-400 hover:bg-blue-500/10"
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
@@ -74,7 +78,7 @@ const QuotesSection = () => {
                   <div
                     key={index}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentQuote ? 'bg-neon-pink' : 'bg-gray-600'
+                      index === currentQuote ? 'bg-blue-400' : 'bg-gray-600'
                     }`}
                   />
                 ))}
@@ -84,7 +88,7 @@ const QuotesSection = () => {
                 variant="outline"
                 size="sm"
                 onClick={nextQuote}
-                className="border-neon-pink/50 text-neon-pink hover:bg-neon-pink/10"
+                className="border-blue-500/50 text-blue-400 hover:bg-blue-500/10"
               >
                 <ChevronRight className="w-4 h-4" />
               </Button>

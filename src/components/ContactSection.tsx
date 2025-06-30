@@ -50,49 +50,53 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-dark-800">
-      <div className="container mx-auto max-w-6xl">
+    <section id="contact" className="section-padding relative overflow-hidden">
+      {/* Dark Background with Falling Stars */}
+      <div className="absolute inset-0 dark-space-bg"></div>
+      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">Get In Touch</h2>
         
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
-            <Card className="bg-dark-700/50 border-neon-teal/30">
+            <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-neon-teal/10 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-neon-teal" />
+                  <div className="bg-blue-500/10 p-3 rounded-lg">
+                    <Mail className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neon-teal">Email</h3>
+                    <h3 className="font-semibold gold-glow">Email</h3>
                     <p className="text-gray-300">ksampreeth12@gmail.com</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-dark-700/50 border-neon-gold/30">
+            <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-neon-gold/10 p-3 rounded-lg">
-                    <Phone className="w-6 h-6 text-neon-gold" />
+                  <div className="bg-blue-500/10 p-3 rounded-lg">
+                    <Phone className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neon-gold">Phone</h3>
+                    <h3 className="font-semibold gold-glow">Phone</h3>
                     <p className="text-gray-300">+91 9591491861</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-dark-700/50 border-neon-blue/30">
+            <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-neon-blue/10 p-3 rounded-lg">
-                    <MapPin className="w-6 h-6 text-neon-blue" />
+                  <div className="bg-blue-500/10 p-3 rounded-lg">
+                    <MapPin className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neon-blue">Location</h3>
+                    <h3 className="font-semibold gold-glow">Location</h3>
                     <p className="text-gray-300">Bengaluru, Karnataka, India</p>
                   </div>
                 </div>
@@ -101,7 +105,7 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-dark-700/50 border-neon-pink/30">
+          <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -112,7 +116,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-dark-800 border-gray-600 focus:border-neon-pink text-white"
+                      className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
                     />
                   </div>
                   <div>
@@ -123,7 +127,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-dark-800 border-gray-600 focus:border-neon-pink text-white"
+                      className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
                     />
                   </div>
                 </div>
@@ -134,7 +138,7 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="bg-dark-800 border-gray-600 focus:border-neon-pink text-white"
+                  className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
                 />
                 
                 <Textarea
@@ -144,13 +148,13 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="bg-dark-800 border-gray-600 focus:border-neon-pink text-white resize-none"
+                  className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white resize-none"
                 />
                 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-neon-pink hover:bg-neon-pink/90 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-neon-pink/25"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
                 >
                   {isSubmitting ? (
                     "Sending..."
