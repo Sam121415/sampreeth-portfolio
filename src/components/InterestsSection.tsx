@@ -1,13 +1,11 @@
 
 import React, { useRef, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const InterestsSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const interests = [
-    // Professional QA Interests
     {
       icon: '🖥️',
       title: 'UI Testing',
@@ -28,7 +26,6 @@ const InterestsSection = () => {
       title: 'Exploratory Testing',
       description: 'Discovering edge cases through systematic exploration.'
     },
-    // Personal Interests
     {
       icon: '🥾',
       title: 'Hiking',
@@ -56,7 +53,6 @@ const InterestsSection = () => {
     }
   ];
 
-  // Auto-scroll functionality
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -64,12 +60,11 @@ const InterestsSection = () => {
     const scrollWidth = container.scrollWidth;
     const clientWidth = container.clientWidth;
     let scrollPosition = 0;
-    const scrollSpeed = 0.5; // Slow auto-scroll speed
+    const scrollSpeed = 0.3;
 
     const autoScroll = () => {
       scrollPosition += scrollSpeed;
       
-      // Reset to beginning when reaching the end
       if (scrollPosition >= scrollWidth - clientWidth) {
         scrollPosition = 0;
       }
@@ -79,7 +74,6 @@ const InterestsSection = () => {
 
     const interval = setInterval(autoScroll, 50);
     
-    // Pause auto-scroll on hover
     const handleMouseEnter = () => clearInterval(interval);
     const handleMouseLeave = () => {
       const newInterval = setInterval(autoScroll, 50);
@@ -96,57 +90,30 @@ const InterestsSection = () => {
     };
   }, []);
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="interests" className="section-padding relative overflow-hidden">
-      {/* Dark Background with Falling Stars */}
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Interests & Hobbies</h2>
         
         <div className="relative">
-          {/* Scroll Buttons */}
-          <button
-            onClick={scrollLeft}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 laser-glow"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+          <div className="space-train-track absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500/20 via-yellow-400/40 to-blue-500/20 transform -translate-y-1/2 z-0"></div>
           
-          <button
-            onClick={scrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 laser-glow"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          {/* Scrollable Container with Auto-scroll */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide px-12 py-4"
+            className="flex gap-6 overflow-x-auto scrollbar-hide py-8 px-4 space-train-container"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {interests.map((interest, index) => (
-              <Card key={index} className="min-w-[280px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm flex-shrink-0">
+              <Card key={index} className="min-w-[280px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm flex-shrink-0 space-train-car">
                 <CardContent className="p-8 text-center">
                   <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-6">
                     <div className="text-4xl laser-icon-glow">{interest.icon}</div>
                   </div>
-                  <h3 className="text-lg font-semibold gold-glow-font mb-3">{interest.title}</h3>
-                  <p className="text-gray-300 text-sm gold-glow-font">{interest.description}</p>
+                  <h3 className="text-lg font-semibold text-white mb-3">{interest.title}</h3>
+                  <p className="text-gray-300 text-sm">{interest.description}</p>
                 </CardContent>
               </Card>
             ))}

@@ -27,12 +27,11 @@ const EducationSection = () => {
 
   return (
     <section id="education" className="section-padding relative overflow-hidden">
-      {/* Dark Background with Falling Stars */}
       <div className="absolute inset-0 dark-space-bg"></div>
-      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
       <div className="container mx-auto max-w-4xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Education</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Education</h2>
         
         <div className="space-y-6">
           {education.map((edu, index) => (
@@ -40,10 +39,10 @@ const EducationSection = () => {
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="bg-yellow-500/10 p-3 rounded-lg">
-                    <GraduationCap className="w-6 h-6 text-yellow-400" />
+                    <GraduationCap className="w-6 h-6 text-yellow-400 laser-icon-glow" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold gold-glow mb-2">{edu.degree}</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">{edu.degree}</h3>
                     <p className="text-white font-medium mb-1">{edu.institution}</p>
                     <div className="flex items-center gap-2 mb-3">
                       <Calendar className="w-4 h-4 text-yellow-500" />
