@@ -1,22 +1,22 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showLightning, setShowLightning] = useState('');
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Me' },
+    { id: 'about', label: 'About' },
     { id: 'education', label: 'Education' },
+    { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Professional Skills' },
     { id: 'achievements', label: 'Achievements' },
-    { id: 'philosophy', label: 'Philosophy' },
-    { id: 'quotes', label: 'QA Quotes' },
+    { id: 'quotes', label: 'QA Wisdom' },
     { id: 'interests', label: 'Interests' },
-    { id: 'contact', label: 'Get in Touch' }
+    { id: 'contact', label: 'Contact' }
   ];
 
   useEffect(() => {
@@ -38,6 +38,11 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    // Show lightning effect
+    setShowLightning(sectionId);
+    setTimeout(() => setShowLightning(''), 300);
+
+    // Scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -47,21 +52,38 @@ const Header = () => {
 
   return (
     <>
+      {/* Lightning Effect */}
+      {showLightning && (
+        <div className="fixed inset-0 pointer-events-none z-40">
+          <div className="absolute inset-0 bg-blue-400/20 animate-pulse duration-300"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <Zap className="w-20 h-20 text-yellow-400 animate-ping" />
+          </div>
+        </div>
+      )}
+
       <header className="fixed top-0 w-full bg-slate-950/95 backdrop-blur-md border-b border-blue-500/20 z-50">
         <nav className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo/Brand */}
-            <div className="text-xl font-bold text-white glow-text font-['Poppins',sans-serif]">
-              Sampreeth Kannavar
+            {/* Logo/Brand with Profile Image */}
+            <div className="flex items-center gap-3">
+              <img 
+                src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
+                alt="Sampreeth K" 
+                className="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30 profile-glow"
+              />
+              <div className="text-xl font-bold text-white glow-text font-['Outfit',sans-serif]">
+                Sampreeth K
+              </div>
             </div>
             
             {/* Desktop Navigation - Right Aligned */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-6">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`nav-link text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative ${
+                  className={`nav-link text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative font-['Outfit',sans-serif] ${
                     activeSection === item.id 
                       ? 'text-yellow-400 glow-text active-nav' 
                       : 'text-gray-300'
@@ -93,7 +115,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-left text-sm font-semibold transition-all duration-300 hover:text-blue-400 py-2 font-['Poppins',sans-serif] ${
+                className={`text-left text-sm font-semibold transition-all duration-300 hover:text-blue-400 py-2 font-['Outfit',sans-serif] ${
                   activeSection === item.id 
                     ? 'text-yellow-400 glow-text border-l-2 border-yellow-400 pl-3' 
                     : 'text-gray-300'

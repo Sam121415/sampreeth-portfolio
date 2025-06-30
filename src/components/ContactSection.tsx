@@ -22,19 +22,35 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+      // Using Formspree for form submission
+      const response = await fetch('https://formspree.io/f/xpwzgdnr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _replyto: formData.email,
+        }),
       });
-      
-      setFormData({ name: '', email: '', subject: '', message: '' });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
+      console.error('Error sending message:', error);
       toast({
         title: "Error sending message",
-        description: "Please try again later or contact me directly.",
+        description: "Please try again later or contact me directly at ksampreeth12@gmail.com",
         variant: "destructive",
       });
     } finally {
@@ -65,7 +81,7 @@ const ContactSection = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-blue-400" />
+                    <Mail className="w-6 h-6 text-blue-400 laser-glow" />
                   </div>
                   <div>
                     <h3 className="font-semibold gold-glow">Email</h3>
@@ -79,7 +95,7 @@ const ContactSection = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <Phone className="w-6 h-6 text-blue-400" />
+                    <Phone className="w-6 h-6 text-blue-400 laser-glow" />
                   </div>
                   <div>
                     <h3 className="font-semibold gold-glow">Phone</h3>
@@ -93,7 +109,7 @@ const ContactSection = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <MapPin className="w-6 h-6 text-blue-400" />
+                    <MapPin className="w-6 h-6 text-blue-400 laser-glow" />
                   </div>
                   <div>
                     <h3 className="font-semibold gold-glow">Location</h3>
@@ -154,7 +170,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 laser-glow"
                 >
                   {isSubmitting ? (
                     "Sending..."

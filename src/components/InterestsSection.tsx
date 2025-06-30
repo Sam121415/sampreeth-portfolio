@@ -7,6 +7,28 @@ const InterestsSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const interests = [
+    // Professional QA Interests
+    {
+      icon: '🖥️',
+      title: 'UI Testing',
+      description: 'Comprehensive user interface testing across web and mobile platforms.'
+    },
+    {
+      icon: '🤖',
+      title: 'Automation Practice',
+      description: 'Building and maintaining automated test suites for efficiency.'
+    },
+    {
+      icon: '🎨',
+      title: 'Web Design QA',
+      description: 'Ensuring pixel-perfect designs and responsive layouts.'
+    },
+    {
+      icon: '🔍',
+      title: 'Exploratory Testing',
+      description: 'Discovering edge cases through systematic exploration.'
+    },
+    // Personal Interests
     {
       icon: '🥾',
       title: 'Hiking',
@@ -59,14 +81,14 @@ const InterestsSection = () => {
           {/* Scroll Buttons */}
           <button
             onClick={scrollLeft}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 laser-glow"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           
           <button
             onClick={scrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 laser-glow"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -80,7 +102,7 @@ const InterestsSection = () => {
             {interests.map((interest, index) => (
               <Card key={index} className="min-w-[280px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm flex-shrink-0">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-4">{interest.icon}</div>
+                  <div className="text-4xl mb-4 laser-glow">{interest.icon}</div>
                   <h3 className="text-lg font-semibold gold-glow mb-3">{interest.title}</h3>
                   <p className="text-gray-300 text-sm">{interest.description}</p>
                 </CardContent>
