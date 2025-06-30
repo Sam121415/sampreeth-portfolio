@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Header from '@/components/Header';
+import SolarBackground from '@/components/SolarBackground';
 import FloatingElements from '@/components/FloatingElements';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
@@ -15,8 +16,9 @@ import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-slate-950 text-white" style={{ scrollBehavior: 'smooth' }}>
       <Header />
+      <SolarBackground />
       <FloatingElements />
       
       <main>
@@ -34,9 +36,9 @@ const Index = () => {
       
       <footer className="bg-slate-900/80 border-t border-blue-500/20 py-8 relative">
         <div className="absolute inset-0 dark-space-bg"></div>
-        <div className="absolute inset-0 falling-stars opacity-50"></div>
+        <div className="absolute inset-0 enhanced-falling-stars opacity-50"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <p className="text-gray-300">
+          <p className="text-gray-300 gold-glow-font">
             © 2024 Sampreeth Kannavar. Crafted with precision and passion for quality.
           </p>
         </div>

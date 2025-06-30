@@ -31,53 +31,57 @@ const HeroSection = () => {
     window.location.href = 'tel:+919591491861';
   };
 
+  const closeModal = () => {
+    setShowImageModal(false);
+  };
+
   return (
     <>
       <section id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden">
         {/* Dark Background with Falling Stars */}
         <div className="absolute inset-0 dark-space-bg"></div>
-        <div className="absolute inset-0 falling-stars opacity-90"></div>
+        <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
         {/* Hero Content */}
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
-          {/* Profile Image with Popup */}
+          {/* Profile Image with Fast Popup */}
           <div className="mb-8 flex justify-center">
             <div className="relative group">
               <img 
                 src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
                 alt="Sampreeth Kannavar" 
-                className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-blue-500 profile-glow cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-yellow-400"
+                className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-blue-500 profile-glow cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-2xl hover:border-yellow-400"
                 onClick={() => setShowImageModal(true)}
               />
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text hover:gold-glow transition-all duration-300 cursor-default">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text hover:gold-glow transition-all duration-300 cursor-default gold-glow-font">
             Sampreeth Kannavar
           </h1>
           
-          <h2 className="text-xl md:text-2xl font-medium mb-4 gold-glow hover-glow transition-all duration-300 cursor-default">
+          <h2 className="text-xl md:text-2xl font-medium mb-4 gold-glow hover-glow transition-all duration-300 cursor-default gold-glow-font">
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 text-white">
             <button 
               onClick={handleLocationClick}
-              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400"
+              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400 gold-glow-font"
             >
               <MapPin className="w-4 h-4 text-blue-400" />
               <span>Bengaluru, Karnataka, India</span>
             </button>
             <button 
               onClick={handleEmailClick}
-              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400"
+              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400 gold-glow-font"
             >
               <Mail className="w-4 h-4 text-blue-400" />
               <span>ksampreeth12@gmail.com</span>
             </button>
             <button 
               onClick={handlePhoneClick}
-              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400"
+              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400 gold-glow-font"
             >
               <Phone className="w-4 h-4 text-blue-400" />
               <span>+91 9591491861</span>
@@ -87,7 +91,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadResume}
-              className="bg-yellow-600 text-black hover:bg-yellow-500 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform"
+              className="bg-yellow-600 text-black hover:bg-yellow-500 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform gold-glow-font"
             >
               <Download className="w-4 h-4 mr-2" />
               Download Resume
@@ -95,7 +99,7 @@ const HeroSection = () => {
             <Button 
               onClick={handleLinkedInConnect}
               variant="outline" 
-              className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform"
+              className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform gold-glow-font"
             >
               <Linkedin className="w-4 h-4 mr-2" />
               Connect LinkedIn
@@ -104,18 +108,18 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Enhanced Image Modal */}
+      {/* Enhanced Fast Image Modal */}
       {showImageModal && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="relative max-w-2xl max-h-2xl">
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="relative max-w-2xl max-h-2xl animate-scale-in">
             <img 
               src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
               alt="Sampreeth Kannavar" 
               className="w-full h-full object-contain rounded-lg shadow-2xl shadow-blue-500/30 max-w-lg max-h-lg"
             />
             <button 
-              onClick={() => setShowImageModal(false)}
-              className="absolute -top-4 -right-4 bg-red-600 text-white rounded-full p-3 hover:bg-red-500 transition-all duration-300 hover:scale-110 shadow-lg"
+              onClick={closeModal}
+              className="absolute -top-4 -right-4 bg-red-600 text-white rounded-full p-3 hover:bg-red-500 transition-all duration-200 hover:scale-110 shadow-lg laser-glow"
             >
               <X className="w-6 h-6" />
             </button>

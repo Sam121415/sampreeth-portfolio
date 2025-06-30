@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, TestTube, Smartphone, Figma } from 'lucide-react';
+import { Code, TestTube, Smartphone, Figma, Palette, Network, Server } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
@@ -28,6 +28,24 @@ const ProjectsSection = () => {
       title: 'Figma QA Testing on Webflow',
       description: 'UI/UX quality assurance for Figma designs implemented on Webflow. Ensured pixel-perfect implementation and responsive design compliance.',
       technologies: ['Figma', 'Webflow', 'UI/UX Testing', 'Responsive Design']
+    },
+    {
+      icon: Palette,
+      title: 'Creative Tool – Web QA',
+      description: 'Comprehensive quality assurance for creative web tools and design platforms. Focus on user experience, visual consistency, and cross-browser compatibility.',
+      technologies: ['Web QA', 'Creative Tools', 'UX Testing', 'Visual QA']
+    },
+    {
+      icon: Network,
+      title: 'Bridge Product – Multi-port Browser Automation',
+      description: 'Advanced multi-port browser automation testing system. Handles concurrent sessions across different browsers and ports for comprehensive testing coverage.',
+      technologies: ['Multi-port Testing', 'Browser Automation', 'Concurrent Sessions', 'Cross-browser']
+    },
+    {
+      icon: Server,
+      title: 'Server API Automation',
+      description: 'Automated API testing using Postman with Collection Runner and Newman. Implemented globally stored environment variables for seamless test execution.',
+      technologies: ['Postman', 'Newman', 'API Testing', 'Environment Variables']
     }
   ];
 
@@ -35,10 +53,10 @@ const ProjectsSection = () => {
     <section id="projects" className="section-padding relative overflow-hidden">
       {/* Dark Background with Falling Stars */}
       <div className="absolute inset-0 dark-space-bg"></div>
-      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Projects</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Projects</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
@@ -46,10 +64,10 @@ const ProjectsSection = () => {
               <CardContent className="p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <project.icon className="w-8 h-8 text-blue-400" />
+                    <project.icon className="w-8 h-8 text-yellow-400 laser-icon-glow" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold gold-glow mb-3">{project.title}</h3>
+                    <h3 className="text-xl font-semibold gold-glow-font mb-3">{project.title}</h3>
                   </div>
                 </div>
                 <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>

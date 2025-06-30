@@ -74,19 +74,35 @@ All colors MUST be HSL.
       linear-gradient(180deg, #020617 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #020617 100%);
   }
 
-  /* Enhanced Falling White Stars - Globally Applied */
-  .falling-stars {
+  /* Enhanced Falling White Stars with Glow and Sparkle */
+  .enhanced-falling-stars {
     background-image: 
-      radial-gradient(2px 2px at 20px 30px, white, transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.9), transparent),
-      radial-gradient(1px 1px at 90px 40px, white, transparent),
-      radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.7), transparent),
-      radial-gradient(3px 3px at 160px 30px, white, transparent),
-      radial-gradient(2px 2px at 10px 120px, rgba(255, 255, 255, 0.8), transparent),
-      radial-gradient(1px 1px at 180px 100px, white, transparent);
+      radial-gradient(3px 3px at 20px 30px, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.8), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255, 215, 0, 0.6), transparent),
+      radial-gradient(4px 4px at 160px 30px, rgba(255, 255, 255, 1), transparent),
+      radial-gradient(1px 1px at 10px 120px, rgba(255, 215, 0, 0.8), transparent),
+      radial-gradient(2px 2px at 180px 100px, rgba(255, 255, 255, 0.9), transparent);
     background-repeat: repeat;
     background-size: 200px 200px;
-    animation: stars-fall 25s linear infinite;
+    animation: enhanced-stars-fall 30s linear infinite;
+  }
+
+  /* Gold Glowing Font Effect */
+  .gold-glow-font {
+    color: #ffd700;
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.6),
+      0 0 30px rgba(255, 215, 0, 0.4);
+    font-weight: 600;
+  }
+
+  /* Laser Icon Glow Animation */
+  .laser-icon-glow {
+    animation: laser-icon-bloom 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
   }
 
   /* Navigation Link Styling */
@@ -197,11 +213,45 @@ All colors MUST be HSL.
       inset 0 0 20px rgba(255, 215, 0, 0.1),
       0 0 40px rgba(255, 215, 0, 0.05);
   }
+
+  /* Fast Modal Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
 }
 
-@keyframes stars-fall {
-  0% { transform: translateY(-100vh) translateX(0); }
-  100% { transform: translateY(100vh) translateX(50px); }
+@keyframes enhanced-stars-fall {
+  0% { 
+    transform: translateY(-100vh) translateX(0); 
+    opacity: 1;
+  }
+  70% { 
+    opacity: 0.8; 
+  }
+  100% { 
+    transform: translateY(100vh) translateX(50px); 
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes laser-icon-bloom {
+  0% { 
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+  }
+  50% { 
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1)) drop-shadow(0 0 25px rgba(255, 215, 0, 0.8));
+  }
+  100% { 
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+  }
 }
 
 @keyframes beam-sweep {
@@ -235,4 +285,14 @@ All colors MUST be HSL.
     box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
     filter: brightness(1);
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
