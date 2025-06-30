@@ -1,26 +1,50 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Palette, Smartphone, Headphones } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const InterestsSection = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const interests = [
     {
-      icon: Palette,
-      title: 'Exploring UI/UX Design',
-      description: 'Passionate about user interface design principles and user experience optimization. Constantly learning about design trends and accessibility standards.'
+      icon: '🥾',
+      title: 'Hiking',
+      description: 'Exploring nature trails and mountain paths for adventure and fitness.'
     },
     {
-      icon: Smartphone,
-      title: 'Testing Emerging Apps',
-      description: 'Always curious about new applications and technologies. Love to explore and test cutting-edge mobile and web applications to understand innovative user interactions.'
+      icon: '🏊‍♂️',
+      title: 'Swimming',
+      description: 'Regular swimming sessions for health and relaxation.'
     },
     {
-      icon: Headphones,
-      title: 'QA Talks & Tech Podcasts',
-      description: 'Regular listener of quality assurance discussions, testing methodologies, and technology podcasts to stay updated with industry best practices.'
+      icon: '📺',
+      title: 'Animated Web Series',
+      description: 'Enjoying creative storytelling through animated content and series.'
+    },
+    {
+      icon: '🏏',
+      title: 'Cricket',
+      description: 'Following cricket matches and playing occasionally with friends.'
+    },
+    {
+      icon: '🎱',
+      title: 'Snooker',
+      description: 'Strategic gameplay and precision shots in snooker games.'
     }
   ];
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="interests" className="section-padding relative overflow-hidden">
@@ -28,21 +52,41 @@ const InterestsSection = () => {
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 falling-stars opacity-70"></div>
       
-      <div className="container mx-auto max-w-4xl relative z-10">
+      <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">Interests & Hobbies</h2>
         
-        <div className="grid md:grid-cols-3 gap-6">
-          {interests.map((interest, index) => (
-            <Card key={index} className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm">
-              <CardContent className="p-6 text-center">
-                <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-blue-500/20 transition-colors">
-                  <interest.icon className="w-8 h-8 text-blue-400" />
-                </div>
-                <h3 className="text-lg font-semibold gold-glow mb-3">{interest.title}</h3>
-                <p className="text-gray-300">{interest.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="relative">
+          {/* Scroll Buttons */}
+          <button
+            onClick={scrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600/80 hover:bg-blue-500/90 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          {/* Scrollable Container */}
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto scrollbar-hide px-12 py-4"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {interests.map((interest, index) => (
+              <Card key={index} className="min-w-[280px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm flex-shrink-0">
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-4">{interest.icon}</div>
+                  <h3 className="text-lg font-semibold gold-glow mb-3">{interest.title}</h3>
+                  <p className="text-gray-300 text-sm">{interest.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

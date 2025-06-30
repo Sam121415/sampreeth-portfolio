@@ -51,19 +51,19 @@ const Header = () => {
         <nav className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Brand */}
-            <div className="text-xl font-bold text-white glow-text">
+            <div className="text-xl font-bold text-white glow-text font-['Poppins',sans-serif]">
               Sampreeth Kannavar
             </div>
             
             {/* Desktop Navigation - Right Aligned */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-blue-400 ${
+                  className={`nav-link text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative ${
                     activeSection === item.id 
-                      ? 'text-yellow-400 glow-text' 
+                      ? 'text-yellow-400 glow-text active-nav' 
                       : 'text-gray-300'
                   }`}
                 >
@@ -75,7 +75,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white hover:text-blue-400 transition-colors p-2"
+              className="lg:hidden text-white hover:text-blue-400 transition-colors p-2"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -84,7 +84,7 @@ const Header = () => {
       </header>
 
       {/* Mobile Menu */}
-      <div className={`fixed top-16 left-0 w-full bg-slate-950/98 backdrop-blur-md border-b border-blue-500/20 z-40 md:hidden transition-all duration-300 ${
+      <div className={`fixed top-16 left-0 w-full bg-slate-950/98 backdrop-blur-md border-b border-blue-500/20 z-40 lg:hidden transition-all duration-300 ${
         isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}>
         <div className="container mx-auto px-4 py-4">
@@ -93,7 +93,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-left text-sm font-medium transition-all duration-300 hover:text-blue-400 py-2 ${
+                className={`text-left text-sm font-semibold transition-all duration-300 hover:text-blue-400 py-2 font-['Poppins',sans-serif] ${
                   activeSection === item.id 
                     ? 'text-yellow-400 glow-text border-l-2 border-yellow-400 pl-3' 
                     : 'text-gray-300'

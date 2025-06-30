@@ -44,7 +44,7 @@ const HeroSection = () => {
           <div className="mb-8 flex justify-center">
             <div className="relative group">
               <img 
-                src="/lovable-uploads/78339498-1920-4ca1-aa22-f4759e0b75a6.png" 
+                src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
                 alt="Sampreeth Kannavar" 
                 className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-blue-500 profile-glow cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-yellow-400"
                 onClick={() => setShowImageModal(true)}
@@ -109,7 +109,7 @@ const HeroSection = () => {
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="relative max-w-2xl max-h-2xl">
             <img 
-              src="/lovable-uploads/78339498-1920-4ca1-aa22-f4759e0b75a6.png" 
+              src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
               alt="Sampreeth Kannavar" 
               className="w-full h-full object-contain rounded-lg shadow-2xl shadow-blue-500/30 max-w-lg max-h-lg"
             />
