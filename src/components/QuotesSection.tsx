@@ -32,7 +32,7 @@ const QuotesSection = () => {
       setTimeout(() => {
         setCurrentQuoteIndex((prev) => (prev + 1) % qaWisdomQuotes.length);
         setShowLightning(false);
-      }, 800);
+      }, 1200);
     }, 6000);
 
     return () => clearInterval(interval);
@@ -43,19 +43,22 @@ const QuotesSection = () => {
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
-      {/* Lightning Effect */}
+      {/* Enhanced Lightning Effect */}
       {showLightning && (
         <div className="absolute inset-0 pointer-events-none z-30">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-400/40 via-purple-500/30 to-transparent animate-pulse duration-800"></div>
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-full bg-gradient-to-b from-yellow-400 via-blue-400 to-transparent opacity-90 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-purple-500/15 to-transparent animate-pulse duration-1000"></div>
+          {/* Realistic Lightning Strike from Top */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-white via-blue-300 to-transparent opacity-90 animate-pulse lightning-strike"></div>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 h-2/3 bg-gradient-to-b from-yellow-200 via-blue-200 to-transparent opacity-60 animate-pulse lightning-strike"></div>
+          {/* Lightning Flash Point */}
           <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-40 h-40 bg-yellow-400/50 rounded-full animate-ping"></div>
+            <div className="w-32 h-32 bg-white/40 rounded-full animate-ping"></div>
           </div>
         </div>
       )}
       
       <div className="container mx-auto max-w-4xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">QA Wisdom</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text">QA Wisdom</h2>
         
         <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm card-hover">
           <CardContent className="p-12 text-center">

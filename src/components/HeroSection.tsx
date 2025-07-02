@@ -6,6 +6,8 @@ import { Download, Linkedin, Mail, Phone, MapPin, X } from 'lucide-react';
 const HeroSection = () => {
   const [showImageModal, setShowImageModal] = useState(false);
   const [animatedText, setAnimatedText] = useState('');
+  const [nameAnimationComplete, setNameAnimationComplete] = useState(false);
+  const [titleAnimationComplete, setTitleAnimationComplete] = useState(false);
   const name = 'Sampreeth Kannavar';
 
   useEffect(() => {
@@ -16,6 +18,11 @@ const HeroSection = () => {
         index++;
       } else {
         clearInterval(timer);
+        setNameAnimationComplete(true);
+        // Start title animation after name completes
+        setTimeout(() => {
+          setTitleAnimationComplete(true);
+        }, 500);
       }
     }, 150);
 
@@ -72,33 +79,33 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text gold-trail-animation cursor-default gold-glow-font min-h-[80px] md:min-h-[100px]">
+          <h1 className={`text-5xl md:text-7xl font-bold mb-6 cursor-default min-h-[80px] md:min-h-[100px] ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
             {animatedText}
             <span className="animate-pulse">|</span>
           </h1>
           
-          <h2 className="text-xl md:text-2xl font-medium mb-4 gold-glow-font transition-all duration-300 cursor-default">
+          <h2 className={`text-xl md:text-2xl font-medium mb-4 transition-all duration-300 cursor-default ${titleAnimationComplete ? 'title-glow-complete' : 'text-white'}`}>
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 text-white">
             <button 
               onClick={handleLocationClick}
-              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-blue-400"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20"
             >
               <MapPin className="w-4 h-4 text-blue-400" />
               <span>Bengaluru, Karnataka, India</span>
             </button>
             <button 
               onClick={handleEmailClick}
-              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-blue-400 glow-text"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20 glow-text"
             >
               <Mail className="w-4 h-4 text-blue-400" />
               <span>ksampreeth12@gmail.com</span>
             </button>
             <button 
               onClick={handlePhoneClick}
-              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-blue-400"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20"
             >
               <Phone className="w-4 h-4 text-blue-400" />
               <span>+91 9591491861</span>
@@ -108,7 +115,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadResume}
-              className="premium-button bg-gradient-to-r from-yellow-600 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-400 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform border-2 border-yellow-400/50"
+              className="premium-button bg-gradient-to-r from-yellow-500 to-yellow-400 text-black hover:from-yellow-400 hover:to-yellow-300 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform border-2 border-yellow-400/50"
             >
               <Download className="w-4 h-4 mr-2" />
               Download Resume

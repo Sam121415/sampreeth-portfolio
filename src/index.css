@@ -66,10 +66,11 @@
       radial-gradient(2px 2px at 130px 80px, rgba(255, 215, 0, 0.6), transparent),
       radial-gradient(4px 4px at 160px 30px, rgba(255, 255, 255, 1), transparent),
       radial-gradient(1px 1px at 10px 120px, rgba(255, 215, 0, 0.8), transparent),
-      radial-gradient(2px 2px at 180px 100px, rgba(255, 255, 255, 0.9), transparent);
+      radial-gradient(2px 2px at 180px 100px, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(3px 3px at 220px 50px, rgba(255, 192, 203, 0.7), transparent);
     background-repeat: repeat;
     background-size: 200px 200px;
-    animation: enhanced-stars-fall 30s linear infinite;
+    animation: enhanced-stars-fall-glow 25s linear infinite;
   }
 
   .gold-glow-font {
@@ -222,6 +223,14 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
+  .premium-send-button-slow {
+    backdrop-filter: blur(10px);
+    animation: pink-glow-pulse-slow 4s ease-in-out infinite;
+    box-shadow: 
+      0 4px 20px rgba(236, 72, 153, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
   .premium-skills-card {
     min-height: 200px;
     box-shadow: 
@@ -271,6 +280,74 @@
   .sunrays {
     animation: rotate-sunrays 2s linear infinite;
   }
+
+  .sun-planet {
+    box-shadow: 
+      0 0 20px rgba(255, 215, 0, 0.4),
+      0 0 40px rgba(255, 165, 0, 0.3);
+  }
+
+  .sun-glow {
+    animation: sun-emergence 4s ease-out;
+  }
+
+  .sun-glow-outer {
+    animation: sun-emergence-outer 4s ease-out;
+  }
+
+  .sunrays-enhanced {
+    animation: rotate-sunrays-slow 8s linear;
+  }
+
+  .sunray-glow {
+    animation: sunray-fade 4s ease-out;
+  }
+
+  .name-typing-glow {
+    color: #ffd700;
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.6),
+      0 0 30px rgba(255, 215, 0, 0.4);
+    font-weight: 600;
+    background: linear-gradient(90deg, 
+      rgba(255, 215, 0, 0.3) 0%, 
+      rgba(255, 215, 0, 1) 50%, 
+      rgba(255, 215, 0, 0.3) 100%);
+    background-size: 200% 100%;
+    animation: name-inner-glow 2s ease-in-out;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .name-glow-complete {
+    color: #ffd700;
+    text-shadow: 
+      0 0 15px rgba(255, 215, 0, 0.9),
+      0 0 30px rgba(255, 215, 0, 0.7),
+      0 0 45px rgba(255, 215, 0, 0.5);
+    font-weight: 600;
+  }
+
+  .title-glow-complete {
+    color: #ffd700;
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.6);
+    font-weight: 500;
+    background: linear-gradient(90deg, 
+      rgba(255, 215, 0, 0.3) 0%, 
+      rgba(255, 215, 0, 1) 50%, 
+      rgba(255, 215, 0, 0.3) 100%);
+    background-size: 200% 100%;
+    animation: title-inner-glow 1.5s ease-in-out;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .lightning-strike {
+    animation: lightning-flash 1.2s ease-out;
+  }
 }
 
 @keyframes enhanced-stars-fall {
@@ -285,6 +362,97 @@
     transform: translateY(100vh) translateX(50px); 
     opacity: 0;
     transform: scale(0.5);
+  }
+}
+
+@keyframes enhanced-stars-fall-glow {
+  0% { 
+    transform: translateY(-100vh) translateX(0); 
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+    filter: brightness(1.5) drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.2) drop-shadow(0 0 2px rgba(255, 215, 0, 0.6));
+  }
+  75% { 
+    opacity: 0.6;
+    filter: brightness(0.8);
+    transform: scale(0.8);
+  }
+  100% { 
+    transform: translateY(100vh) translateX(50px) scale(0.3); 
+    opacity: 0;
+  }
+}
+
+@keyframes lightning-flash {
+  0% { 
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  10% { 
+    opacity: 1;
+    transform: scaleY(0.3);
+  }
+  20% { 
+    opacity: 0.8;
+    transform: scaleY(0.7);
+  }
+  30% { 
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  70% { 
+    opacity: 0.9;
+    transform: scaleY(1);
+  }
+  100% { 
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes name-inner-glow {
+  0% { 
+    background-position: -200% 0;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+  }
+  50% { 
+    background-position: 0% 0;
+    text-shadow: 
+      0 0 15px rgba(255, 215, 0, 1),
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 0 45px rgba(255, 215, 0, 0.6);
+  }
+  100% { 
+    background-position: 200% 0;
+    text-shadow: 
+      0 0 15px rgba(255, 215, 0, 0.9),
+      0 0 30px rgba(255, 215, 0, 0.7),
+      0 0 45px rgba(255, 215, 0, 0.5);
+  }
+}
+
+@keyframes title-inner-glow {
+  0% { 
+    background-position: -200% 0;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+  }
+  50% { 
+    background-position: 0% 0;
+    text-shadow: 
+      0 0 12px rgba(255, 215, 0, 0.9),
+      0 0 24px rgba(255, 215, 0, 0.7);
+  }
+  100% { 
+    background-position: 200% 0;
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.6);
   }
 }
 
@@ -342,7 +510,16 @@
     box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   50% { 
-    box-shadow: 0 4px 30px rgba(236, 72, 153, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 25px rgba(236, 72, 153, 0.4);
+    box-shadow: 0 4px 25px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(236, 72, 153, 0.3);
+  }
+}
+
+@keyframes pink-glow-pulse-slow {
+  0%, 100% { 
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% { 
+    box-shadow: 0 4px 25px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(236, 72, 153, 0.3);
   }
 }
 
@@ -382,6 +559,80 @@
   }
   100% { 
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-sunrays-slow {
+  0% { 
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  25% { 
+    opacity: 0.8;
+  }
+  75% { 
+    opacity: 0.6;
+  }
+  100% { 
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sun-emergence {
+  0% { 
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  25% { 
+    opacity: 0.6;
+    transform: scale(0.7);
+  }
+  50% { 
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  100% { 
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes sun-emergence-outer {
+  0% { 
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  30% { 
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  60% { 
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+  100% { 
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes sunray-fade {
+  0% { 
+    opacity: 0;
+    transform: scaleY(0.5);
+  }
+  25% { 
+    opacity: 0.8;
+    transform: scaleY(0.8);
+  }
+  50% { 
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% { 
+    opacity: 0;
+    transform: scaleY(1.2);
   }
 }
 

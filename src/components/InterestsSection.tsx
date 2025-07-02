@@ -96,25 +96,17 @@ const InterestsSection = () => {
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Interests & Hobbies</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Interests & Hobbies</h2>
         
         <div className="relative">
-          {/* Premium Space Train Track */}
-          <div className="premium-space-track absolute top-1/2 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent transform -translate-y-1/2 z-0">
+          {/* Premium Space Track - Full Width */}
+          <div className="premium-space-track absolute top-1/2 left-0 right-0 h-2 bg-gradient-to-r from-blue-400/40 via-yellow-400/60 to-blue-400/40 transform -translate-y-1/2 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent h-px top-1/2 transform -translate-y-1/2"></div>
-          </div>
-          
-          {/* Train Engine */}
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20">
-            <div className="train-engine bg-gradient-to-r from-blue-600 to-blue-400 w-16 h-12 rounded-r-lg border-2 border-blue-300/50 shadow-lg">
-              <div className="w-4 h-4 bg-yellow-400 rounded-full absolute top-1/2 left-2 transform -translate-y-1/2 animate-pulse"></div>
-              <div className="w-2 h-8 bg-gray-300 absolute right-0 top-1/2 transform -translate-y-1/2"></div>
-            </div>
           </div>
           
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide py-8 px-20 space-train-container ml-16"
+            className="flex gap-6 overflow-x-auto scrollbar-hide py-8 px-4 space-train-container"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {interests.map((interest, index) => (

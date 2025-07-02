@@ -39,7 +39,7 @@ const ContactSection = () => {
 
       if (response.ok) {
         setShowSunFX(true);
-        setTimeout(() => setShowSunFX(false), 3000);
+        setTimeout(() => setShowSunFX(false), 4000);
         
         toast({
           title: "Message sent successfully!",
@@ -80,26 +80,28 @@ const ContactSection = () => {
         <div className="absolute top-40 right-20 w-6 h-6 bg-red-400/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-yellow-400/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '2s'}}></div>
         <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gray-300/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '0.5s'}}></div>
+        {/* Medium-sized Sun */}
+        <div className="absolute top-1/2 right-10 w-16 h-16 bg-gradient-radial from-yellow-400/40 via-orange-400/30 to-transparent rounded-full animate-pulse floating-planet sun-planet" style={{animationDelay: '1.5s'}}></div>
       </div>
       
-      {/* Sun FX on Form Submit */}
+      {/* Enhanced Sun FX on Form Submit */}
       {showSunFX && (
         <div className="absolute inset-0 pointer-events-none z-30">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-40 h-40 bg-gradient-radial from-yellow-400 via-orange-400 to-transparent rounded-full animate-ping opacity-80"></div>
-            <div className="absolute inset-0 w-60 h-60 bg-gradient-radial from-yellow-300/50 via-orange-300/30 to-transparent rounded-full animate-pulse"></div>
-            {/* Sunrays */}
-            <div className="absolute inset-0 sunrays">
-              {[...Array(8)].map((_, i) => (
+            <div className="w-48 h-48 bg-gradient-radial from-yellow-400/60 via-orange-400/40 to-transparent rounded-full animate-pulse opacity-90 sun-glow"></div>
+            <div className="absolute inset-0 w-72 h-72 bg-gradient-radial from-yellow-300/30 via-orange-300/20 to-transparent rounded-full animate-pulse sun-glow-outer"></div>
+            {/* Enhanced Sunrays */}
+            <div className="absolute inset-0 sunrays-enhanced">
+              {[...Array(12)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-1 h-20 bg-gradient-to-t from-yellow-400 to-transparent opacity-70"
+                  className="absolute w-2 h-32 bg-gradient-to-t from-yellow-400/80 via-orange-400/60 to-transparent opacity-80 sunray-glow"
                   style={{
-                    transform: `rotate(${i * 45}deg)`,
+                    transform: `rotate(${i * 30}deg)`,
                     transformOrigin: 'bottom center',
-                    top: '-10px',
+                    top: '-16px',
                     left: '50%',
-                    marginLeft: '-2px'
+                    marginLeft: '-4px'
                   }}
                 />
               ))}
@@ -109,7 +111,7 @@ const ContactSection = () => {
       )}
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Get In Touch</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Get In Touch</h2>
         
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -207,7 +209,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-send-button w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50"
+                  className="premium-send-button-slow w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50"
                 >
                   {isSubmitting ? (
                     "Sending..."
