@@ -65,6 +65,21 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
+        {/* 3D Rotating Planets Background */}
+        <div className="absolute top-20 right-10 md:top-32 md:right-20 z-10">
+          <div className="rotating-planets-container">
+            <div className="planet-orbit">
+              <div className="planet sun-planet"></div>
+            </div>
+            <div className="planet-orbit planet-orbit-2">
+              <div className="planet earth-planet"></div>
+            </div>
+            <div className="planet-orbit planet-orbit-3">
+              <div className="planet mars-planet"></div>
+            </div>
+          </div>
+        </div>
+        
         {/* Hero Content */}
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
           {/* Profile Image with Fast Popup */}
@@ -79,12 +94,12 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className={`text-5xl md:text-7xl font-bold mb-6 cursor-default min-h-[80px] md:min-h-[100px] ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold mb-6 cursor-default min-h-[80px] md:min-h-[100px] text-white glow-text`}>
             {animatedText}
             <span className="animate-pulse">|</span>
           </h1>
           
-          <h2 className={`text-xl md:text-2xl font-medium mb-4 transition-all duration-300 cursor-default ${titleAnimationComplete ? 'title-glow-complete' : 'text-white'}`}>
+          <h2 className={`text-xl md:text-2xl font-medium mb-4 transition-all duration-300 cursor-default text-white glow-text`}>
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
@@ -98,7 +113,7 @@ const HeroSection = () => {
             </button>
             <button 
               onClick={handleEmailClick}
-              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20 glow-text"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20 text-yellow-400 glow-text"
             >
               <Mail className="w-4 h-4 text-blue-400" />
               <span>ksampreeth12@gmail.com</span>
@@ -115,7 +130,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadResume}
-              className="premium-button bg-gradient-to-r from-yellow-500 to-yellow-400 text-black hover:from-yellow-400 hover:to-yellow-300 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform border-2 border-yellow-400/50"
+              className="premium-button bg-gradient-to-r from-yellow-400 to-yellow-300 text-black hover:from-yellow-300 hover:to-yellow-200 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/30 hover:scale-105 transform border-2 border-yellow-400/50"
             >
               <Download className="w-4 h-4 mr-2" />
               Download Resume

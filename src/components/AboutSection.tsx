@@ -27,9 +27,7 @@ const AboutSection = () => {
             </p>
             
             <p className="text-lg leading-relaxed text-white mb-6">
-              <span className="text-white font-semibold">
-                Experienced in handling multiple ports and sessions for testing both web and mobile apps (iOS & Android) using Appium & Chrome Debugging.
-              </span>
+              Experienced in handling multiple ports and sessions for testing both web and mobile apps (iOS & Android) using Appium & Chrome Debugging.
             </p>
             
             <p className="text-lg leading-relaxed text-white">

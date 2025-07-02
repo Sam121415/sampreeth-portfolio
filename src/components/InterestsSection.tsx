@@ -27,6 +27,41 @@ const InterestsSection = () => {
       description: 'Discovering edge cases through systematic exploration.'
     },
     {
+      icon: '🛠️',
+      title: 'Exploring Automation Tools',
+      description: 'Researching and testing new automation frameworks and testing tools.'
+    },
+    {
+      icon: '♟️',
+      title: 'Chess & Logic Puzzles',
+      description: 'Strategic thinking and problem-solving through chess and brain teasers.'
+    },
+    {
+      icon: '📝',
+      title: 'Tech Blog Reading',
+      description: 'Reading and writing QA insights and technical articles.'
+    },
+    {
+      icon: '🎨',
+      title: 'UI/UX Design Analysis',
+      description: 'Breaking down design patterns and user experience flows.'
+    },
+    {
+      icon: '🎮',
+      title: 'Gaming & Bug Hunting',
+      description: 'Strategy games and finding bugs in gaming applications.'
+    },
+    {
+      icon: '📸',
+      title: 'Photography & Travel',
+      description: 'Digital culture research through photography and travel experiences.'
+    },
+    {
+      icon: '🎵',
+      title: 'Music & DJing',
+      description: 'Playing music and DJing for creative focus and relaxation.'
+    },
+    {
       icon: '🥾',
       title: 'Hiking',
       description: 'Exploring nature trails and mountain paths for adventure and fitness.'

@@ -73,6 +73,72 @@
     animation: enhanced-stars-fall-glow 25s linear infinite;
   }
 
+  .rotating-planets-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: rotate-planets-system 20s linear infinite;
+  }
+
+  .planet-orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 50%;
+    animation: rotate-orbit 15s linear infinite;
+  }
+
+  .planet-orbit:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    top: 70px;
+    left: 70px;
+  }
+
+  .planet-orbit-2 {
+    width: 100px;
+    height: 100px;
+    top: 50px;
+    left: 50px;
+    animation-duration: 25s;
+    animation-direction: reverse;
+  }
+
+  .planet-orbit-3 {
+    width: 140px;
+    height: 140px;
+    top: 30px;
+    left: 30px;
+    animation-duration: 35s;
+  }
+
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    top: -8px;
+    left: -8px;
+  }
+
+  .sun-planet {
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle, #ffd700, #ffaa00);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+
+  .earth-planet {
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #4a90e2, #2e5bb8);
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+  }
+
+  .mars-planet {
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #cd5c5c, #8b4513);
+    box-shadow: 0 0 12px rgba(205, 92, 92, 0.4);
+  }
+
   .gold-glow-font {
     color: #ffd700;
     text-shadow: 
@@ -634,6 +700,16 @@
     opacity: 0;
     transform: scaleY(1.2);
   }
+}
+
+@keyframes rotate-planets-system {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotate-orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {
