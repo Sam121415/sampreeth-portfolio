@@ -60,7 +60,7 @@ const InterestsSection = () => {
     const scrollWidth = container.scrollWidth;
     const clientWidth = container.clientWidth;
     let scrollPosition = 0;
-    const scrollSpeed = 0.3;
+    const scrollSpeed = 0.5;
 
     const autoScroll = () => {
       scrollPosition += scrollSpeed;
@@ -99,20 +99,31 @@ const InterestsSection = () => {
         <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Interests & Hobbies</h2>
         
         <div className="relative">
-          <div className="space-train-track absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500/20 via-yellow-400/40 to-blue-500/20 transform -translate-y-1/2 z-0"></div>
+          {/* Premium Space Train Track */}
+          <div className="premium-space-track absolute top-1/2 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent transform -translate-y-1/2 z-0">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent h-px top-1/2 transform -translate-y-1/2"></div>
+          </div>
+          
+          {/* Train Engine */}
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20">
+            <div className="train-engine bg-gradient-to-r from-blue-600 to-blue-400 w-16 h-12 rounded-r-lg border-2 border-blue-300/50 shadow-lg">
+              <div className="w-4 h-4 bg-yellow-400 rounded-full absolute top-1/2 left-2 transform -translate-y-1/2 animate-pulse"></div>
+              <div className="w-2 h-8 bg-gray-300 absolute right-0 top-1/2 transform -translate-y-1/2"></div>
+            </div>
+          </div>
           
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide py-8 px-4 space-train-container"
+            className="flex gap-6 overflow-x-auto scrollbar-hide py-8 px-20 space-train-container ml-16"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {interests.map((interest, index) => (
-              <Card key={index} className="min-w-[280px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm flex-shrink-0 space-train-car">
+              <Card key={index} className="min-w-[300px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm flex-shrink-0 premium-train-car">
                 <CardContent className="p-8 text-center">
                   <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-6">
                     <div className="text-4xl laser-icon-glow">{interest.icon}</div>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">{interest.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-3">{interest.title}</h3>
                   <p className="text-gray-300 text-sm">{interest.description}</p>
                 </CardContent>
               </Card>

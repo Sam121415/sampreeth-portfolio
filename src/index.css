@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -198,6 +197,80 @@
   .animate-scale-in {
     animation: scaleIn 0.2s ease-out;
   }
+
+  .gold-trail-animation {
+    background: linear-gradient(90deg, 
+      rgba(255, 215, 0, 0) 0%, 
+      rgba(255, 215, 0, 0.8) 50%, 
+      rgba(255, 215, 0, 0) 100%);
+    background-size: 200% 100%;
+    animation: gold-trail 3s ease-in-out infinite;
+  }
+
+  .premium-button {
+    backdrop-filter: blur(10px);
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-send-button {
+    backdrop-filter: blur(10px);
+    animation: pink-glow-pulse 2s ease-in-out infinite;
+    box-shadow: 
+      0 4px 20px rgba(236, 72, 153, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-skills-card {
+    min-height: 200px;
+    box-shadow: 
+      0 8px 32px rgba(59, 130, 246, 0.15),
+      0 0 20px rgba(255, 215, 0, 0.05);
+  }
+
+  .premium-skills-card:hover {
+    box-shadow: 
+      0 12px 40px rgba(59, 130, 246, 0.25),
+      0 0 30px rgba(255, 215, 0, 0.1);
+  }
+
+  .rocket-launch {
+    animation: rocket-takeoff 1s ease-out;
+  }
+
+  .premium-space-track {
+    box-shadow: 
+      0 0 20px rgba(59, 130, 246, 0.4),
+      0 0 40px rgba(255, 215, 0, 0.2);
+  }
+
+  .train-engine {
+    box-shadow: 
+      0 4px 15px rgba(59, 130, 246, 0.4),
+      0 0 20px rgba(255, 215, 0, 0.3);
+  }
+
+  .premium-train-car {
+    box-shadow: 
+      0 6px 25px rgba(59, 130, 246, 0.2),
+      0 0 25px rgba(255, 215, 0, 0.1);
+  }
+
+  .premium-train-car:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 
+      0 12px 35px rgba(59, 130, 246, 0.3),
+      0 0 35px rgba(255, 215, 0, 0.15);
+  }
+
+  .floating-planet {
+    animation: float-planet 4s ease-in-out infinite;
+  }
+
+  .sunrays {
+    animation: rotate-sunrays 2s linear infinite;
+  }
 }
 
 @keyframes enhanced-stars-fall {
@@ -253,6 +326,63 @@
 @keyframes scaleIn {
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gold-trail {
+  0%, 100% { 
+    background-position: -200% 0; 
+  }
+  50% { 
+    background-position: 200% 0; 
+  }
+}
+
+@keyframes pink-glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% { 
+    box-shadow: 0 4px 30px rgba(236, 72, 153, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 25px rgba(236, 72, 153, 0.4);
+  }
+}
+
+@keyframes rocket-takeoff {
+  0% { 
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  50% { 
+    transform: translateY(50vh) scale(0.8);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(-50vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes float-planet {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% { 
+    transform: translateY(-10px) rotate(90deg);
+  }
+  50% { 
+    transform: translateY(0px) rotate(180deg);
+  }
+  75% { 
+    transform: translateY(10px) rotate(270deg);
+  }
+}
+
+@keyframes rotate-sunrays {
+  0% { 
+    transform: rotate(0deg);
+  }
+  100% { 
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {

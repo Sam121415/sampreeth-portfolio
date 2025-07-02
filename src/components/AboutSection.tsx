@@ -14,25 +14,25 @@ const AboutSection = () => {
         
         <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm card-hover">
           <CardContent className="p-8">
-            <p className="text-lg leading-relaxed text-white mb-6 gold-glow-font">
+            <p className="text-lg leading-relaxed text-white mb-6">
               I'm a Software Engineer with 1.6 years of experience at Cosmitude Softwares, specializing in Quality Assurance. 
               I bring a strong foundation in manual and automation testing, and have worked across multiple QA domains — from 
               web UI to pixel-level visual QA, ensuring every release meets the highest quality standards.
             </p>
             
-            <p className="text-lg leading-relaxed text-white mb-6 gold-glow-font">
+            <p className="text-lg leading-relaxed text-white mb-6">
               My expertise includes comprehensive testing frameworks using Selenium and Appium, API testing with Postman, 
               and cross-platform quality assurance. I've successfully implemented automated test suites that improved 
               testing efficiency by 60% and reduced regression testing time significantly.
             </p>
             
-            <p className="text-lg leading-relaxed text-white mb-6 gold-glow-font">
-              <span className="text-pink-400 glow-text font-semibold">
+            <p className="text-lg leading-relaxed text-white mb-6">
+              <span className="text-white font-semibold">
                 Experienced in handling multiple ports and sessions for testing both web and mobile apps (iOS & Android) using Appium & Chrome Debugging.
               </span>
             </p>
             
-            <p className="text-lg leading-relaxed text-white gold-glow-font">
+            <p className="text-lg leading-relaxed text-white">
               I'm passionate about delivering pixel-perfect user experiences and maintaining robust testing methodologies. 
               My approach combines technical precision with creative problem-solving to ensure comprehensive quality 
               coverage across web applications, mobile platforms, and API integrations.

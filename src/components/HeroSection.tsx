@@ -1,10 +1,26 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Linkedin, Mail, Phone, MapPin, X } from 'lucide-react';
 
 const HeroSection = () => {
   const [showImageModal, setShowImageModal] = useState(false);
+  const [animatedText, setAnimatedText] = useState('');
+  const name = 'Sampreeth Kannavar';
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index <= name.length) {
+        setAnimatedText(name.slice(0, index));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 150);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
@@ -56,32 +72,33 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text hover:gold-glow transition-all duration-300 cursor-default gold-glow-font">
-            Sampreeth Kannavar
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text gold-trail-animation cursor-default gold-glow-font min-h-[80px] md:min-h-[100px]">
+            {animatedText}
+            <span className="animate-pulse">|</span>
           </h1>
           
-          <h2 className="text-xl md:text-2xl font-medium mb-4 gold-glow hover-glow transition-all duration-300 cursor-default gold-glow-font">
+          <h2 className="text-xl md:text-2xl font-medium mb-4 gold-glow-font transition-all duration-300 cursor-default">
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 text-white">
             <button 
               onClick={handleLocationClick}
-              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400 gold-glow-font"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-blue-400"
             >
               <MapPin className="w-4 h-4 text-blue-400" />
               <span>Bengaluru, Karnataka, India</span>
             </button>
             <button 
               onClick={handleEmailClick}
-              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400 gold-glow-font"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-blue-400 glow-text"
             >
               <Mail className="w-4 h-4 text-blue-400" />
               <span>ksampreeth12@gmail.com</span>
             </button>
             <button 
               onClick={handlePhoneClick}
-              className="flex items-center gap-2 hover-glow transition-all duration-300 cursor-pointer hover:text-blue-400 gold-glow-font"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-blue-400"
             >
               <Phone className="w-4 h-4 text-blue-400" />
               <span>+91 9591491861</span>
@@ -91,15 +108,14 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadResume}
-              className="bg-yellow-600 text-black hover:bg-yellow-500 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform gold-glow-font"
+              className="premium-button bg-gradient-to-r from-yellow-600 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-400 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform border-2 border-yellow-400/50"
             >
               <Download className="w-4 h-4 mr-2" />
               Download Resume
             </Button>
             <Button 
               onClick={handleLinkedInConnect}
-              variant="outline" 
-              className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform gold-glow-font"
+              className="premium-button bg-slate-900/80 border-2 border-blue-500/50 text-blue-400 hover:bg-blue-600/20 hover:border-blue-400 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform backdrop-blur-sm"
             >
               <Linkedin className="w-4 h-4 mr-2" />
               Connect LinkedIn
@@ -111,15 +127,17 @@ const HeroSection = () => {
       {/* Enhanced Fast Image Modal */}
       {showImageModal && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-          <div className="relative max-w-2xl max-h-2xl animate-scale-in">
+          <div className="relative max-w-2xl max-h-2xl animate-scale-in text-center">
             <img 
               src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
               alt="Sampreeth Kannavar" 
-              className="w-full h-full object-contain rounded-lg shadow-2xl shadow-blue-500/30 max-w-lg max-h-lg"
+              className="w-full h-full object-contain rounded-lg shadow-2xl shadow-blue-500/30 max-w-lg max-h-lg mb-4"
             />
+            <h3 className="text-2xl font-bold text-white mb-2 glow-text">Sampreeth Kannavar</h3>
+            <p className="text-lg text-gray-300 mb-4">Software QA Engineer</p>
             <button 
               onClick={closeModal}
-              className="absolute -top-4 -right-4 bg-red-600 text-white rounded-full p-3 hover:bg-red-500 transition-all duration-200 hover:scale-110 shadow-lg laser-glow"
+              className="bg-red-600 text-white rounded-full p-3 hover:bg-red-500 transition-all duration-200 hover:scale-110 shadow-lg laser-glow"
             >
               <X className="w-6 h-6" />
             </button>

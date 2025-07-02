@@ -39,17 +39,17 @@ const SkillsSection = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Professional Skills</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-white mb-4">{category.category}</h3>
-                <div className="flex flex-wrap gap-2">
+            <Card key={index} className="premium-skills-card bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-white mb-6">{category.category}</h3>
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <Badge 
                       key={skillIndex} 
                       variant="outline" 
-                      className="border-blue-400/50 text-white hover:bg-blue-500/10 transition-colors"
+                      className="border-blue-400/50 text-white hover:bg-blue-500/10 transition-colors px-3 py-2"
                     >
                       {skill}
                     </Badge>

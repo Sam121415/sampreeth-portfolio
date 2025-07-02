@@ -15,6 +15,7 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSunFX, setShowSunFX] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,7 +23,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Using Formspree for form submission
       const response = await fetch('https://formspree.io/f/xpwzgdnr', {
         method: 'POST',
         headers: {
@@ -38,6 +38,9 @@ const ContactSection = () => {
       });
 
       if (response.ok) {
+        setShowSunFX(true);
+        setTimeout(() => setShowSunFX(false), 3000);
+        
         toast({
           title: "Message sent successfully!",
           description: "Thank you for reaching out. I'll get back to you soon.",
@@ -67,12 +70,46 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
-      {/* Dark Background with Falling Stars */}
+      {/* Dark Background with Falling Stars and Floating Planets */}
       <div className="absolute inset-0 dark-space-bg"></div>
-      <div className="absolute inset-0 falling-stars opacity-70"></div>
+      <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
+      
+      {/* Floating Planets */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-8 h-8 bg-blue-400/30 rounded-full animate-pulse floating-planet"></div>
+        <div className="absolute top-40 right-20 w-6 h-6 bg-red-400/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-yellow-400/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gray-300/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '0.5s'}}></div>
+      </div>
+      
+      {/* Sun FX on Form Submit */}
+      {showSunFX && (
+        <div className="absolute inset-0 pointer-events-none z-30">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="w-40 h-40 bg-gradient-radial from-yellow-400 via-orange-400 to-transparent rounded-full animate-ping opacity-80"></div>
+            <div className="absolute inset-0 w-60 h-60 bg-gradient-radial from-yellow-300/50 via-orange-300/30 to-transparent rounded-full animate-pulse"></div>
+            {/* Sunrays */}
+            <div className="absolute inset-0 sunrays">
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-1 h-20 bg-gradient-to-t from-yellow-400 to-transparent opacity-70"
+                  style={{
+                    transform: `rotate(${i * 45}deg)`,
+                    transformOrigin: 'bottom center',
+                    top: '-10px',
+                    left: '50%',
+                    marginLeft: '-2px'
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Get In Touch</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text gold-glow-font">Get In Touch</h2>
         
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -81,10 +118,10 @@ const ContactSection = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-blue-400 laser-glow" />
+                    <Mail className="w-6 h-6 text-blue-400 laser-icon-glow" />
                   </div>
                   <div>
-                    <h3 className="font-semibold gold-glow">Email</h3>
+                    <h3 className="font-semibold text-white">Email</h3>
                     <p className="text-gray-300">ksampreeth12@gmail.com</p>
                   </div>
                 </div>
@@ -95,10 +132,10 @@ const ContactSection = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <Phone className="w-6 h-6 text-blue-400 laser-glow" />
+                    <Phone className="w-6 h-6 text-blue-400 laser-icon-glow" />
                   </div>
                   <div>
-                    <h3 className="font-semibold gold-glow">Phone</h3>
+                    <h3 className="font-semibold text-white">Phone</h3>
                     <p className="text-gray-300">+91 9591491861</p>
                   </div>
                 </div>
@@ -109,10 +146,10 @@ const ContactSection = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <MapPin className="w-6 h-6 text-blue-400 laser-glow" />
+                    <MapPin className="w-6 h-6 text-blue-400 laser-icon-glow" />
                   </div>
                   <div>
-                    <h3 className="font-semibold gold-glow">Location</h3>
+                    <h3 className="font-semibold text-white">Location</h3>
                     <p className="text-gray-300">Bengaluru, Karnataka, India</p>
                   </div>
                 </div>
@@ -170,7 +207,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 laser-glow"
+                  className="premium-send-button w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50"
                 >
                   {isSubmitting ? (
                     "Sending..."

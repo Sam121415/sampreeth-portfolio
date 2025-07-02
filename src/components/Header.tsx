@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showLightning, setShowLightning] = useState('');
+  const [showRocket, setShowRocket] = useState('');
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -48,27 +48,30 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    setShowLightning(sectionId);
-    setTimeout(() => setShowLightning(''), 600);
+    setShowRocket(sectionId);
+    
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      setIsMobileMenuOpen(false);
+    }, 300);
 
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    setIsMobileMenuOpen(false);
+    setTimeout(() => setShowRocket(''), 1000);
   };
 
   return (
     <>
-      {showLightning && (
+      {showRocket && (
         <div className="fixed inset-0 pointer-events-none z-40">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-400/30 via-purple-500/20 to-transparent animate-pulse duration-600"></div>
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-yellow-400 via-blue-400 to-transparent opacity-80 animate-pulse"></div>
-          <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-32 h-32 bg-yellow-400/40 rounded-full animate-ping"></div>
-            <div className="absolute inset-0 w-16 h-16 bg-white/60 rounded-full animate-pulse mx-auto my-auto"></div>
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+            <div className="rocket-launch">
+              <div className="w-8 h-16 bg-gradient-to-t from-red-500 via-orange-400 to-yellow-300 rounded-t-full animate-bounce"></div>
+              <div className="w-12 h-8 bg-gradient-to-b from-orange-400 to-red-600 rounded-full opacity-80 animate-pulse"></div>
+            </div>
           </div>
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-px h-1/3 bg-gradient-to-b from-transparent via-yellow-300 to-transparent animate-pulse delay-150"></div>
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-t from-yellow-400 via-orange-500 to-transparent opacity-60 animate-pulse"></div>
         </div>
       )}
 
@@ -81,7 +84,7 @@ const Header = () => {
                 alt="Sampreeth K" 
                 className="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30 profile-glow transition-all duration-300 hover:scale-110"
               />
-              <div className="text-xl font-bold text-white glow-text font-['Outfit',sans-serif]">
+              <div className="text-xl font-bold text-white font-['Outfit',sans-serif]">
                 Sampreeth K
               </div>
             </div>

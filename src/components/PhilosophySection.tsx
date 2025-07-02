@@ -41,11 +41,11 @@ const PhilosophySection = () => {
                 <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-6 group-hover:bg-blue-500/20 transition-colors">
                   <philosophy.icon className="w-8 h-8 text-yellow-400 laser-icon-glow" />
                 </div>
-                <h3 className="text-xl font-semibold gold-glow-font mb-4">{philosophy.title}</h3>
-                <blockquote className="text-yellow-400 italic mb-4 text-lg gold-glow-font">
+                <h3 className="text-xl font-bold text-white mb-4">{philosophy.title}</h3>
+                <blockquote className="text-yellow-400 italic mb-4 text-lg">
                   "{philosophy.quote}"
                 </blockquote>
-                <p className="text-gray-300 gold-glow-font">{philosophy.description}</p>
+                <p className="text-gray-300">{philosophy.description}</p>
               </CardContent>
             </Card>
           ))}

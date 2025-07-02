@@ -67,7 +67,7 @@ const ProjectsSection = () => {
                     <project.icon className="w-8 h-8 text-yellow-400 laser-icon-glow" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold gold-glow-font mb-3">{project.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
                   </div>
                 </div>
                 <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>

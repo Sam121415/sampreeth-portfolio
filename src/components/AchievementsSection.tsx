@@ -53,8 +53,8 @@ const AchievementsSection = () => {
                 <div className="bg-blue-500/10 p-3 rounded-lg w-fit mb-4 group-hover:bg-blue-500/20 transition-colors">
                   <achievement.icon className="w-6 h-6 text-yellow-400 laser-icon-glow" />
                 </div>
-                <h3 className="text-lg font-semibold gold-glow-font mb-3">{achievement.title}</h3>
-                <p className="text-gray-300 gold-glow-font">{achievement.description}</p>
+                <h3 className="text-lg font-bold text-white mb-3">{achievement.title}</h3>
+                <p className="text-gray-300">{achievement.description}</p>
               </CardContent>
             </Card>
           ))}
