@@ -32,6 +32,16 @@ const InterestsSection = () => {
       description: 'Researching and testing new automation frameworks and testing tools.'
     },
     {
+      icon: '🧠',
+      title: 'AI Tools Exploration',
+      description: 'Exploring cutting-edge AI tools and prompt engineering techniques.'
+    },
+    {
+      icon: '🙏',
+      title: 'Disciplined Routine & Focus',
+      description: 'Maintaining structured daily routines for peak productivity and focus.'
+    },
+    {
       icon: '♟️',
       title: 'Chess & Logic Puzzles',
       description: 'Strategic thinking and problem-solving through chess and brain teasers.'
@@ -130,6 +140,12 @@ const InterestsSection = () => {
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
+      {/* 3D Planets Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-10 h-10 bg-gradient-radial from-purple-400/40 via-purple-600/30 to-transparent rounded-full animate-pulse floating-planet-3d"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-gradient-radial from-green-400/50 via-green-600/30 to-transparent rounded-full animate-pulse floating-planet-3d"></div>
+      </div>
+      
       <div className="container mx-auto max-w-7xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">Interests & Hobbies</h2>
         
@@ -145,7 +161,7 @@ const InterestsSection = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {interests.map((interest, index) => (
-              <Card key={index} className="min-w-[300px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm flex-shrink-0 premium-train-car">
+              <Card key={index} className="min-w-[300px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-200 card-hover-fast backdrop-blur-sm flex-shrink-0 premium-train-car">
                 <CardContent className="p-8 text-center">
                   <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-6">
                     <div className="text-4xl laser-icon-glow">{interest.icon}</div>

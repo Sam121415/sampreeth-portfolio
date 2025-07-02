@@ -67,10 +67,36 @@
       radial-gradient(4px 4px at 160px 30px, rgba(255, 255, 255, 1), transparent),
       radial-gradient(1px 1px at 10px 120px, rgba(255, 215, 0, 0.8), transparent),
       radial-gradient(2px 2px at 180px 100px, rgba(255, 255, 255, 0.9), transparent),
-      radial-gradient(3px 3px at 220px 50px, rgba(255, 192, 203, 0.7), transparent);
+      radial-gradient(3px 3px at 220px 50px, rgba(255, 192, 203, 0.7), transparent),
+      radial-gradient(2px 2px at 60px 150px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 200px 20px, rgba(255, 215, 0, 0.9), transparent);
     background-repeat: repeat;
     background-size: 200px 200px;
     animation: enhanced-stars-fall-glow 25s linear infinite;
+  }
+
+  /* 3D Planets */
+  .floating-planet-3d {
+    animation: float-planet-3d 6s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .earth-glow {
+    box-shadow: 
+      0 0 20px rgba(74, 144, 226, 0.4),
+      0 0 40px rgba(74, 144, 226, 0.2);
+  }
+
+  .sun-glow-soft {
+    box-shadow: 
+      0 0 25px rgba(255, 215, 0, 0.4),
+      0 0 50px rgba(255, 165, 0, 0.2);
+  }
+
+  .mars-glow {
+    box-shadow: 
+      0 0 15px rgba(205, 92, 92, 0.4),
+      0 0 30px rgba(205, 92, 92, 0.2);
   }
 
   .rotating-planets-container {
@@ -248,6 +274,17 @@
     transform: translateY(-5px) scale(1.02);
   }
 
+  .card-hover-fast {
+    transition: all 0.2s ease;
+  }
+
+  .card-hover-fast:hover {
+    box-shadow: 
+      0 10px 30px rgba(255, 215, 0, 0.2),
+      0 0 20px rgba(255, 215, 0, 0.1);
+    transform: translateY(-8px) scale(1.02) rotateX(5deg);
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -289,9 +326,9 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  .premium-send-button-slow {
+  .premium-send-button-smooth {
     backdrop-filter: blur(10px);
-    animation: pink-glow-pulse-slow 4s ease-in-out infinite;
+    animation: pink-glow-pulse-smooth 3s ease-in-out infinite;
     box-shadow: 
       0 4px 20px rgba(236, 72, 153, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -580,12 +617,12 @@
   }
 }
 
-@keyframes pink-glow-pulse-slow {
+@keyframes pink-glow-pulse-smooth {
   0%, 100% { 
     box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   50% { 
-    box-shadow: 0 4px 25px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(236, 72, 153, 0.3);
+    box-shadow: 0 4px 25px rgba(236, 72, 153, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 15px rgba(236, 72, 153, 0.3);
   }
 }
 
@@ -616,6 +653,18 @@
   }
   75% { 
     transform: translateY(10px) rotate(270deg);
+  }
+}
+
+@keyframes float-planet-3d {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) rotateZ(0deg);
+  }
+  33% { 
+    transform: translateY(-15px) translateX(10px) rotateZ(120deg);
+  }
+  66% { 
+    transform: translateY(5px) translateX(-10px) rotateZ(240deg);
   }
 }
 

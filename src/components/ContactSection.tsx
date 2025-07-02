@@ -74,14 +74,14 @@ const ContactSection = () => {
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
-      {/* Floating Planets */}
+      {/* Floating 3D Planets */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-8 h-8 bg-blue-400/30 rounded-full animate-pulse floating-planet"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-red-400/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-yellow-400/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gray-300/30 rounded-full animate-pulse floating-planet" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-20 left-10 w-8 h-8 bg-gradient-radial from-blue-400/50 via-blue-600/30 to-transparent rounded-full animate-pulse floating-planet-3d earth-glow"></div>
+        <div className="absolute top-40 right-20 w-6 h-6 bg-gradient-radial from-red-400/50 via-red-600/30 to-transparent rounded-full animate-pulse floating-planet-3d mars-glow" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-gradient-radial from-yellow-400/50 via-orange-400/30 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gradient-radial from-gray-300/50 via-gray-400/30 to-transparent rounded-full animate-pulse floating-planet-3d" style={{animationDelay: '0.5s'}}></div>
         {/* Medium-sized Sun */}
-        <div className="absolute top-1/2 right-10 w-16 h-16 bg-gradient-radial from-yellow-400/40 via-orange-400/30 to-transparent rounded-full animate-pulse floating-planet sun-planet" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-1/2 right-10 w-16 h-16 bg-gradient-radial from-yellow-400/60 via-orange-400/40 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft" style={{animationDelay: '1.5s'}}></div>
       </div>
       
       {/* Enhanced Sun FX on Form Submit */}
@@ -209,7 +209,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-send-button-slow w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50"
+                  className="premium-send-button-smooth w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-500 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50"
                 >
                   {isSubmitting ? (
                     "Sending..."
