@@ -87,6 +87,13 @@
       0 0 40px rgba(74, 144, 226, 0.2);
   }
 
+  .earth-glow-enhanced {
+    box-shadow: 
+      0 0 25px rgba(74, 144, 226, 0.6),
+      0 0 50px rgba(74, 144, 226, 0.4);
+    animation: rotate-planet 12s linear infinite;
+  }
+
   .sun-glow-soft {
     box-shadow: 
       0 0 25px rgba(255, 215, 0, 0.4),
@@ -179,7 +186,8 @@
     filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
   }
 
-  .nav-link-clean {
+  /* Enhanced Navigation */
+  .nav-link-enhanced {
     font-family: 'Outfit', 'Poppins', sans-serif;
     position: relative;
     padding: 0.5rem 1rem;
@@ -188,27 +196,59 @@
     letter-spacing: 0.025em;
   }
 
-  .nav-link-clean::after {
+  .nav-link-enhanced::after {
     content: '';
     position: absolute;
     bottom: -2px;
     left: 50%;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #fbbf24);
+    background: linear-gradient(90deg, #ffd700, #ffaa00);
     transition: all 0.3s ease;
     transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
   }
 
-  .nav-link-clean:hover::after {
+  .nav-link-enhanced:hover::after {
     width: 100%;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   }
 
-  .nav-link-clean.active-nav-clean::after {
+  .nav-link-enhanced.active-nav-enhanced::after {
     width: 100%;
-    background: linear-gradient(90deg, #fbbf24, #f59e0b);
-    box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  }
+
+  .nav-link-enhanced.active-nav-enhanced {
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+
+  /* Goku Animation */
+  .goku-animation {
+    transition: all 0.3s ease;
+  }
+
+  .goku-fly-up {
+    animation: goku-ascend 0.5s ease-out;
+  }
+
+  .goku-fly-down {
+    animation: goku-descend 0.5s ease-out;
+  }
+
+  /* Premium LinkedIn Button */
+  .premium-linkedin-button {
+    backdrop-filter: blur(10px);
+    box-shadow: 
+      0 4px 20px rgba(16, 185, 129, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-linkedin-button:hover {
+    box-shadow: 
+      0 8px 25px rgba(16, 185, 129, 0.4),
+      0 0 30px rgba(255, 215, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
   .space-train-track {
@@ -240,6 +280,31 @@
     box-shadow: 
       0 8px 30px rgba(59, 130, 246, 0.3),
       0 0 40px rgba(255, 215, 0, 0.2);
+  }
+
+  /* Enhanced Card Hovers */
+  .card-hover-enhanced {
+    transition: all 0.15s ease;
+  }
+
+  .card-hover-enhanced:hover {
+    transform: translateY(-12px) scale(1.03) rotateX(8deg) rotateY(2deg);
+    box-shadow: 
+      0 15px 40px rgba(59, 130, 246, 0.3),
+      0 0 30px rgba(255, 215, 0, 0.2);
+  }
+
+  .premium-train-car-enhanced {
+    box-shadow: 
+      0 6px 25px rgba(59, 130, 246, 0.2),
+      0 0 25px rgba(255, 215, 0, 0.1);
+  }
+
+  .premium-train-car-enhanced:hover {
+    transform: translateY(-15px) scale(1.04) rotateX(10deg);
+    box-shadow: 
+      0 20px 45px rgba(59, 130, 246, 0.4),
+      0 0 40px rgba(255, 215, 0, 0.25);
   }
 
   .profile-glow {
@@ -295,11 +360,11 @@
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.2s ease-out;
+    animation: fadeIn 0.3s ease-out;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.2s ease-out;
+    animation: scaleIn 0.4s ease-out;
   }
 
   .gold-trail-animation {
@@ -329,6 +394,14 @@
   .premium-send-button-smooth {
     backdrop-filter: blur(10px);
     animation: pink-glow-pulse-smooth 3s ease-in-out infinite;
+    box-shadow: 
+      0 4px 20px rgba(236, 72, 153, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-send-button-ultra-smooth {
+    backdrop-filter: blur(10px);
+    animation: pink-glow-pulse-ultra-smooth 4s ease-in-out infinite;
     box-shadow: 
       0 4px 20px rgba(236, 72, 153, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -450,6 +523,50 @@
 
   .lightning-strike {
     animation: lightning-flash 1.2s ease-out;
+  }
+}
+
+@keyframes goku-ascend {
+  0% { 
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(-40px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes goku-descend {
+  0% { 
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(40px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes rotate-planet {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pink-glow-pulse-ultra-smooth {
+  0%, 100% { 
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% { 
+    box-shadow: 0 4px 25px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 15px rgba(236, 72, 153, 0.25);
   }
 }
 

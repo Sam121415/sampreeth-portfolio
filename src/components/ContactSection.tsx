@@ -209,7 +209,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-send-button-smooth w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-500 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50"
+                  className="premium-send-button-ultra-smooth w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-700 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50 hover:scale-105"
                 >
                   {isSubmitting ? (
                     "Sending..."

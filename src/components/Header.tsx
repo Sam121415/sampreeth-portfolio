@@ -6,13 +6,15 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showRocket, setShowRocket] = useState('');
+  const [scrollDirection, setScrollDirection] = useState('up');
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'education', label: 'Education' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
+    { id: 'projects', label: 'Projects' }, // Projects first
+    { id: 'skills', label: 'Skills' }, // Skills second
     { id: 'achievements', label: 'Achievements' },
     { id: 'quotes', label: 'QA Wisdom' },
     { id: 'interests', label: 'Interests' },
@@ -21,6 +23,16 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+      setLastScrollY(currentScrollY);
+
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 150;
 
@@ -45,7 +57,7 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToSection = (sectionId: string) => {
     setShowRocket(sectionId);
@@ -63,6 +75,13 @@ const Header = () => {
 
   return (
     <>
+      {/* 3D Goku Animation */}
+      <div className="fixed top-20 right-8 z-40 pointer-events-none">
+        <div className={`goku-animation ${scrollDirection === 'up' ? 'goku-fly-up' : 'goku-fly-down'}`}>
+          <div className="text-4xl">🐉</div>
+        </div>
+      </div>
+
       {showRocket && (
         <div className="fixed inset-0 pointer-events-none z-40">
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
@@ -94,9 +113,9 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`nav-link-clean text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative font-['Outfit',sans-serif] ${
+                  className={`nav-link-enhanced text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative font-['Outfit',sans-serif] ${
                     activeSection === item.id 
-                      ? 'text-yellow-400 active-nav-clean' 
+                      ? 'text-yellow-400 active-nav-enhanced' 
                       : 'text-gray-300'
                   }`}
                 >

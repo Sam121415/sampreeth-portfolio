@@ -9,6 +9,7 @@ const HeroSection = () => {
   const [animatedText, setAnimatedText] = useState('');
   const [nameAnimationComplete, setNameAnimationComplete] = useState(false);
   const [titleAnimationComplete, setTitleAnimationComplete] = useState(false);
+  const [downloadStatus, setDownloadStatus] = useState('idle'); // idle, downloading, success
   const name = 'Sampreeth Kannavar';
 
   useEffect(() => {
@@ -20,7 +21,6 @@ const HeroSection = () => {
       } else {
         clearInterval(timer);
         setNameAnimationComplete(true);
-        // Start title animation after name completes
         setTimeout(() => {
           setTitleAnimationComplete(true);
         }, 500);
@@ -30,15 +30,26 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleDownloadResume = () => {
-    // Create a proper PDF download link
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/da2b4390-85a3-4451-9433-8772ff66b42e.png';
-    link.download = 'Sampreeth_Kannavar_Resume.pdf';
-    link.type = 'application/pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownloadResume = async () => {
+    setDownloadStatus('downloading');
+    
+    try {
+      // Use the uploaded resume image
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/053a0eb3-f0c5-4d0c-8329-593cd9de7c76.png';
+      link.download = 'Sampreeth_Kannavar_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      setDownloadStatus('success');
+      setTimeout(() => {
+        setDownloadStatus('idle');
+      }, 4000); // Show success for 4 seconds
+    } catch (error) {
+      console.error('Download failed:', error);
+      setDownloadStatus('idle');
+    }
   };
 
   const handleLinkedInConnect = () => {
@@ -59,7 +70,6 @@ const HeroSection = () => {
 
   const openModal = () => {
     setShowImageModal(true);
-    setImageLoaded(false);
   };
 
   const closeModal = () => {
@@ -98,6 +108,9 @@ const HeroSection = () => {
           <div className="absolute top-1/4 left-20 w-12 h-12 bg-gradient-radial from-blue-400/60 via-blue-600/40 to-transparent rounded-full animate-pulse floating-planet-3d earth-glow"></div>
           <div className="absolute bottom-1/4 right-32 w-16 h-16 bg-gradient-radial from-yellow-400/50 via-orange-400/30 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft"></div>
           <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-gradient-radial from-red-400/50 via-red-600/30 to-transparent rounded-full animate-pulse floating-planet-3d mars-glow"></div>
+        
+          {/* Medium-sized Rotating Earth near name */}
+          <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-gradient-radial from-blue-500/70 via-green-400/50 to-transparent rounded-full floating-planet-3d earth-glow-enhanced"></div>
         </div>
         
         {/* Hero Content */}
@@ -150,14 +163,15 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownloadResume}
+              disabled={downloadStatus === 'downloading'}
               className="premium-button bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/30 hover:scale-105 transform border-2 border-yellow-400/50"
             >
               <Download className="w-4 h-4 mr-2" />
-              Download Resume
+              {downloadStatus === 'success' ? 'Downloaded ✓' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
             </Button>
             <Button 
               onClick={handleLinkedInConnect}
-              className="premium-button bg-slate-900/80 border-2 border-blue-500/50 text-blue-400 hover:bg-blue-600/20 hover:border-blue-400 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform backdrop-blur-sm"
+              className="premium-linkedin-button bg-gradient-to-r from-yellow-500 via-emerald-500 to-emerald-600 hover:from-yellow-400 hover:via-emerald-400 hover:to-emerald-500 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 transform border-2 border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-400/30"
             >
               <Linkedin className="w-4 h-4 mr-2" />
               Connect LinkedIn
@@ -170,6 +184,14 @@ const HeroSection = () => {
       {showImageModal && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
           <div className="relative max-w-2xl max-h-2xl text-center">
+            {/* Close button - appears immediately */}
+            <button 
+              onClick={closeModal}
+              className="absolute top-4 right-4 bg-red-600 text-white rounded-full p-2 hover:bg-red-500 transition-all duration-200 hover:scale-110 shadow-lg z-10"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            
             {/* Loading State */}
             {!imageLoaded && (
               <div className="w-96 h-96 bg-slate-800/50 rounded-lg flex items-center justify-center">
@@ -181,7 +203,7 @@ const HeroSection = () => {
             <img 
               src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
               alt="Sampreeth Kannavar" 
-              className={`w-full h-full object-contain rounded-lg shadow-2xl shadow-blue-500/30 max-w-lg max-h-lg mb-4 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              className={`w-full h-full object-contain rounded-lg shadow-2xl shadow-blue-500/30 max-w-lg max-h-lg mb-4 transition-opacity duration-700 ${imageLoaded ? 'opacity-100 animate-scale-in' : 'opacity-0'}`}
               onLoad={handleImageLoad}
             />
             
@@ -191,13 +213,6 @@ const HeroSection = () => {
                 <p className="text-lg text-gray-300 mb-4">Software QA Engineer</p>
               </div>
             )}
-            
-            <button 
-              onClick={closeModal}
-              className="absolute top-4 right-4 bg-red-600 text-white rounded-full p-2 hover:bg-red-500 transition-all duration-200 hover:scale-110 shadow-lg"
-            >
-              <X className="w-5 h-5" />
-            </button>
           </div>
         </div>
       )}

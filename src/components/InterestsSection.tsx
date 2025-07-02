@@ -32,7 +32,7 @@ const InterestsSection = () => {
       description: 'Researching and testing new automation frameworks and testing tools.'
     },
     {
-      icon: '🧠',
+      icon: '🤖',
       title: 'AI Tools Exploration',
       description: 'Exploring cutting-edge AI tools and prompt engineering techniques.'
     },
@@ -95,6 +95,21 @@ const InterestsSection = () => {
       icon: '🎱',
       title: 'Snooker',
       description: 'Strategic gameplay and precision shots in snooker games.'
+    },
+    {
+      icon: '🤖',
+      title: 'AI Tool Exploration',
+      description: 'Discovering and experimenting with AI-powered productivity tools.'
+    },
+    {
+      icon: '🎨',
+      title: 'Web Animation Design',
+      description: 'Creating smooth animations and micro-interactions for web experiences.'
+    },
+    {
+      icon: '🧘',
+      title: 'Practicing Deep Focus & Discipline',
+      description: 'Developing mindfulness and sustained concentration techniques.'
     }
   ];
 
@@ -105,7 +120,7 @@ const InterestsSection = () => {
     const scrollWidth = container.scrollWidth;
     const clientWidth = container.clientWidth;
     let scrollPosition = 0;
-    const scrollSpeed = 0.5;
+    const scrollSpeed = 1.2; // Increased speed
 
     const autoScroll = () => {
       scrollPosition += scrollSpeed;
@@ -117,11 +132,11 @@ const InterestsSection = () => {
       container.scrollLeft = scrollPosition;
     };
 
-    const interval = setInterval(autoScroll, 50);
+    const interval = setInterval(autoScroll, 30); // Faster interval
     
     const handleMouseEnter = () => clearInterval(interval);
     const handleMouseLeave = () => {
-      const newInterval = setInterval(autoScroll, 50);
+      const newInterval = setInterval(autoScroll, 30);
       return () => clearInterval(newInterval);
     };
 
@@ -144,6 +159,7 @@ const InterestsSection = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 right-1/4 w-10 h-10 bg-gradient-radial from-purple-400/40 via-purple-600/30 to-transparent rounded-full animate-pulse floating-planet-3d"></div>
         <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-gradient-radial from-green-400/50 via-green-600/30 to-transparent rounded-full animate-pulse floating-planet-3d"></div>
+        <div className="absolute top-1/3 left-1/4 w-12 h-12 bg-gradient-radial from-orange-400/50 via-yellow-500/40 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft"></div>
       </div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -161,7 +177,7 @@ const InterestsSection = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {interests.map((interest, index) => (
-              <Card key={index} className="min-w-[300px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-200 card-hover-fast backdrop-blur-sm flex-shrink-0 premium-train-car">
+              <Card key={index} className="min-w-[300px] bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-150 card-hover-enhanced backdrop-blur-sm flex-shrink-0 premium-train-car-enhanced">
                 <CardContent className="p-8 text-center">
                   <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-6">
                     <div className="text-4xl laser-icon-glow">{interest.icon}</div>
