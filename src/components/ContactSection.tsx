@@ -70,18 +70,32 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
-      {/* Dark Background with Falling Stars and Floating Planets */}
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
-      {/* Floating 3D Planets */}
+      {/* Enhanced Glowing Stars */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-8 h-8 bg-gradient-radial from-blue-400/50 via-blue-600/30 to-transparent rounded-full animate-pulse floating-planet-3d earth-glow"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-gradient-radial from-red-400/50 via-red-600/30 to-transparent rounded-full animate-pulse floating-planet-3d mars-glow" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-gradient-radial from-yellow-400/50 via-orange-400/30 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-gradient-radial from-gray-300/50 via-gray-400/30 to-transparent rounded-full animate-pulse floating-planet-3d" style={{animationDelay: '0.5s'}}></div>
-        {/* Medium-sized Sun */}
-        <div className="absolute top-1/2 right-10 w-16 h-16 bg-gradient-radial from-yellow-400/60 via-orange-400/40 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft" style={{animationDelay: '1.5s'}}></div>
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/80 via-white/60 to-transparent rounded-full animate-pulse glowing-star"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 2}s`
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Floating 3D Planets - Better Mobile Visibility */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-10 h-10 md:w-8 md:h-8 bg-gradient-radial from-blue-400/70 via-blue-600/50 to-transparent rounded-full animate-pulse floating-planet-3d earth-glow planet-mobile-visible"></div>
+        <div className="absolute top-40 right-20 w-8 h-8 md:w-6 md:h-6 bg-gradient-radial from-red-400/70 via-red-600/50 to-transparent rounded-full animate-pulse floating-planet-3d mars-glow planet-mobile-visible" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-1/4 w-12 h-12 md:w-10 md:h-10 bg-gradient-radial from-yellow-400/70 via-orange-400/50 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft planet-mobile-visible" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-6 h-6 md:w-4 md:h-4 bg-gradient-radial from-gray-300/70 via-gray-400/50 to-transparent rounded-full animate-pulse floating-planet-3d planet-mobile-visible" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-1/2 right-10 w-20 h-20 md:w-16 md:h-16 bg-gradient-radial from-yellow-400/80 via-orange-400/60 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft planet-mobile-visible" style={{animationDelay: '1.5s'}}></div>
       </div>
       
       {/* Enhanced Sun FX on Form Submit */}
@@ -90,7 +104,6 @@ const ContactSection = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="w-48 h-48 bg-gradient-radial from-yellow-400/60 via-orange-400/40 to-transparent rounded-full animate-pulse opacity-90 sun-glow"></div>
             <div className="absolute inset-0 w-72 h-72 bg-gradient-radial from-yellow-300/30 via-orange-300/20 to-transparent rounded-full animate-pulse sun-glow-outer"></div>
-            {/* Enhanced Sunrays */}
             <div className="absolute inset-0 sunrays-enhanced">
               {[...Array(12)].map((_, i) => (
                 <div
@@ -209,7 +222,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-send-button-ultra-smooth w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white font-semibold py-3 transition-all duration-700 hover:shadow-lg hover:shadow-pink-500/25 border-2 border-pink-400/50 hover:scale-105"
+                  className="premium-send-button w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 transition-all duration-500 hover:shadow-lg hover:shadow-emerald-500/25 border-2 border-emerald-400/50 hover:scale-105"
                 >
                   {isSubmitting ? (
                     "Sending..."

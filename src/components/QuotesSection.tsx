@@ -40,19 +40,21 @@ const QuotesSection = () => {
       <div className="container mx-auto max-w-4xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text">QA Wisdom</h2>
         
-        <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm card-hover">
+        <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm card-hover fixed-quote-card">
           <CardContent className="p-12 text-center">
             <div className="bg-blue-500/10 p-4 rounded-full w-fit mx-auto mb-8">
               <Quote className="w-8 h-8 text-yellow-400 laser-icon-glow" />
             </div>
             
-            <blockquote className="text-2xl md:text-3xl font-light text-white mb-8 leading-relaxed transition-all duration-500">
-              "{qaWisdomQuotes[currentQuoteIndex].quote}"
-            </blockquote>
-            
-            <cite className="text-lg text-yellow-400 font-medium">
-              — {qaWisdomQuotes[currentQuoteIndex].author}
-            </cite>
+            <div className="quote-content-container">
+              <blockquote className="text-2xl md:text-3xl font-light text-white mb-8 leading-relaxed transition-all duration-500">
+                "{qaWisdomQuotes[currentQuoteIndex].quote}"
+              </blockquote>
+              
+              <cite className="text-lg text-yellow-400 font-medium">
+                — {qaWisdomQuotes[currentQuoteIndex].author}
+              </cite>
+            </div>
           </CardContent>
         </Card>
       </div>

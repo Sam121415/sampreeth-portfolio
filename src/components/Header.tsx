@@ -13,8 +13,8 @@ const Header = () => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'education', label: 'Education' },
-    { id: 'projects', label: 'Projects' }, // Projects first
-    { id: 'skills', label: 'Skills' }, // Skills second
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
     { id: 'achievements', label: 'Achievements' },
     { id: 'quotes', label: 'QA Wisdom' },
     { id: 'interests', label: 'Interests' },
@@ -25,7 +25,6 @@ const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Determine scroll direction
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
       } else {
@@ -75,13 +74,6 @@ const Header = () => {
 
   return (
     <>
-      {/* 3D Goku Animation */}
-      <div className="fixed top-20 right-8 z-40 pointer-events-none">
-        <div className={`goku-animation ${scrollDirection === 'up' ? 'goku-fly-up' : 'goku-fly-down'}`}>
-          <div className="text-4xl">🐉</div>
-        </div>
-      </div>
-
       {showRocket && (
         <div className="fixed inset-0 pointer-events-none z-40">
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
