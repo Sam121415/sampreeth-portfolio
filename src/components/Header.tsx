@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Rocket } from 'lucide-react';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -69,7 +69,7 @@ const Header = () => {
       setIsMobileMenuOpen(false);
     }, 300);
 
-    setTimeout(() => setShowRocket(''), 1000);
+    setTimeout(() => setShowRocket(''), 1200);
   };
 
   return (
@@ -77,25 +77,25 @@ const Header = () => {
       {showRocket && (
         <div className="fixed inset-0 pointer-events-none z-40">
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-            <div className="rocket-launch">
-              <div className="w-8 h-16 bg-gradient-to-t from-red-500 via-orange-400 to-yellow-300 rounded-t-full animate-bounce"></div>
-              <div className="w-12 h-8 bg-gradient-to-b from-orange-400 to-red-600 rounded-full opacity-80 animate-pulse"></div>
+            <div className="premium-rocket-launch">
+              <Rocket className="w-8 h-8 text-yellow-400 premium-rocket-icon" />
+              <div className="w-12 h-8 bg-gradient-to-b from-orange-400 to-red-600 rounded-full opacity-80 animate-pulse premium-rocket-trail"></div>
             </div>
           </div>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-t from-yellow-400 via-orange-500 to-transparent opacity-60 animate-pulse"></div>
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-t from-yellow-400 via-orange-500 to-transparent opacity-60 animate-pulse premium-rocket-streak"></div>
         </div>
       )}
 
-      <header className="fixed top-0 w-full bg-slate-950/95 backdrop-blur-md border-b border-blue-500/20 z-50">
+      <header className="fixed top-0 w-full bg-slate-950/95 backdrop-blur-md border-b border-blue-500/20 z-50 premium-header">
         <nav className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
               <img 
                 src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
                 alt="Sampreeth K" 
-                className="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30 profile-glow transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30 profile-glow transition-all duration-300 hover:scale-110 premium-profile-image"
               />
-              <div className="text-xl font-bold text-white font-['Outfit',sans-serif]">
+              <div className="text-xl font-bold text-white premium-logo-font">
                 Sampreeth K
               </div>
             </div>
@@ -105,20 +105,23 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`nav-link-enhanced text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative font-['Outfit',sans-serif] ${
+                  className={`premium-nav-link text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative ${
                     activeSection === item.id 
-                      ? 'text-yellow-400 active-nav-enhanced' 
+                      ? 'text-yellow-400 premium-active-nav' 
                       : 'text-gray-300'
                   }`}
                 >
                   {item.label}
+                  {activeSection === item.id && (
+                    <div className="premium-nav-glow"></div>
+                  )}
                 </button>
               ))}
             </div>
             
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-white hover:text-blue-400 transition-colors p-2"
+              className="lg:hidden text-white hover:text-blue-400 transition-colors p-2 premium-mobile-button"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -135,9 +138,9 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-left text-sm font-semibold transition-all duration-300 hover:text-blue-400 py-2 font-['Outfit',sans-serif] ${
+                className={`text-left text-sm font-semibold transition-all duration-300 hover:text-blue-400 py-2 premium-mobile-nav-link ${
                   activeSection === item.id 
-                    ? 'text-yellow-400 border-l-2 border-yellow-400 pl-3' 
+                    ? 'text-yellow-400 border-l-2 border-yellow-400 pl-3 premium-mobile-active' 
                     : 'text-gray-300'
                 }`}
               >

@@ -68,17 +68,29 @@ const ContactSection = () => {
     }));
   };
 
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:ksampreeth12@gmail.com';
+  };
+
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+919591491861';
+  };
+
+  const handleLocationClick = () => {
+    window.open('https://maps.google.com/?q=Bengaluru,Karnataka,India', '_blank');
+  };
+
   return (
-    <section id="contact" className="section-padding relative overflow-hidden">
+    <section id="contact" className="section-padding relative overflow-hidden premium-section">
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
       {/* Enhanced Glowing Stars */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(25)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/80 via-white/60 to-transparent rounded-full animate-pulse glowing-star"
+            className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/90 via-white/70 to-transparent rounded-full glowing-star-premium"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -89,28 +101,28 @@ const ContactSection = () => {
         ))}
       </div>
       
-      {/* Floating 3D Planets - Better Mobile Visibility */}
+      {/* Premium 3D Planets */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-10 h-10 md:w-8 md:h-8 bg-gradient-radial from-blue-400/70 via-blue-600/50 to-transparent rounded-full animate-pulse floating-planet-3d earth-glow planet-mobile-visible"></div>
-        <div className="absolute top-40 right-20 w-8 h-8 md:w-6 md:h-6 bg-gradient-radial from-red-400/70 via-red-600/50 to-transparent rounded-full animate-pulse floating-planet-3d mars-glow planet-mobile-visible" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-32 left-1/4 w-12 h-12 md:w-10 md:h-10 bg-gradient-radial from-yellow-400/70 via-orange-400/50 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft planet-mobile-visible" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-6 h-6 md:w-4 md:h-4 bg-gradient-radial from-gray-300/70 via-gray-400/50 to-transparent rounded-full animate-pulse floating-planet-3d planet-mobile-visible" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-1/2 right-10 w-20 h-20 md:w-16 md:h-16 bg-gradient-radial from-yellow-400/80 via-orange-400/60 to-transparent rounded-full animate-pulse floating-planet-3d sun-glow-soft planet-mobile-visible" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-20 left-10 w-12 h-12 realistic-earth-3d mobile-planet-enhanced" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-40 right-20 w-10 h-10 realistic-mars-3d mobile-planet-enhanced" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-1/4 w-18 h-18 realistic-sun-3d mobile-planet-enhanced" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-8 h-8 realistic-saturn-3d mobile-planet-enhanced" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-1/2 right-10 w-20 h-20 realistic-sun-3d mobile-planet-enhanced" style={{animationDelay: '1.5s'}}></div>
       </div>
       
-      {/* Enhanced Sun FX on Form Submit */}
+      {/* Enhanced Sun FX */}
       {showSunFX && (
         <div className="absolute inset-0 pointer-events-none z-30">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-48 h-48 bg-gradient-radial from-yellow-400/60 via-orange-400/40 to-transparent rounded-full animate-pulse opacity-90 sun-glow"></div>
-            <div className="absolute inset-0 w-72 h-72 bg-gradient-radial from-yellow-300/30 via-orange-300/20 to-transparent rounded-full animate-pulse sun-glow-outer"></div>
-            <div className="absolute inset-0 sunrays-enhanced">
-              {[...Array(12)].map((_, i) => (
+            <div className="w-48 h-48 realistic-sun-fx animate-pulse opacity-90"></div>
+            <div className="absolute inset-0 w-72 h-72 realistic-sun-fx-outer animate-pulse"></div>
+            <div className="absolute inset-0 premium-sunrays-enhanced">
+              {[...Array(16)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-2 h-32 bg-gradient-to-t from-yellow-400/80 via-orange-400/60 to-transparent opacity-80 sunray-glow"
+                  className="absolute w-2 h-32 bg-gradient-to-t from-yellow-400/80 via-orange-400/60 to-transparent opacity-80 premium-sunray-glow"
                   style={{
-                    transform: `rotate(${i * 30}deg)`,
+                    transform: `rotate(${i * 22.5}deg)`,
                     transformOrigin: 'bottom center',
                     top: '-16px',
                     left: '50%',
@@ -124,56 +136,69 @@ const ContactSection = () => {
       )}
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 glow-text">Get In Touch</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 glow-text premium-section-title">Get In Touch</h2>
         
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <div className="space-y-8">
-            <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
+            <Card className="premium-contact-card bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-blue-400 laser-icon-glow" />
+                  <div className="bg-blue-500/10 p-3 rounded-lg premium-icon-container">
+                    <Mail className="w-6 h-6 text-blue-400 premium-animated-icon" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Email</h3>
-                    <p className="text-gray-300">ksampreeth12@gmail.com</p>
+                    <h3 className="font-semibold text-white premium-contact-title">Email</h3>
+                    <button 
+                      onClick={handleEmailClick}
+                      className="text-yellow-400 hover:text-yellow-300 transition-colors cursor-pointer premium-contact-link"
+                    >
+                      ksampreeth12@gmail.com
+                    </button>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
+            <Card className="premium-contact-card bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <Phone className="w-6 h-6 text-blue-400 laser-icon-glow" />
+                  <div className="bg-blue-500/10 p-3 rounded-lg premium-icon-container">
+                    <Phone className="w-6 h-6 text-blue-400 premium-animated-icon" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Phone</h3>
-                    <p className="text-gray-300">+91 9591491861</p>
+                    <h3 className="font-semibold text-white premium-contact-title">Phone</h3>
+                    <button 
+                      onClick={handlePhoneClick}
+                      className="text-yellow-400 hover:text-yellow-300 transition-colors cursor-pointer premium-contact-link"
+                    >
+                      +91 9591491861
+                    </button>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
+            <Card className="premium-contact-card bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-blue-500/10 p-3 rounded-lg">
-                    <MapPin className="w-6 h-6 text-blue-400 laser-icon-glow" />
+                  <div className="bg-blue-500/10 p-3 rounded-lg premium-icon-container">
+                    <MapPin className="w-6 h-6 text-blue-400 premium-animated-icon" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Location</h3>
-                    <p className="text-gray-300">Bengaluru, Karnataka, India</p>
+                    <h3 className="font-semibold text-white premium-contact-title">Location</h3>
+                    <button 
+                      onClick={handleLocationClick}
+                      className="text-yellow-400 hover:text-yellow-300 transition-colors cursor-pointer premium-contact-link"
+                    >
+                      Bengaluru, Karnataka, India
+                    </button>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Contact Form */}
-          <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
+          <Card className="premium-form-card bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -184,7 +209,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
+                      className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
                     />
                   </div>
                   <div>
@@ -195,7 +220,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
+                      className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
                     />
                   </div>
                 </div>
@@ -206,7 +231,7 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
+                  className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
                 />
                 
                 <Textarea
@@ -216,19 +241,19 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="bg-slate-800 border-gray-600 focus:border-blue-500 text-white resize-none"
+                  className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white resize-none"
                 />
                 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-send-button w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 transition-all duration-500 hover:shadow-lg hover:shadow-emerald-500/25 border-2 border-emerald-400/50 hover:scale-105"
+                  className="premium-3d-button premium-send-button w-full py-4 text-lg font-bold"
                 >
                   {isSubmitting ? (
                     "Sending..."
                   ) : (
                     <>
-                      <Send className="w-4 h-4 mr-2" />
+                      <Send className="w-5 h-5 mr-2" />
                       Send Message
                     </>
                   )}
