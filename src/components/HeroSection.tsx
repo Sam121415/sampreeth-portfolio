@@ -86,27 +86,20 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
-        {/* Realistic 3D Planets */}
+        {/* Simple 3D Planets */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Large 3D Earth */}
           <div className="absolute top-1/4 right-1/4 w-24 h-24 realistic-earth-3d"></div>
-          
-          {/* Glowing Sun */}
           <div className="absolute top-1/3 left-1/4 w-20 h-20 realistic-sun-3d"></div>
-          
-          {/* Saturn with rings */}
           <div className="absolute bottom-1/3 right-1/3 w-16 h-16 realistic-saturn-3d"></div>
-          
-          {/* Mars */}
           <div className="absolute top-1/2 left-1/6 w-12 h-12 realistic-mars-3d"></div>
         </div>
         
-        {/* Enhanced Glowing Stars */}
+        {/* Simple Glowing Stars */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/90 via-white/70 to-transparent rounded-full glowing-star-premium"
+              className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/80 via-white/60 to-transparent rounded-full glowing-star-premium"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
@@ -141,21 +134,21 @@ const HeroSection = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 text-white">
             <button 
               onClick={handleLocationClick}
-              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20 premium-contact-link"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 premium-contact-link"
             >
               <MapPin className="w-4 h-4 text-blue-400" />
               <span>Bengaluru, Karnataka, India</span>
             </button>
             <button 
               onClick={handleEmailClick}
-              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20 text-yellow-400 glow-text premium-contact-link"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 text-yellow-400 glow-text premium-contact-link"
             >
               <Mail className="w-4 h-4 text-blue-400" />
               <span>ksampreeth12@gmail.com</span>
             </button>
             <button 
               onClick={handlePhoneClick}
-              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20 premium-contact-link"
+              className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 premium-contact-link"
             >
               <Phone className="w-4 h-4 text-blue-400" />
               <span>+91 9591491861</span>

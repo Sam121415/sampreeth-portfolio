@@ -15,7 +15,6 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSunFX, setShowSunFX] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -38,9 +37,6 @@ const ContactSection = () => {
       });
 
       if (response.ok) {
-        setShowSunFX(true);
-        setTimeout(() => setShowSunFX(false), 4000);
-        
         toast({
           title: "Message sent successfully!",
           description: "Thank you for reaching out. I'll get back to you soon.",
@@ -85,12 +81,12 @@ const ContactSection = () => {
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
-      {/* Enhanced Glowing Stars */}
+      {/* Simple Glowing Stars */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(25)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/90 via-white/70 to-transparent rounded-full glowing-star-premium"
+            className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/80 via-white/60 to-transparent rounded-full glowing-star-premium"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -101,39 +97,13 @@ const ContactSection = () => {
         ))}
       </div>
       
-      {/* Premium 3D Planets */}
+      {/* Simple 3D Planets */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-12 h-12 realistic-earth-3d mobile-planet-enhanced" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-40 right-20 w-10 h-10 realistic-mars-3d mobile-planet-enhanced" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-32 left-1/4 w-18 h-18 realistic-sun-3d mobile-planet-enhanced" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-8 h-8 realistic-saturn-3d mobile-planet-enhanced" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-1/2 right-10 w-20 h-20 realistic-sun-3d mobile-planet-enhanced" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-20 left-10 w-12 h-12 realistic-earth-3d" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-40 right-20 w-10 h-10 realistic-mars-3d" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-1/4 w-18 h-18 realistic-sun-3d" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-8 h-8 realistic-saturn-3d" style={{animationDelay: '0.5s'}}></div>
       </div>
-      
-      {/* Enhanced Sun FX */}
-      {showSunFX && (
-        <div className="absolute inset-0 pointer-events-none z-30">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-48 h-48 realistic-sun-fx animate-pulse opacity-90"></div>
-            <div className="absolute inset-0 w-72 h-72 realistic-sun-fx-outer animate-pulse"></div>
-            <div className="absolute inset-0 premium-sunrays-enhanced">
-              {[...Array(16)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-32 bg-gradient-to-t from-yellow-400/80 via-orange-400/60 to-transparent opacity-80 premium-sunray-glow"
-                  style={{
-                    transform: `rotate(${i * 22.5}deg)`,
-                    transformOrigin: 'bottom center',
-                    top: '-16px',
-                    left: '50%',
-                    marginLeft: '-4px'
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text premium-section-title">Get In Touch</h2>
