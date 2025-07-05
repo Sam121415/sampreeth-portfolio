@@ -77,41 +77,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden premium-section">
+    <section id="contact" className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
-      
-      {/* Modern Floating Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-3 h-3 bg-gradient-to-br from-blue-400/50 to-purple-500/30 rounded-full modern-floating-orb"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
-      
-      {/* Simple Glowing Stars */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/80 via-white/60 to-transparent rounded-full glowing-star-premium"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl font-bold text-center mb-12 glow-text premium-section-title">Get In Touch</h2>
@@ -225,7 +193,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="modern-button modern-button-send w-full py-4 text-lg font-bold"
+                  className="premium-unified-button w-full py-4 text-lg font-bold"
                 >
                   {isSubmitting ? (
                     "Sending..."

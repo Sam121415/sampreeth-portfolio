@@ -85,40 +85,27 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
-        {/* Modern Floating Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-4 h-4 bg-gradient-to-br from-blue-400/60 to-purple-500/40 rounded-full modern-floating-orb"
-              style={{
-                top: `${20 + Math.random() * 60}%`,
-                left: `${10 + Math.random() * 80}%`,
-                animationDelay: `${Math.random() * 4}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
-        
-        {/* Simple Glowing Stars */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-gradient-radial from-yellow-400/80 via-white/60 to-transparent rounded-full glowing-star-premium"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 2}s`
-              }}
-            />
-          ))}
+        {/* Miniature Solar System */}
+        <div className="absolute top-20 right-10 pointer-events-none z-10">
+          <div className="relative w-32 h-32 mini-solar-system">
+            {/* Central Sun */}
+            <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-yellow-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 mini-sun"></div>
+            
+            {/* Orbiting Planets */}
+            <div className="absolute inset-0 mini-orbit-1">
+              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mini-planet"></div>
+            </div>
+            <div className="absolute inset-0 mini-orbit-2">
+              <div className="w-1 h-1 bg-red-400 rounded-full mini-planet"></div>
+            </div>
+            <div className="absolute inset-0 mini-orbit-3">
+              <div className="w-2 h-2 bg-orange-400 rounded-full mini-planet"></div>
+            </div>
+          </div>
         </div>
         
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
-          <div className="mb-8 flex justify-center">
+          <div className="mb-12 flex justify-center">
             <div className="relative group">
               <img 
                 src="/lovable-uploads/da12429c-9415-4737-9e61-48de56241cbc.png" 
@@ -129,16 +116,16 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className={`text-5xl md:text-7xl font-bold mb-6 cursor-default min-h-[80px] md:min-h-[100px] text-white premium-title-font ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] text-white premium-title-font ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
             {animatedText}
             {!nameAnimationComplete && <span className="animate-pulse">|</span>}
           </h1>
           
-          <h2 className={`text-xl md:text-2xl font-medium mb-4 transition-all duration-300 cursor-default text-white premium-subtitle-font ${titleAnimationComplete ? 'title-glow-complete' : ''}`}>
+          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default text-white premium-subtitle-font ${titleAnimationComplete ? 'title-glow-complete' : ''}`}>
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 text-white">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-10 text-white">
             <button 
               onClick={handleLocationClick}
               className="flex items-center gap-2 transition-all duration-300 cursor-pointer hover:text-yellow-400 premium-contact-link"
@@ -162,18 +149,18 @@ const HeroSection = () => {
             </button>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               onClick={handleDownloadResume}
               disabled={downloadStatus === 'downloading'}
-              className="modern-button modern-button-primary px-8 py-4 text-lg font-bold"
+              className="premium-unified-button px-8 py-4 text-lg font-bold"
             >
               <Download className="w-5 h-5 mr-2" />
               {downloadStatus === 'success' ? 'Downloaded ✓' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
             </Button>
             <Button 
               onClick={handleLinkedInConnect}
-              className="modern-button modern-button-secondary px-8 py-4 text-lg font-bold"
+              className="premium-unified-button px-8 py-4 text-lg font-bold"
             >
               <Linkedin className="w-5 h-5 mr-2" />
               Connect LinkedIn
