@@ -81,6 +81,22 @@ const ContactSection = () => {
       <div className="absolute inset-0 dark-space-bg"></div>
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
+      {/* Modern Floating Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-3 h-3 bg-gradient-to-br from-blue-400/50 to-purple-500/30 rounded-full modern-floating-orb"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${3 + Math.random() * 2}s`
+            }}
+          />
+        ))}
+      </div>
+      
       {/* Simple Glowing Stars */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -95,14 +111,6 @@ const ContactSection = () => {
             }}
           />
         ))}
-      </div>
-      
-      {/* Simple 3D Planets */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-12 h-12 realistic-earth-3d" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-40 right-20 w-10 h-10 realistic-mars-3d" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-32 left-1/4 w-18 h-18 realistic-sun-3d" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-8 h-8 realistic-saturn-3d" style={{animationDelay: '0.5s'}}></div>
       </div>
       
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -217,7 +225,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-3d-button premium-send-button w-full py-4 text-lg font-bold"
+                  className="modern-button modern-button-send w-full py-4 text-lg font-bold"
                 >
                   {isSubmitting ? (
                     "Sending..."

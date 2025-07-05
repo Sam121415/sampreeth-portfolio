@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Linkedin, Mail, Phone, MapPin, X } from 'lucide-react';
@@ -86,12 +85,20 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
-        {/* Simple 3D Planets */}
+        {/* Modern Floating Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-24 h-24 realistic-earth-3d"></div>
-          <div className="absolute top-1/3 left-1/4 w-20 h-20 realistic-sun-3d"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-16 h-16 realistic-saturn-3d"></div>
-          <div className="absolute top-1/2 left-1/6 w-12 h-12 realistic-mars-3d"></div>
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-4 h-4 bg-gradient-to-br from-blue-400/60 to-purple-500/40 rounded-full modern-floating-orb"
+              style={{
+                top: `${20 + Math.random() * 60}%`,
+                left: `${10 + Math.random() * 80}%`,
+                animationDelay: `${Math.random() * 4}s`,
+                animationDuration: `${3 + Math.random() * 2}s`
+              }}
+            />
+          ))}
         </div>
         
         {/* Simple Glowing Stars */}
@@ -159,14 +166,14 @@ const HeroSection = () => {
             <Button 
               onClick={handleDownloadResume}
               disabled={downloadStatus === 'downloading'}
-              className="premium-3d-button premium-gold-button px-8 py-4 text-lg font-bold"
+              className="modern-button modern-button-primary px-8 py-4 text-lg font-bold"
             >
               <Download className="w-5 h-5 mr-2" />
               {downloadStatus === 'success' ? 'Downloaded ✓' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
             </Button>
             <Button 
               onClick={handleLinkedInConnect}
-              className="premium-3d-button premium-pink-button px-8 py-4 text-lg font-bold"
+              className="modern-button modern-button-secondary px-8 py-4 text-lg font-bold"
             >
               <Linkedin className="w-5 h-5 mr-2" />
               Connect LinkedIn
