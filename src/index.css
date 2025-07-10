@@ -1,7 +1,8 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -43,7 +44,7 @@
 
   body {
     @apply bg-slate-950 text-foreground;
-    font-family: 'Inter', 'Poppins', sans-serif;
+    font-family: 'Poppins', 'Inter', sans-serif;
   }
 
   html {
@@ -54,308 +55,175 @@
 @layer components {
   /* Premium Typography */
   .premium-title-font {
-    font-family: 'Inter', 'Outfit', sans-serif;
+    font-family: 'Montserrat', 'Poppins', sans-serif;
     font-weight: 800;
     letter-spacing: -0.02em;
   }
 
   .premium-subtitle-font {
-    font-family: 'Inter', 'Poppins', sans-serif;
-    font-weight: 500;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 600;
     letter-spacing: -0.01em;
   }
 
   .premium-logo-font {
-    font-family: 'Outfit', 'Inter', sans-serif;
+    font-family: 'Montserrat', 'Inter', sans-serif;
     font-weight: 700;
     letter-spacing: -0.01em;
   }
 
-  /* Premium Name Styling */
-  .premium-name-glow {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+  /* Enhanced Name Styling - Brighter and More Elegant */
+  .premium-name-enhanced {
+    font-family: 'Montserrat', 'Poppins', sans-serif;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 30%, #ffc107 70%, #ffd700 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    text-shadow: 0 0 40px rgba(255, 215, 0, 0.9);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7));
+    letter-spacing: -0.02em;
   }
 
-  .premium-subtitle-glow {
-    color: #e2e8f0;
-    text-shadow: 0 0 15px rgba(226, 232, 240, 0.5);
+  /* Enhanced Subtitle Styling */
+  .premium-subtitle-enhanced {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
   }
 
-  /* Premium Section Titles */
-  .premium-section-title-glow {
+  /* Unified Section Title Styling for ALL Sections */
+  .premium-section-title-unified {
     background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
     position: relative;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8));
+    font-family: 'Montserrat', 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 
-  .premium-section-title-glow::after {
+  .premium-section-title-unified::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
+    width: 100px;
+    height: 3px;
     background: linear-gradient(90deg, transparent, #ffd700, transparent);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
   }
 
-  /* Premium Hero Buttons */
-  .premium-hero-button {
+  /* Unified Premium Button Styling */
+  .premium-unified-button {
     position: relative;
-    border-radius: 16px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     text-transform: none;
     letter-spacing: 0.025em;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     backdrop-filter: blur(20px);
     border: 2px solid transparent;
     overflow: hidden;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ffd700 100%);
-    color: white;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+    color: #ffd700;
     box-shadow: 
-      0 10px 40px rgba(102, 126, 234, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      0 0 30px rgba(255, 215, 0, 0.3);
-    font-size: 1rem;
-    font-weight: 600;
+      0 0 20px rgba(255, 215, 0, 0.3),
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.3);
   }
 
-  .premium-hero-button::before {
+  .premium-unified-button::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
     transition: left 0.6s ease;
   }
 
-  .premium-hero-button:hover::before {
+  .premium-unified-button:hover::before {
     left: 100%;
   }
 
-  .premium-hero-button:hover {
-    transform: translateY(-3px) scale(1.05);
+  .premium-unified-button:hover {
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 
-      0 20px 50px rgba(102, 126, 234, 0.6),
-      0 0 50px rgba(255, 215, 0, 0.7),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    background: linear-gradient(135deg, #7c91f5 0%, #8a5fb8 50%, #ffed4e 100%);
+      0 0 30px rgba(255, 215, 0, 0.6),
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 215, 0, 0.6);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+    color: #ffffff;
   }
 
-  .premium-hero-button:active {
-    transform: translateY(-1px) scale(1.02);
+  .premium-unified-button:active {
+    transform: translateY(-1px) scale(1.01);
   }
 
-  .premium-hero-button:disabled {
+  .premium-unified-button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
   }
 
-  /* Enhanced Solar System */
-  .enhanced-solar-system {
-    opacity: 0.9;
+  /* Enhanced Solar System - More Visible and Colorful */
+  .enhanced-solar-system-bold {
+    opacity: 1;
   }
 
-  .enhanced-sun {
+  .enhanced-sun-bold {
     box-shadow: 
-      0 0 25px rgba(255, 215, 0, 1),
-      0 0 40px rgba(255, 165, 0, 0.8),
-      0 0 60px rgba(255, 140, 0, 0.6);
-    animation: enhanced-sun-glow 4s ease-in-out infinite;
+      0 0 30px rgba(255, 215, 0, 1),
+      0 0 50px rgba(255, 165, 0, 0.9),
+      0 0 70px rgba(255, 140, 0, 0.7);
+    animation: enhanced-sun-glow-bold 3s ease-in-out infinite;
   }
 
-  .enhanced-orbit-1 {
-    border: 2px solid rgba(59, 130, 246, 0.4);
+  .enhanced-orbit-1-bold {
+    border: 2px solid rgba(59, 130, 246, 0.6);
     border-radius: 50%;
-    animation: enhanced-orbit-rotation 25s linear infinite;
+    animation: enhanced-orbit-rotation 20s linear infinite;
   }
 
-  .enhanced-orbit-2 {
-    border: 2px solid rgba(239, 68, 68, 0.4);
+  .enhanced-orbit-2-bold {
+    border: 2px solid rgba(239, 68, 68, 0.6);
     border-radius: 50%;
-    animation: enhanced-orbit-rotation 35s linear infinite reverse;
+    animation: enhanced-orbit-rotation 30s linear infinite reverse;
   }
 
-  .enhanced-orbit-3 {
-    border: 2px solid rgba(34, 197, 94, 0.4);
+  .enhanced-orbit-3-bold {
+    border: 2px solid rgba(34, 197, 94, 0.6);
     border-radius: 50%;
-    animation: enhanced-orbit-rotation 45s linear infinite;
+    animation: enhanced-orbit-rotation 40s linear infinite;
   }
 
-  .enhanced-planet {
+  .enhanced-orbit-4-bold {
+    border: 2px solid rgba(147, 51, 234, 0.6);
+    border-radius: 50%;
+    animation: enhanced-orbit-rotation 50s linear infinite reverse;
+  }
+
+  .enhanced-planet-bold {
     position: absolute;
-    top: -2px;
+    top: -3px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    animation: enhanced-planet-glow 3s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    animation: enhanced-planet-glow-bold 2s ease-in-out infinite;
   }
 
-  /* Miniature Solar System */
-  .mini-solar-system {
-    opacity: 0.7;
-  }
-
-  .mini-sun {
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-    animation: mini-sun-glow 3s ease-in-out infinite;
-  }
-
-  .mini-orbit-1 {
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    border-radius: 50%;
-    animation: mini-orbit-rotation 20s linear infinite;
-  }
-
-  .mini-orbit-2 {
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    border-radius: 50%;
-    animation: mini-orbit-rotation 30s linear infinite reverse;
-  }
-
-  .mini-orbit-3 {
-    border: 1px solid rgba(249, 115, 22, 0.3);
-    border-radius: 50%;
-    animation: mini-orbit-rotation 40s linear infinite;
-  }
-
-  .mini-planet {
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* Premium Navigation */
-  .premium-nav-link {
-    font-family: 'Inter', 'Outfit', sans-serif;
-    position: relative;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    font-weight: 600;
-    letter-spacing: 0.025em;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .premium-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #ffd700, #ffaa00);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-  }
-
-  .premium-nav-link:hover::after {
-    width: 100%;
-  }
-
-  .premium-active-nav::after {
-    width: 100%;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-  }
-
-  .premium-nav-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-    animation: premium-nav-pulse 2s ease-in-out infinite;
-  }
-
-  /* Premium Cards */
-  .premium-project-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 16px;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-  }
-
-  .premium-project-card:hover {
-    transform: translateY(-8px) scale(1.02) rotateX(2deg);
-    box-shadow: 
-      0 20px 50px rgba(59, 130, 246, 0.3),
-      0 0 30px rgba(255, 215, 0, 0.15);
-    border-color: rgba(59, 130, 246, 0.6);
-  }
-
-  .premium-contact-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 12px;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(15px);
-  }
-
-  .premium-contact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 
-      0 15px 35px rgba(59, 130, 246, 0.2),
-      0 0 20px rgba(255, 215, 0, 0.1);
-  }
-
-  .premium-form-card {
-    border-radius: 16px;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(20px);
-  }
-
-  /* Premium Icons */
-  .premium-animated-icon {
-    animation: premium-icon-glow 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
-  }
-
-  .premium-icon-container {
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-  }
-
-  /* Premium Contact Links */
-  .premium-contact-link {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-weight: 500;
-  }
-
-  .premium-contact-link:hover {
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-    transform: scale(1.05);
-  }
-
-  /* Premium Inputs */
-  .premium-input {
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Inter', sans-serif;
-  }
-
-  .premium-input:focus {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    transform: scale(1.01);
-  }
-
-  /* Keep existing code for other styles */
+  /* Keep existing styles for other components */
   .dark-space-bg {
     background: 
       radial-gradient(ellipse at top, rgba(15, 23, 42, 0.8) 0%, transparent 50%),
@@ -391,7 +259,61 @@
     @apply py-20 px-4 lg:px-8;
   }
 
-  /* Keep existing animations and add new premium ones */
+  /* Keep existing animations and add new enhanced ones */
+  .premium-contact-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+  }
+
+  .premium-contact-link:hover {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    transform: scale(1.05);
+  }
+
+  .premium-animated-icon {
+    animation: premium-icon-glow 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  }
+
+  .premium-icon-container {
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .premium-contact-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(15px);
+  }
+
+  .premium-contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 15px 35px rgba(59, 130, 246, 0.2),
+      0 0 20px rgba(255, 215, 0, 0.1);
+  }
+
+  .premium-form-card {
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+  }
+
+  .premium-input {
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .premium-input:focus {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    transform: scale(1.01);
+  }
+
+  /* Modal animations */
   .smooth-modal-entry {
     animation: premium-modal-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -407,53 +329,21 @@
   .smooth-close-button {
     animation: premium-button-bounce 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  /* Premium rocket styles */
-  .premium-rocket-launch {
-    animation: premium-rocket-fly 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-
-  .premium-rocket-icon {
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
-  }
-
-  .premium-rocket-trail {
-    transform: translateY(100%);
-    animation: premium-rocket-trail 1s ease-out;
-  }
-
-  .premium-rocket-streak {
-    animation: premium-rocket-streak 1s ease-out;
-  }
 }
 
-/* Animations */
-@keyframes mini-sun-glow {
-  0%, 100% { 
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-  }
-  50% { 
-    box-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 165, 0, 0.6);
-  }
-}
-
-@keyframes mini-orbit-rotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes enhanced-sun-glow {
+/* Enhanced Animations */
+@keyframes enhanced-sun-glow-bold {
   0%, 100% { 
     box-shadow: 
-      0 0 25px rgba(255, 215, 0, 1),
-      0 0 40px rgba(255, 165, 0, 0.8),
-      0 0 60px rgba(255, 140, 0, 0.6);
+      0 0 30px rgba(255, 215, 0, 1),
+      0 0 50px rgba(255, 165, 0, 0.9),
+      0 0 70px rgba(255, 140, 0, 0.7);
   }
   50% { 
     box-shadow: 
-      0 0 35px rgba(255, 215, 0, 1),
-      0 0 60px rgba(255, 165, 0, 1),
-      0 0 80px rgba(255, 140, 0, 0.8);
+      0 0 40px rgba(255, 215, 0, 1),
+      0 0 70px rgba(255, 165, 0, 1),
+      0 0 90px rgba(255, 140, 0, 0.9);
   }
 }
 
@@ -462,12 +352,12 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes enhanced-planet-glow {
+@keyframes enhanced-planet-glow-bold {
   0%, 100% { 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   }
   50% { 
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 1);
   }
 }
 
@@ -484,11 +374,6 @@
     transform: scale(1);
     filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
   }
-}
-
-@keyframes premium-nav-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.8; }
 }
 
 @keyframes premium-modal-fade-in {
@@ -510,21 +395,6 @@
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
-}
-
-@keyframes premium-rocket-fly {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-100vh) scale(0.5); }
-}
-
-@keyframes premium-rocket-trail {
-  0% { opacity: 1; transform: translateY(100%) scaleY(1); }
-  100% { opacity: 0; transform: translateY(-200%) scaleY(3); }
-}
-
-@keyframes premium-rocket-streak {
-  0% { opacity: 0.8; height: 20%; }
-  100% { opacity: 0; height: 100%; }
 }
 
 @keyframes enhanced-stars-fall-glow {
@@ -551,7 +421,7 @@
   }
 }
 
-/* Keep existing keyframes for name and title animations */
+/* Name and Title typing animations */
 .name-typing-glow {
   color: #ffd700;
   text-shadow: 

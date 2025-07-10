@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Linkedin, Mail, Phone, MapPin, X } from 'lucide-react';
@@ -86,21 +85,24 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
-        {/* Enhanced Solar System */}
+        {/* Enhanced Solar System - More Visible */}
         <div className="absolute top-20 right-10 pointer-events-none z-10">
-          <div className="relative w-40 h-40 enhanced-solar-system">
-            {/* Central Sun */}
-            <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 enhanced-sun shadow-lg"></div>
+          <div className="relative w-48 h-48 enhanced-solar-system-bold">
+            {/* Central Sun - Brighter */}
+            <div className="absolute top-1/2 left-1/2 w-6 h-6 bg-gradient-to-r from-yellow-300 to-orange-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 enhanced-sun-bold shadow-xl"></div>
             
-            {/* Orbiting Planets */}
-            <div className="absolute inset-0 enhanced-orbit-1">
-              <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full enhanced-planet shadow-md"></div>
+            {/* Orbiting Planets - More Colorful */}
+            <div className="absolute inset-0 enhanced-orbit-1-bold">
+              <div className="w-3 h-3 bg-gradient-to-r from-blue-300 to-cyan-200 rounded-full enhanced-planet-bold shadow-lg"></div>
             </div>
-            <div className="absolute inset-0 enhanced-orbit-2">
-              <div className="w-1.5 h-1.5 bg-gradient-to-r from-red-400 to-pink-400 rounded-full enhanced-planet shadow-md"></div>
+            <div className="absolute inset-0 enhanced-orbit-2-bold">
+              <div className="w-2.5 h-2.5 bg-gradient-to-r from-red-300 to-pink-300 rounded-full enhanced-planet-bold shadow-lg"></div>
             </div>
-            <div className="absolute inset-0 enhanced-orbit-3">
-              <div className="w-2.5 h-2.5 bg-gradient-to-r from-green-400 to-emerald-300 rounded-full enhanced-planet shadow-md"></div>
+            <div className="absolute inset-0 enhanced-orbit-3-bold">
+              <div className="w-3.5 h-3.5 bg-gradient-to-r from-green-300 to-emerald-200 rounded-full enhanced-planet-bold shadow-lg"></div>
+            </div>
+            <div className="absolute inset-0 enhanced-orbit-4-bold">
+              <div className="w-2 h-2 bg-gradient-to-r from-purple-300 to-indigo-300 rounded-full enhanced-planet-bold shadow-lg"></div>
             </div>
           </div>
         </div>
@@ -117,12 +119,12 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] text-white premium-name-glow premium-title-font ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] premium-name-enhanced ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
             {animatedText}
             {!nameAnimationComplete && <span className="animate-pulse">|</span>}
           </h1>
           
-          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default premium-subtitle-glow premium-subtitle-font ${titleAnimationComplete ? 'title-glow-complete' : ''}`}>
+          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default premium-subtitle-enhanced ${titleAnimationComplete ? 'title-glow-complete' : ''}`}>
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
@@ -154,14 +156,14 @@ const HeroSection = () => {
             <Button 
               onClick={handleDownloadResume}
               disabled={downloadStatus === 'downloading'}
-              className="premium-hero-button px-8 py-4 text-lg font-bold"
+              className="premium-unified-button px-8 py-4 text-lg font-semibold"
             >
               <Download className="w-5 h-5 mr-2" />
-              {downloadStatus === 'success' ? 'Downloaded ✓' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
+              {downloadStatus === 'success' ? 'Downloaded ✅' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
             </Button>
             <Button 
               onClick={handleLinkedInConnect}
-              className="premium-hero-button px-8 py-4 text-lg font-bold"
+              className="premium-unified-button px-8 py-4 text-lg font-semibold"
             >
               <Linkedin className="w-5 h-5 mr-2" />
               Connect LinkedIn

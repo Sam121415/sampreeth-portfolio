@@ -82,7 +82,7 @@ const ContactSection = () => {
       <div className="absolute inset-0 enhanced-falling-stars opacity-70"></div>
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 premium-section-title-glow premium-title-font">Get In Touch</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 premium-section-title-unified premium-title-font">Get In Touch</h2>
         
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
@@ -193,7 +193,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-hero-button w-full py-4 text-lg font-bold"
+                  className="premium-unified-button w-full py-4 text-lg font-semibold"
                 >
                   {isSubmitting ? (
                     "Sending..."
