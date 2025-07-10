@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -193,7 +192,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-unified-button w-full py-4 text-lg font-semibold"
+                  className="premium-button-refined w-full py-4 text-lg font-semibold"
                 >
                   {isSubmitting ? (
                     "Sending..."

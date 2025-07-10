@@ -85,24 +85,35 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
-        {/* Enhanced Solar System - More Visible */}
+        {/* Enhanced Solar System with Multiple Planets */}
         <div className="absolute top-20 right-10 pointer-events-none z-10">
-          <div className="relative w-48 h-48 enhanced-solar-system-bold">
+          <div className="relative w-64 h-64 enhanced-solar-system-premium">
             {/* Central Sun - Brighter */}
-            <div className="absolute top-1/2 left-1/2 w-6 h-6 bg-gradient-to-r from-yellow-300 to-orange-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 enhanced-sun-bold shadow-xl"></div>
+            <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-gradient-to-r from-yellow-300 via-orange-400 to-yellow-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 enhanced-sun-premium shadow-2xl"></div>
             
-            {/* Orbiting Planets - More Colorful */}
-            <div className="absolute inset-0 enhanced-orbit-1-bold">
-              <div className="w-3 h-3 bg-gradient-to-r from-blue-300 to-cyan-200 rounded-full enhanced-planet-bold shadow-lg"></div>
+            {/* Mercury Orbit - Closest */}
+            <div className="absolute inset-0 enhanced-orbit-mercury">
+              <div className="w-2 h-2 bg-gradient-to-r from-gray-400 to-gray-300 rounded-full enhanced-planet-premium shadow-lg"></div>
             </div>
-            <div className="absolute inset-0 enhanced-orbit-2-bold">
-              <div className="w-2.5 h-2.5 bg-gradient-to-r from-red-300 to-pink-300 rounded-full enhanced-planet-bold shadow-lg"></div>
+            
+            {/* Venus Orbit */}
+            <div className="absolute inset-0 enhanced-orbit-venus">
+              <div className="w-2.5 h-2.5 bg-gradient-to-r from-yellow-300 to-orange-200 rounded-full enhanced-planet-premium shadow-lg"></div>
             </div>
-            <div className="absolute inset-0 enhanced-orbit-3-bold">
-              <div className="w-3.5 h-3.5 bg-gradient-to-r from-green-300 to-emerald-200 rounded-full enhanced-planet-bold shadow-lg"></div>
+            
+            {/* Earth Orbit */}
+            <div className="absolute inset-0 enhanced-orbit-earth">
+              <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-green-300 rounded-full enhanced-planet-premium shadow-lg"></div>
             </div>
-            <div className="absolute inset-0 enhanced-orbit-4-bold">
-              <div className="w-2 h-2 bg-gradient-to-r from-purple-300 to-indigo-300 rounded-full enhanced-planet-bold shadow-lg"></div>
+            
+            {/* Mars Orbit */}
+            <div className="absolute inset-0 enhanced-orbit-mars">
+              <div className="w-2.5 h-2.5 bg-gradient-to-r from-red-400 to-orange-300 rounded-full enhanced-planet-premium shadow-lg"></div>
+            </div>
+            
+            {/* Jupiter Orbit - Largest */}
+            <div className="absolute inset-0 enhanced-orbit-jupiter">
+              <div className="w-4 h-4 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full enhanced-planet-premium shadow-lg"></div>
             </div>
           </div>
         </div>
@@ -119,12 +130,12 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] premium-name-enhanced ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] premium-name-refined ${nameAnimationComplete ? 'name-complete-refined' : 'name-typing-refined'}`}>
             {animatedText}
             {!nameAnimationComplete && <span className="animate-pulse">|</span>}
           </h1>
           
-          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default premium-subtitle-enhanced ${titleAnimationComplete ? 'title-glow-complete' : ''}`}>
+          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default premium-subtitle-refined ${titleAnimationComplete ? 'subtitle-complete-refined' : ''}`}>
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
@@ -156,14 +167,14 @@ const HeroSection = () => {
             <Button 
               onClick={handleDownloadResume}
               disabled={downloadStatus === 'downloading'}
-              className="premium-unified-button px-8 py-4 text-lg font-semibold"
+              className="premium-button-refined px-8 py-4 text-lg font-semibold"
             >
               <Download className="w-5 h-5 mr-2" />
-              {downloadStatus === 'success' ? 'Downloaded ✅' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
+              {downloadStatus === 'success' ? 'Downloaded' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
             </Button>
             <Button 
               onClick={handleLinkedInConnect}
-              className="premium-unified-button px-8 py-4 text-lg font-semibold"
+              className="premium-button-refined px-8 py-4 text-lg font-semibold"
             >
               <Linkedin className="w-5 h-5 mr-2" />
               Connect LinkedIn

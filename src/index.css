@@ -72,26 +72,33 @@
     letter-spacing: -0.01em;
   }
 
-  /* Enhanced Name Styling - Brighter and More Elegant */
-  .premium-name-enhanced {
+  /* Refined Name Styling - Clean and Premium */
+  .premium-name-refined {
     font-family: 'Montserrat', 'Poppins', sans-serif;
     font-weight: 800;
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 30%, #ffc107 70%, #ffd700 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 40px rgba(255, 215, 0, 0.9);
-    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7));
+    color: #f59e0b;
     letter-spacing: -0.02em;
+    filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3));
   }
 
-  /* Enhanced Subtitle Styling */
-  .premium-subtitle-enhanced {
+  .name-typing-refined {
+    color: #f59e0b;
+  }
+
+  .name-complete-refined {
+    color: #f59e0b;
+  }
+
+  /* Refined Subtitle Styling */
+  .premium-subtitle-refined {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    color: #ffd700;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+    color: #fbbf24;
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle-complete-refined {
+    color: #fbbf24;
   }
 
   /* Unified Section Title Styling for ALL Sections */
@@ -120,107 +127,128 @@
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
   }
 
-  /* Unified Premium Button Styling */
-  .premium-unified-button {
+  /* Refined Premium Button Styling */
+  .premium-button-refined {
     position: relative;
     border-radius: 12px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', 'Poppins', sans-serif;
     font-weight: 600;
     text-transform: none;
     letter-spacing: 0.025em;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     backdrop-filter: blur(20px);
     border: 2px solid transparent;
     overflow: hidden;
     background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-    color: #ffd700;
+    color: #fbbf24;
     box-shadow: 
-      0 0 20px rgba(255, 215, 0, 0.3),
+      0 0 20px rgba(251, 191, 36, 0.3),
       0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 215, 0, 0.3);
+    border: 2px solid rgba(251, 191, 36, 0.3);
   }
 
-  .premium-unified-button::before {
+  .premium-button-refined::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent);
     transition: left 0.6s ease;
   }
 
-  .premium-unified-button:hover::before {
+  .premium-button-refined:hover::before {
     left: 100%;
   }
 
-  .premium-unified-button:hover {
+  .premium-button-refined:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 
-      0 0 30px rgba(255, 215, 0, 0.6),
+      0 0 30px rgba(251, 191, 36, 0.6),
       0 12px 40px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 215, 0, 0.6);
+    border-color: rgba(251, 191, 36, 0.6);
     background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
     color: #ffffff;
   }
 
-  .premium-unified-button:active {
+  .premium-button-refined:active {
     transform: translateY(-1px) scale(1.01);
   }
 
-  .premium-unified-button:disabled {
+  .premium-button-refined:disabled {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
   }
 
-  /* Enhanced Solar System - More Visible and Colorful */
-  .enhanced-solar-system-bold {
+  /* Enhanced Solar System - Premium Multiple Planets */
+  .enhanced-solar-system-premium {
     opacity: 1;
   }
 
-  .enhanced-sun-bold {
+  .enhanced-sun-premium {
     box-shadow: 
-      0 0 30px rgba(255, 215, 0, 1),
-      0 0 50px rgba(255, 165, 0, 0.9),
-      0 0 70px rgba(255, 140, 0, 0.7);
-    animation: enhanced-sun-glow-bold 3s ease-in-out infinite;
+      0 0 40px rgba(255, 215, 0, 1),
+      0 0 60px rgba(255, 165, 0, 0.9),
+      0 0 80px rgba(255, 140, 0, 0.7);
+    animation: enhanced-sun-glow-premium 3s ease-in-out infinite;
   }
 
-  .enhanced-orbit-1-bold {
-    border: 2px solid rgba(59, 130, 246, 0.6);
+  /* Mercury Orbit - 60px radius */
+  .enhanced-orbit-mercury {
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(156, 163, 175, 0.4);
     border-radius: 50%;
-    animation: enhanced-orbit-rotation 20s linear infinite;
+    animation: enhanced-planet-orbit 15s linear infinite;
   }
 
-  .enhanced-orbit-2-bold {
-    border: 2px solid rgba(239, 68, 68, 0.6);
+  /* Venus Orbit - 80px radius */
+  .enhanced-orbit-venus {
+    width: 160px;
+    height: 160px;
+    border: 2px solid rgba(255, 193, 7, 0.4);
     border-radius: 50%;
-    animation: enhanced-orbit-rotation 30s linear infinite reverse;
+    animation: enhanced-planet-orbit 20s linear infinite reverse;
   }
 
-  .enhanced-orbit-3-bold {
-    border: 2px solid rgba(34, 197, 94, 0.6);
+  /* Earth Orbit - 100px radius */
+  .enhanced-orbit-earth {
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(59, 130, 246, 0.4);
     border-radius: 50%;
-    animation: enhanced-orbit-rotation 40s linear infinite;
+    animation: enhanced-planet-orbit 25s linear infinite;
   }
 
-  .enhanced-orbit-4-bold {
-    border: 2px solid rgba(147, 51, 234, 0.6);
+  /* Mars Orbit - 120px radius */
+  .enhanced-orbit-mars {
+    width: 240px;
+    height: 240px;
+    border: 2px solid rgba(239, 68, 68, 0.4);
     border-radius: 50%;
-    animation: enhanced-orbit-rotation 50s linear infinite reverse;
+    animation: enhanced-planet-orbit 30s linear infinite reverse;
   }
 
-  .enhanced-planet-bold {
+  /* Jupiter Orbit - 140px radius */
+  .enhanced-orbit-jupiter {
+    width: 280px;
+    height: 280px;
+    border: 2px solid rgba(251, 146, 60, 0.4);
+    border-radius: 50%;
+    animation: enhanced-planet-orbit 35s linear infinite;
+  }
+
+  .enhanced-planet-premium {
     position: absolute;
     top: -3px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    animation: enhanced-planet-glow-bold 2s ease-in-out infinite;
+    animation: enhanced-planet-glow-premium 2s ease-in-out infinite;
   }
 
   /* Keep existing styles for other components */
@@ -259,7 +287,7 @@
     @apply py-20 px-4 lg:px-8;
   }
 
-  /* Keep existing animations and add new enhanced ones */
+  /* Keep existing styles for contact and other components */
   .premium-contact-link {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 500;
@@ -332,27 +360,27 @@
 }
 
 /* Enhanced Animations */
-@keyframes enhanced-sun-glow-bold {
+@keyframes enhanced-sun-glow-premium {
   0%, 100% { 
     box-shadow: 
-      0 0 30px rgba(255, 215, 0, 1),
-      0 0 50px rgba(255, 165, 0, 0.9),
-      0 0 70px rgba(255, 140, 0, 0.7);
+      0 0 40px rgba(255, 215, 0, 1),
+      0 0 60px rgba(255, 165, 0, 0.9),
+      0 0 80px rgba(255, 140, 0, 0.7);
   }
   50% { 
     box-shadow: 
-      0 0 40px rgba(255, 215, 0, 1),
-      0 0 70px rgba(255, 165, 0, 1),
-      0 0 90px rgba(255, 140, 0, 0.9);
+      0 0 50px rgba(255, 215, 0, 1),
+      0 0 80px rgba(255, 165, 0, 1),
+      0 0 100px rgba(255, 140, 0, 0.9);
   }
 }
 
-@keyframes enhanced-orbit-rotation {
+@keyframes enhanced-planet-orbit {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-@keyframes enhanced-planet-glow-bold {
+@keyframes enhanced-planet-glow-premium {
   0%, 100% { 
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   }
@@ -418,88 +446,5 @@
   100% { 
     transform: translateY(100vh) translateX(50px) scale(0.3); 
     opacity: 0;
-  }
-}
-
-/* Name and Title typing animations */
-.name-typing-glow {
-  color: #ffd700;
-  text-shadow: 
-    0 0 10px rgba(255, 215, 0, 0.8),
-    0 0 20px rgba(255, 215, 0, 0.6),
-    0 0 30px rgba(255, 215, 0, 0.4);
-  font-weight: 600;
-  background: linear-gradient(90deg, 
-    rgba(255, 215, 0, 0.3) 0%, 
-    rgba(255, 215, 0, 1) 50%, 
-    rgba(255, 215, 0, 0.3) 100%);
-  background-size: 200% 100%;
-  animation: name-inner-glow 2s ease-in-out;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.name-glow-complete {
-  color: #ffd700;
-  text-shadow: 
-    0 0 15px rgba(255, 215, 0, 0.9),
-    0 0 30px rgba(255, 215, 0, 0.7),
-    0 0 45px rgba(255, 215, 0, 0.5);
-  font-weight: 600;
-}
-
-.title-glow-complete {
-  color: #ffd700;
-  text-shadow: 
-    0 0 10px rgba(255, 215, 0, 0.8),
-    0 0 20px rgba(255, 215, 0, 0.6);
-  font-weight: 500;
-  background: linear-gradient(90deg, 
-    rgba(255, 215, 0, 0.3) 0%, 
-    rgba(255, 215, 0, 1) 50%, 
-    rgba(255, 215, 0, 0.3) 100%);
-  background-size: 200% 100%;
-  animation: title-inner-glow 1.5s ease-in-out;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-@keyframes name-inner-glow {
-  0% { 
-    background-position: -200% 0;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-  }
-  50% { 
-    background-position: 0% 0;
-    text-shadow: 
-      0 0 15px rgba(255, 215, 0, 1),
-      0 0 30px rgba(255, 215, 0, 0.8),
-      0 0 45px rgba(255, 215, 0, 0.6);
-  }
-  100% { 
-    background-position: 200% 0;
-    text-shadow: 
-      0 0 15px rgba(255, 215, 0, 0.9),
-      0 0 30px rgba(255, 215, 0, 0.7),
-      0 0 45px rgba(255, 215, 0, 0.5);
-  }
-}
-
-@keyframes title-inner-glow {
-  0% { 
-    background-position: -200% 0;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
-  }
-  50% { 
-    background-position: 0% 0;
-    text-shadow: 
-      0 0 12px rgba(255, 215, 0, 0.9),
-      0 0 24px rgba(255, 215, 0, 0.7);
-  }
-  100% { 
-    background-position: 200% 0;
-    text-shadow: 
-      0 0 10px rgba(255, 215, 0, 0.8),
-      0 0 20px rgba(255, 215, 0, 0.6);
   }
 }
