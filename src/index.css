@@ -72,13 +72,13 @@
     letter-spacing: -0.01em;
   }
 
-  /* Clean Name Styling - No Heavy Glow */
+  /* Clean Name Styling */
   .premium-name-clean {
     font-family: 'Montserrat', 'Poppins', sans-serif;
     font-weight: 800;
     color: #fbbf24;
     letter-spacing: -0.02em;
-    filter: drop-shadow(0 1px 3px rgba(251, 191, 36, 0.4));
+    text-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
   }
 
   .name-typing-clean {
@@ -95,13 +95,14 @@
     font-weight: 600;
     color: #fcd34d;
     letter-spacing: -0.01em;
+    text-shadow: 0 1px 4px rgba(252, 211, 77, 0.2);
   }
 
   .subtitle-complete-clean {
     color: #fcd34d;
   }
 
-  /* Unified Section Title Styling for ALL Sections */
+  /* Unified Section Title Styling */
   .premium-section-title-unified {
     background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
     -webkit-background-clip: text;
@@ -127,7 +128,7 @@
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
   }
 
-  /* Compact Premium Button Styling */
+  /* Premium Button Compact */
   .premium-button-compact {
     position: relative;
     border-radius: 8px;
@@ -146,9 +147,9 @@
       0 6px 24px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 215, 0, 0.4);
-    padding: 10px 20px;
+    padding: 8px 16px;
     height: auto;
-    min-height: 42px;
+    min-height: 36px;
   }
 
   .premium-button-compact::before {
@@ -204,6 +205,33 @@
     animation: premium-text-shine 2s infinite;
   }
 
+  /* Navigation Styles */
+  .premium-nav-link {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .premium-nav-link:hover {
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+    transform: scale(1.05);
+  }
+
+  .premium-active-nav {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+  }
+
+  .premium-nav-glow {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    animation: premium-nav-pulse 2s ease-in-out infinite;
+  }
+
   /* Premium Rocket Launch Animation */
   .premium-rocket-launch-container {
     position: absolute;
@@ -215,21 +243,21 @@
 
   .premium-rocket-launch {
     position: relative;
-    animation: premium-rocket-fly 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: premium-rocket-fly 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
   .premium-rocket-icon {
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9));
     animation: premium-rocket-glow 0.5s ease-in-out infinite alternate;
   }
 
   .premium-rocket-trail {
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 8px;
-    height: 20px;
+    width: 10px;
+    height: 30px;
     background: linear-gradient(to bottom, 
       rgba(255, 165, 0, 0.9) 0%,
       rgba(255, 69, 0, 0.8) 50%,
@@ -238,22 +266,38 @@
     animation: premium-rocket-trail-flicker 0.2s ease-in-out infinite alternate;
   }
 
+  .premium-rocket-exhaust {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+      rgba(0, 191, 255, 0.8) 0%,
+      rgba(30, 144, 255, 0.6) 50%,
+      transparent 100%);
+    border-radius: 50%;
+    animation: premium-rocket-exhaust-glow 0.3s ease-in-out infinite alternate;
+  }
+
   .premium-rocket-streak {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 2px;
+    width: 3px;
     height: 100vh;
     background: linear-gradient(to top, 
-      rgba(255, 215, 0, 0.8) 0%,
-      rgba(255, 165, 0, 0.6) 30%,
+      rgba(255, 215, 0, 0.9) 0%,
+      rgba(255, 165, 0, 0.7) 30%,
+      rgba(0, 191, 255, 0.5) 60%,
       transparent 100%);
     opacity: 0;
-    animation: premium-rocket-streak-fade 1.8s ease-out forwards;
+    animation: premium-rocket-streak-fade 2.2s ease-out forwards;
   }
 
-  /* Enhanced Solar System - Premium Multiple Planets */
+  /* Solar System Animations */
   .enhanced-solar-system-premium {
     opacity: 1;
   }
@@ -264,56 +308,6 @@
       0 0 80px rgba(255, 165, 0, 0.9),
       0 0 100px rgba(255, 140, 0, 0.7);
     animation: enhanced-sun-glow-premium 3s ease-in-out infinite;
-  }
-
-  /* Enhanced Planet Orbits with Better Visibility */
-  .enhanced-orbit-mercury {
-    width: 140px;
-    height: 140px;
-    border: 2px solid rgba(156, 163, 175, 0.6);
-    border-radius: 50%;
-    animation: enhanced-planet-orbit 15s linear infinite;
-  }
-
-  .enhanced-orbit-venus {
-    width: 180px;
-    height: 180px;
-    border: 2px solid rgba(255, 193, 7, 0.6);
-    border-radius: 50%;
-    animation: enhanced-planet-orbit 20s linear infinite reverse;
-  }
-
-  .enhanced-orbit-earth {
-    width: 220px;
-    height: 220px;
-    border: 2px solid rgba(59, 130, 246, 0.6);
-    border-radius: 50%;
-    animation: enhanced-planet-orbit 25s linear infinite;
-  }
-
-  .enhanced-orbit-mars {
-    width: 260px;
-    height: 260px;
-    border: 2px solid rgba(239, 68, 68, 0.6);
-    border-radius: 50%;
-    animation: enhanced-planet-orbit 30s linear infinite reverse;
-  }
-
-  .enhanced-orbit-jupiter {
-    width: 300px;
-    height: 300px;
-    border: 2px solid rgba(251, 146, 60, 0.6);
-    border-radius: 50%;
-    animation: enhanced-planet-orbit 35s linear infinite;
-  }
-
-  .enhanced-planet-premium {
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-    animation: enhanced-planet-glow-premium 2s ease-in-out infinite;
   }
 
   /* Keep existing styles for other components */
@@ -352,7 +346,7 @@
     @apply py-20 px-4 lg:px-8;
   }
 
-  /* Keep existing styles for contact and other components */
+  /* Contact and other component styles remain the same */
   .premium-contact-link {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 500;
@@ -430,17 +424,32 @@
   100% { left: 100%; }
 }
 
+@keyframes premium-nav-pulse {
+  0%, 100% { 
+    opacity: 0.8;
+    transform: translateX(-50%) scaleX(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.2);
+  }
+}
+
 @keyframes premium-rocket-fly {
   0% { 
     transform: translateY(0) scale(1) rotate(0deg);
     opacity: 1;
   }
-  30% {
-    transform: translateY(-200px) scale(1.1) rotate(-5deg);
+  20% {
+    transform: translateY(-150px) scale(1.1) rotate(-2deg);
     opacity: 1;
   }
-  60% {
-    transform: translateY(-500px) scale(0.8) rotate(10deg);
+  40% {
+    transform: translateY(-300px) scale(1.0) rotate(2deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-600px) scale(0.8) rotate(-1deg);
     opacity: 0.8;
   }
   100% { 
@@ -451,21 +460,32 @@
 
 @keyframes premium-rocket-glow {
   0% { 
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9));
   }
   100% { 
-    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1)) drop-shadow(0 0 35px rgba(255, 165, 0, 0.8));
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1)) drop-shadow(0 0 40px rgba(255, 165, 0, 0.8));
   }
 }
 
 @keyframes premium-rocket-trail-flicker {
   0% { 
-    opacity: 0.7;
-    height: 20px;
+    opacity: 0.8;
+    height: 30px;
   }
   100% { 
     opacity: 1;
-    height: 30px;
+    height: 40px;
+  }
+}
+
+@keyframes premium-rocket-exhaust-glow {
+  0% { 
+    opacity: 0.6;
+    height: 40px;
+  }
+  100% { 
+    opacity: 1;
+    height: 50px;
   }
 }
 
@@ -474,7 +494,10 @@
     opacity: 0;
   }
   30% {
-    opacity: 0.8;
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.6;
   }
   100% { 
     opacity: 0;
@@ -493,20 +516,6 @@
       0 0 70px rgba(255, 215, 0, 1),
       0 0 100px rgba(255, 165, 0, 1),
       0 0 130px rgba(255, 140, 0, 0.9);
-  }
-}
-
-@keyframes enhanced-planet-orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes enhanced-planet-glow-premium {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-  }
-  50% { 
-    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
   }
 }
 
@@ -568,4 +577,14 @@
     transform: translateY(100vh) translateX(50px) scale(0.3); 
     opacity: 0;
   }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes saturn-ring {
+  0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
 }

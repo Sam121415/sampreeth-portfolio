@@ -67,9 +67,9 @@ const Header = () => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       setIsMobileMenuOpen(false);
-    }, 400);
+    }, 600);
 
-    setTimeout(() => setShowRocket(''), 1800);
+    setTimeout(() => setShowRocket(''), 2200);
   };
 
   return (
@@ -78,8 +78,9 @@ const Header = () => {
         <div className="fixed inset-0 pointer-events-none z-40">
           <div className="premium-rocket-launch-container">
             <div className="premium-rocket-launch">
-              <Rocket className="w-10 h-10 text-yellow-400 premium-rocket-icon" />
+              <Rocket className="w-12 h-12 text-yellow-400 premium-rocket-icon" />
               <div className="premium-rocket-trail"></div>
+              <div className="premium-rocket-exhaust"></div>
             </div>
           </div>
           <div className="premium-rocket-streak"></div>
@@ -105,10 +106,10 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`premium-nav-link text-sm font-semibold transition-all duration-300 hover:text-blue-400 relative ${
+                  className={`premium-nav-link text-sm font-semibold transition-all duration-300 relative ${
                     activeSection === item.id 
                       ? 'text-yellow-400 premium-active-nav' 
-                      : 'text-gray-300'
+                      : 'text-gray-300 hover:text-blue-400'
                   }`}
                 >
                   {item.label}
