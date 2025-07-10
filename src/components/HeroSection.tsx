@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Linkedin, Mail, Phone, MapPin, X } from 'lucide-react';
@@ -34,7 +35,7 @@ const HeroSection = () => {
     
     try {
       const link = document.createElement('a');
-      link.href = '/lovable-uploads/053a0eb3-f0c5-4d0c-8329-593cd9de7c76.png';
+      link.href = '/lovable-uploads/b5c4eaa6-ef01-4511-bf71-ab399e9fa8ae.png';
       link.download = 'Sampreeth_Kannavar_Resume.pdf';
       document.body.appendChild(link);
       link.click();
@@ -43,7 +44,7 @@ const HeroSection = () => {
       setDownloadStatus('success');
       setTimeout(() => {
         setDownloadStatus('idle');
-      }, 4000);
+      }, 3000);
     } catch (error) {
       console.error('Download failed:', error);
       setDownloadStatus('idle');
@@ -85,21 +86,21 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
-        {/* Miniature Solar System */}
+        {/* Enhanced Solar System */}
         <div className="absolute top-20 right-10 pointer-events-none z-10">
-          <div className="relative w-32 h-32 mini-solar-system">
+          <div className="relative w-40 h-40 enhanced-solar-system">
             {/* Central Sun */}
-            <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-yellow-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 mini-sun"></div>
+            <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 enhanced-sun shadow-lg"></div>
             
             {/* Orbiting Planets */}
-            <div className="absolute inset-0 mini-orbit-1">
-              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mini-planet"></div>
+            <div className="absolute inset-0 enhanced-orbit-1">
+              <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full enhanced-planet shadow-md"></div>
             </div>
-            <div className="absolute inset-0 mini-orbit-2">
-              <div className="w-1 h-1 bg-red-400 rounded-full mini-planet"></div>
+            <div className="absolute inset-0 enhanced-orbit-2">
+              <div className="w-1.5 h-1.5 bg-gradient-to-r from-red-400 to-pink-400 rounded-full enhanced-planet shadow-md"></div>
             </div>
-            <div className="absolute inset-0 mini-orbit-3">
-              <div className="w-2 h-2 bg-orange-400 rounded-full mini-planet"></div>
+            <div className="absolute inset-0 enhanced-orbit-3">
+              <div className="w-2.5 h-2.5 bg-gradient-to-r from-green-400 to-emerald-300 rounded-full enhanced-planet shadow-md"></div>
             </div>
           </div>
         </div>
@@ -116,12 +117,12 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] text-white premium-title-font ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] text-white premium-name-glow premium-title-font ${nameAnimationComplete ? 'name-glow-complete' : 'name-typing-glow'}`}>
             {animatedText}
             {!nameAnimationComplete && <span className="animate-pulse">|</span>}
           </h1>
           
-          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default text-white premium-subtitle-font ${titleAnimationComplete ? 'title-glow-complete' : ''}`}>
+          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default premium-subtitle-glow premium-subtitle-font ${titleAnimationComplete ? 'title-glow-complete' : ''}`}>
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           
@@ -153,14 +154,14 @@ const HeroSection = () => {
             <Button 
               onClick={handleDownloadResume}
               disabled={downloadStatus === 'downloading'}
-              className="premium-unified-button px-8 py-4 text-lg font-bold"
+              className="premium-hero-button px-8 py-4 text-lg font-bold"
             >
               <Download className="w-5 h-5 mr-2" />
               {downloadStatus === 'success' ? 'Downloaded ✓' : downloadStatus === 'downloading' ? 'Downloading...' : 'Download Resume'}
             </Button>
             <Button 
               onClick={handleLinkedInConnect}
-              className="premium-unified-button px-8 py-4 text-lg font-bold"
+              className="premium-hero-button px-8 py-4 text-lg font-bold"
             >
               <Linkedin className="w-5 h-5 mr-2" />
               Connect LinkedIn
