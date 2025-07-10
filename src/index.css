@@ -72,33 +72,33 @@
     letter-spacing: -0.01em;
   }
 
-  /* Refined Name Styling - Clean and Premium */
-  .premium-name-refined {
+  /* Clean Name Styling - No Heavy Glow */
+  .premium-name-clean {
     font-family: 'Montserrat', 'Poppins', sans-serif;
     font-weight: 800;
-    color: #f59e0b;
+    color: #fbbf24;
     letter-spacing: -0.02em;
-    filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3));
+    filter: drop-shadow(0 1px 3px rgba(251, 191, 36, 0.4));
   }
 
-  .name-typing-refined {
-    color: #f59e0b;
+  .name-typing-clean {
+    color: #fbbf24;
   }
 
-  .name-complete-refined {
-    color: #f59e0b;
+  .name-complete-clean {
+    color: #fbbf24;
   }
 
-  /* Refined Subtitle Styling */
-  .premium-subtitle-refined {
+  /* Clean Subtitle Styling */
+  .premium-subtitle-clean {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    color: #fbbf24;
+    color: #fcd34d;
     letter-spacing: -0.01em;
   }
 
-  .subtitle-complete-refined {
-    color: #fbbf24;
+  .subtitle-complete-clean {
+    color: #fcd34d;
   }
 
   /* Unified Section Title Styling for ALL Sections */
@@ -127,10 +127,10 @@
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
   }
 
-  /* Refined Premium Button Styling */
-  .premium-button-refined {
+  /* Compact Premium Button Styling */
+  .premium-button-compact {
     position: relative;
-    border-radius: 12px;
+    border-radius: 8px;
     font-family: 'Montserrat', 'Poppins', sans-serif;
     font-weight: 600;
     text-transform: none;
@@ -142,46 +142,115 @@
     background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
     color: #fbbf24;
     box-shadow: 
-      0 0 20px rgba(251, 191, 36, 0.3),
-      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(255, 215, 0, 0.4),
+      0 6px 24px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(251, 191, 36, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    padding: 10px 20px;
+    height: auto;
+    min-height: 42px;
   }
 
-  .premium-button-refined::before {
+  .premium-button-compact::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
     transition: left 0.6s ease;
   }
 
-  .premium-button-refined:hover::before {
+  .premium-button-compact:hover::before {
     left: 100%;
   }
 
-  .premium-button-refined:hover {
+  .premium-button-compact:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 
-      0 0 30px rgba(251, 191, 36, 0.6),
-      0 12px 40px rgba(0, 0, 0, 0.4),
+      0 0 25px rgba(255, 215, 0, 0.7),
+      0 10px 32px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-color: rgba(251, 191, 36, 0.6);
-    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
-    color: #ffffff;
+    border-color: rgba(255, 215, 0, 0.7);
+    background: linear-gradient(135deg, #FFD700 0%, #FFEF9F 50%, #FFD700 100%);
+    color: #1e293b;
   }
 
-  .premium-button-refined:active {
+  .premium-button-compact:active {
     transform: translateY(-1px) scale(1.01);
   }
 
-  .premium-button-refined:disabled {
+  .premium-button-compact:disabled {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
+  }
+
+  /* Premium Button Text Glow Animation */
+  .premium-button-text-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-button-text-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: premium-text-shine 2s infinite;
+  }
+
+  /* Premium Rocket Launch Animation */
+  .premium-rocket-launch-container {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+
+  .premium-rocket-launch {
+    position: relative;
+    animation: premium-rocket-fly 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .premium-rocket-icon {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+    animation: premium-rocket-glow 0.5s ease-in-out infinite alternate;
+  }
+
+  .premium-rocket-trail {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 20px;
+    background: linear-gradient(to bottom, 
+      rgba(255, 165, 0, 0.9) 0%,
+      rgba(255, 69, 0, 0.8) 50%,
+      transparent 100%);
+    border-radius: 50%;
+    animation: premium-rocket-trail-flicker 0.2s ease-in-out infinite alternate;
+  }
+
+  .premium-rocket-streak {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100vh;
+    background: linear-gradient(to top, 
+      rgba(255, 215, 0, 0.8) 0%,
+      rgba(255, 165, 0, 0.6) 30%,
+      transparent 100%);
+    opacity: 0;
+    animation: premium-rocket-streak-fade 1.8s ease-out forwards;
   }
 
   /* Enhanced Solar System - Premium Multiple Planets */
@@ -191,63 +260,59 @@
 
   .enhanced-sun-premium {
     box-shadow: 
-      0 0 40px rgba(255, 215, 0, 1),
-      0 0 60px rgba(255, 165, 0, 0.9),
-      0 0 80px rgba(255, 140, 0, 0.7);
+      0 0 50px rgba(255, 215, 0, 1),
+      0 0 80px rgba(255, 165, 0, 0.9),
+      0 0 100px rgba(255, 140, 0, 0.7);
     animation: enhanced-sun-glow-premium 3s ease-in-out infinite;
   }
 
-  /* Mercury Orbit - 60px radius */
+  /* Enhanced Planet Orbits with Better Visibility */
   .enhanced-orbit-mercury {
-    width: 120px;
-    height: 120px;
-    border: 2px solid rgba(156, 163, 175, 0.4);
+    width: 140px;
+    height: 140px;
+    border: 2px solid rgba(156, 163, 175, 0.6);
     border-radius: 50%;
     animation: enhanced-planet-orbit 15s linear infinite;
   }
 
-  /* Venus Orbit - 80px radius */
   .enhanced-orbit-venus {
-    width: 160px;
-    height: 160px;
-    border: 2px solid rgba(255, 193, 7, 0.4);
+    width: 180px;
+    height: 180px;
+    border: 2px solid rgba(255, 193, 7, 0.6);
     border-radius: 50%;
     animation: enhanced-planet-orbit 20s linear infinite reverse;
   }
 
-  /* Earth Orbit - 100px radius */
   .enhanced-orbit-earth {
-    width: 200px;
-    height: 200px;
-    border: 2px solid rgba(59, 130, 246, 0.4);
+    width: 220px;
+    height: 220px;
+    border: 2px solid rgba(59, 130, 246, 0.6);
     border-radius: 50%;
     animation: enhanced-planet-orbit 25s linear infinite;
   }
 
-  /* Mars Orbit - 120px radius */
   .enhanced-orbit-mars {
-    width: 240px;
-    height: 240px;
-    border: 2px solid rgba(239, 68, 68, 0.4);
+    width: 260px;
+    height: 260px;
+    border: 2px solid rgba(239, 68, 68, 0.6);
     border-radius: 50%;
     animation: enhanced-planet-orbit 30s linear infinite reverse;
   }
 
-  /* Jupiter Orbit - 140px radius */
   .enhanced-orbit-jupiter {
-    width: 280px;
-    height: 280px;
-    border: 2px solid rgba(251, 146, 60, 0.4);
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(251, 146, 60, 0.6);
     border-radius: 50%;
     animation: enhanced-planet-orbit 35s linear infinite;
   }
 
   .enhanced-planet-premium {
     position: absolute;
-    top: -3px;
+    top: -4px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
     animation: enhanced-planet-glow-premium 2s ease-in-out infinite;
   }
 
@@ -360,18 +425,74 @@
 }
 
 /* Enhanced Animations */
+@keyframes premium-text-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes premium-rocket-fly {
+  0% { 
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-200px) scale(1.1) rotate(-5deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-500px) scale(0.8) rotate(10deg);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: translateY(-100vh) scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes premium-rocket-glow {
+  0% { 
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+  }
+  100% { 
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1)) drop-shadow(0 0 35px rgba(255, 165, 0, 0.8));
+  }
+}
+
+@keyframes premium-rocket-trail-flicker {
+  0% { 
+    opacity: 0.7;
+    height: 20px;
+  }
+  100% { 
+    opacity: 1;
+    height: 30px;
+  }
+}
+
+@keyframes premium-rocket-streak-fade {
+  0% { 
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% { 
+    opacity: 0;
+  }
+}
+
 @keyframes enhanced-sun-glow-premium {
   0%, 100% { 
     box-shadow: 
-      0 0 40px rgba(255, 215, 0, 1),
-      0 0 60px rgba(255, 165, 0, 0.9),
-      0 0 80px rgba(255, 140, 0, 0.7);
+      0 0 50px rgba(255, 215, 0, 1),
+      0 0 80px rgba(255, 165, 0, 0.9),
+      0 0 100px rgba(255, 140, 0, 0.7);
   }
   50% { 
     box-shadow: 
-      0 0 50px rgba(255, 215, 0, 1),
-      0 0 80px rgba(255, 165, 0, 1),
-      0 0 100px rgba(255, 140, 0, 0.9);
+      0 0 70px rgba(255, 215, 0, 1),
+      0 0 100px rgba(255, 165, 0, 1),
+      0 0 130px rgba(255, 140, 0, 0.9);
   }
 }
 
@@ -382,10 +503,10 @@
 
 @keyframes enhanced-planet-glow-premium {
   0%, 100% { 
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
   }
   50% { 
-    box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
   }
 }
 

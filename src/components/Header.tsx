@@ -67,22 +67,22 @@ const Header = () => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       setIsMobileMenuOpen(false);
-    }, 300);
+    }, 400);
 
-    setTimeout(() => setShowRocket(''), 1200);
+    setTimeout(() => setShowRocket(''), 1800);
   };
 
   return (
     <>
       {showRocket && (
         <div className="fixed inset-0 pointer-events-none z-40">
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          <div className="premium-rocket-launch-container">
             <div className="premium-rocket-launch">
-              <Rocket className="w-8 h-8 text-yellow-400 premium-rocket-icon" />
-              <div className="w-12 h-8 bg-gradient-to-b from-orange-400 to-red-600 rounded-full opacity-80 animate-pulse premium-rocket-trail"></div>
+              <Rocket className="w-10 h-10 text-yellow-400 premium-rocket-icon" />
+              <div className="premium-rocket-trail"></div>
             </div>
           </div>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-t from-yellow-400 via-orange-500 to-transparent opacity-60 animate-pulse premium-rocket-streak"></div>
+          <div className="premium-rocket-streak"></div>
         </div>
       )}
 

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -14,11 +15,13 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('idle');
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('sending');
 
     try {
       const response = await fetch('https://formspree.io/f/xpwzgdnr', {
@@ -36,16 +39,22 @@ const ContactSection = () => {
       });
 
       if (response.ok) {
+        setSubmitStatus('success');
         toast({
-          title: "Message sent successfully!",
+          title: "Message sent successfully ✅",
           description: "Thank you for reaching out. I'll get back to you soon.",
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
+        
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 3000);
       } else {
         throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('Error sending message:', error);
+      setSubmitStatus('idle');
       toast({
         title: "Error sending message",
         description: "Please try again later or contact me directly at ksampreeth12@gmail.com",
@@ -192,16 +201,13 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="premium-button-refined w-full py-4 text-lg font-semibold"
+                  className="premium-button-compact w-full"
                 >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Message
-                    </>
-                  )}
+                  <Send className="w-4 h-4 mr-2" />
+                  <span className="premium-button-text-glow">
+                    {submitStatus === 'success' ? 'Message sent successfully ✅' : 
+                     submitStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                  </span>
                 </Button>
               </form>
             </CardContent>
