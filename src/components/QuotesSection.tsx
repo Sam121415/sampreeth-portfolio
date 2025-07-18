@@ -1,11 +1,20 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const QuotesSection = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
+
+  // Auto-rotate quotes every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const quotes = [
     {
@@ -103,14 +112,14 @@ const QuotesSection = () => {
           QA Wisdom & Inspiration
         </h2>
         
-        <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
-          <CardContent className="p-8">
+        <Card className="bg-slate-900/80 border-blue-500/30 backdrop-blur-sm min-h-[250px] flex items-center">
+          <CardContent className="p-8 w-full">
             <div className="flex items-center justify-center mb-6">
               <Quote className="w-8 h-8 text-yellow-400" />
             </div>
             
-            <div className="text-center mb-8">
-              <p className="text-xl md:text-2xl text-gray-100 leading-relaxed mb-6 italic font-medium">
+            <div className="text-center">
+              <p className="text-xl md:text-2xl text-gray-100 leading-relaxed mb-6 italic font-medium min-h-[80px] flex items-center justify-center">
                 "{quotes[currentQuote].text}"
               </p>
               <p className="text-yellow-400 font-semibold text-lg">
@@ -120,46 +129,8 @@ const QuotesSection = () => {
                 {quotes[currentQuote].category}
               </span>
             </div>
-            
-            <div className="flex items-center justify-between">
-              <Button
-                onClick={prevQuote}
-                variant="ghost"
-                className="premium-button-compact h-10 w-10 p-0"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </Button>
-              
-              <div className="flex gap-2">
-                {quotes.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentQuote(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentQuote 
-                        ? 'bg-yellow-400 w-6' 
-                        : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
-                  />
-                ))}
-              </div>
-              
-              <Button
-                onClick={nextQuote}
-                variant="ghost"
-                className="premium-button-compact h-10 w-10 p-0"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-            </div>
           </CardContent>
         </Card>
-        
-        <div className="text-center mt-8">
-          <p className="text-gray-400 italic">
-            Quote {currentQuote + 1} of {quotes.length} • Inspiring the QA Community
-          </p>
-        </div>
       </div>
     </section>
   );

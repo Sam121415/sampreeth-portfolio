@@ -199,14 +199,13 @@ const ContactSection = () => {
                 />
                 
                 <Button
-                  type="submit"
-                  disabled={isSubmitting}
+                  type="button"
+                  onClick={() => window.open('mailto:ksampreeth12@gmail.com?subject=Portfolio Contact&body=Hi Sampreeth,', '_blank')}
                   className="premium-button-compact w-full"
                 >
                   <Send className="w-4 h-4 mr-2" />
                   <span className="premium-button-text-glow">
-                    {submitStatus === 'success' ? 'Message sent successfully' : 
-                     submitStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                    Send Message
                   </span>
                 </Button>
               </form>
