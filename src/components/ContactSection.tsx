@@ -205,7 +205,7 @@ const ContactSection = () => {
                 >
                   <Send className="w-4 h-4 mr-2" />
                   <span className="premium-button-text-glow">
-                    {submitStatus === 'success' ? 'Message sent successfully ✅' : 
+                    {submitStatus === 'success' ? 'Message sent successfully' : 
                      submitStatus === 'sending' ? 'Sending...' : 'Send Message'}
                   </span>
                 </Button>

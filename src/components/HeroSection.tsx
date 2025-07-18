@@ -131,12 +131,12 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] premium-name-clean ${nameAnimationComplete ? 'name-complete-clean' : 'name-typing-clean'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold mb-8 cursor-default min-h-[80px] md:min-h-[100px] premium-name-elegant ${nameAnimationComplete ? 'name-complete-elegant' : 'name-typing-elegant'}`}>
             {animatedText}
             {!nameAnimationComplete && <span className="animate-pulse">|</span>}
           </h1>
           
-          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default premium-subtitle-clean ${titleAnimationComplete ? 'subtitle-complete-clean' : ''}`}>
+          <h2 className={`text-xl md:text-2xl font-medium mb-6 transition-all duration-300 cursor-default premium-subtitle-elegant ${titleAnimationComplete ? 'subtitle-complete-elegant' : ''}`}>
             Software QA Engineer | Manual & Automation Testing | UI/UX QA Specialist
           </h2>
           

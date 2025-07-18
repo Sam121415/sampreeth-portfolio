@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Code, TestTube, Smartphone, Figma, Palette, Network, Server, Receipt, Bug, Clipboard } from 'lucide-react';
+import AppiumProjectCard from './AppiumProjectCard';
 
 const ProjectsSection = () => {
   const projects = [
@@ -95,6 +96,8 @@ const ProjectsSection = () => {
               </CardContent>
             </Card>
           ))}
+          {/* Special Appium Project Card */}
+          <AppiumProjectCard />
         </div>
       </div>
     </section>
