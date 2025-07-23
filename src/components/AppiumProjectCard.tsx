@@ -14,7 +14,7 @@ const AppiumProjectCard = () => {
               <Brain className="w-8 h-8 text-yellow-400 premium-animated-icon" />
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-3 premium-project-title">🚀 Bridge AI – Prompt Engineering</h3>
+              <h3 className="text-xl font-bold text-white mb-3 premium-project-title">Bridge AI – Prompt Engineering</h3>
             </div>
           </div>
           <p className="text-gray-300 mb-4 leading-relaxed premium-description">
@@ -50,7 +50,7 @@ const AppiumProjectCard = () => {
               <TestTube className="w-8 h-8 text-yellow-400 premium-animated-icon" />
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-3 premium-project-title">🧪 Bridge Product – Mobile Automation</h3>
+              <h3 className="text-xl font-bold text-white mb-3 premium-project-title">Bridge Product – Mobile Automation</h3>
             </div>
           </div>
           <p className="text-gray-300 mb-4 leading-relaxed premium-description">
