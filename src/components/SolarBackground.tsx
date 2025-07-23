@@ -22,7 +22,7 @@ const SolarBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
       {/* Central Solar System - Perfectly Centered */}
-      <div className="absolute top-20 right-10 w-96 h-96 opacity-80">
+      <div className="absolute top-20 right-10 w-96 h-96 opacity-90">
         {/* Planet Orbits - Properly Spaced from Sun */}
         {planets.map((planet, index) => (
           <div key={planet.name} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
