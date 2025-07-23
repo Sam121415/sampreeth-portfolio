@@ -5,19 +5,19 @@ import appiumScreenshot from '@/assets/appium-bridge-screenshot.jpg';
 
 const AppiumProjectCard = () => {
   return (
-    <Card className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm h-fit">
-      <CardContent className="p-6">
-        <div className="bg-blue-500/10 p-3 rounded-lg w-fit mb-4 group-hover:bg-blue-500/20 transition-colors">
-          <Smartphone className="w-6 h-6 text-yellow-400 laser-icon-glow" />
-        </div>
-        {/* Bridge AI - Prompt Engineering Section */}
-        <div className="mb-6">
+    <div className="grid md:grid-cols-2 gap-6">
+      {/* Bridge AI - Prompt Engineering Card */}
+      <Card className="bg-slate-900/80 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 card-hover backdrop-blur-sm h-fit">
+        <CardContent className="p-6">
+          <div className="bg-blue-500/10 p-3 rounded-lg w-fit mb-4 group-hover:bg-blue-500/20 transition-colors">
+            <Smartphone className="w-6 h-6 text-yellow-400 laser-icon-glow" />
+          </div>
+          
           <h3 className="text-lg font-bold text-white mb-3">🚀 Bridge AI – Prompt Engineering</h3>
           <h4 className="text-yellow-400 text-sm font-semibold mb-3">🧠 Smart backend creation using ChatGPT 3.0</h4>
           
           <div className="text-gray-300 space-y-2 text-sm leading-relaxed mb-4">
             <p>• Taught the product to ChatGPT 3.0 using Prompt Engineering.</p>
-            <p>• Enabled users to auto-generate full backend apps (like hospital or attendance systems) with a single prompt.</p>
             <p>• Tested all AI-generated templates and forums, ensuring valid JSON structure and accurate key mapping in the database.</p>
             <p>• Created UI automatically from JSON using Google Studio 2.5 Pro.</p>
           </div>
@@ -30,7 +30,7 @@ const AppiumProjectCard = () => {
             />
           </div>
 
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2">
             {['Prompt Engineering', 'ChatGPT 3.0', 'JSON Validation', 'Google Studio 2.5 Pro', 'Backend Generation'].map((tech, techIndex) => (
               <span 
                 key={techIndex}
@@ -40,10 +40,16 @@ const AppiumProjectCard = () => {
               </span>
             ))}
           </div>
-        </div>
+        </CardContent>
+      </Card>
 
-        {/* Bridge Product - Mobile Automation Section */}
-        <div className="border-t border-blue-500/20 pt-6">
+      {/* Bridge Product - Mobile Automation Card */}
+      <Card className="bg-slate-900/80 border-green-500/30 hover:border-green-400/60 transition-all duration-300 card-hover backdrop-blur-sm h-fit">
+        <CardContent className="p-6">
+          <div className="bg-green-500/10 p-3 rounded-lg w-fit mb-4 group-hover:bg-green-500/20 transition-colors">
+            <Smartphone className="w-6 h-6 text-yellow-400 laser-icon-glow" />
+          </div>
+          
           <h3 className="text-lg font-bold text-white mb-3">🧪 Bridge Product – Mobile Automation</h3>
           <h4 className="text-yellow-400 text-sm font-semibold mb-3">🔧 Multi-device Appium testing for Android & iOS</h4>
           
@@ -65,9 +71,9 @@ const AppiumProjectCard = () => {
               </span>
             ))}
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 

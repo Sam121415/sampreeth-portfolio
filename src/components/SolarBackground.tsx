@@ -22,12 +22,7 @@ const SolarBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
       {/* Central Solar System - Perfectly Centered */}
-      <div className="absolute top-20 right-10 w-96 h-96">
-        {/* Central Sun - Properly Centered */}
-        <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-gradient-to-r from-yellow-300 via-orange-400 to-yellow-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <div className="w-full h-full rounded-full animate-pulse shadow-[0_0_30px_rgba(255,215,0,0.8),0_0_60px_rgba(255,165,0,0.6),0_0_90px_rgba(255,140,0,0.4)]"></div>
-        </div>
-
+      <div className="absolute top-20 right-10 w-96 h-96 opacity-80">
         {/* Planet Orbits - Properly Spaced from Sun */}
         {planets.map((planet, index) => (
           <div key={planet.name} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -35,8 +30,8 @@ const SolarBackground = () => {
             <div 
               className="border border-white/20 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               style={{
-                width: `${planet.orbit + 40}px`, // Added space from sun
-                height: `${planet.orbit + 40}px`,
+                width: `${planet.orbit + 60}px`,
+                height: `${planet.orbit + 60}px`,
                 animation: `spin ${20 + index * 10}s linear infinite`
               }}
             >
@@ -44,7 +39,7 @@ const SolarBackground = () => {
               <div 
                 style={{
                   position: 'absolute',
-                  top: '-6px',
+                  top: '-8px',
                   left: '50%',
                   transform: 'translateX(-50%)',
                   width: `${planet.size * 4}px`,
@@ -68,12 +63,12 @@ const SolarBackground = () => {
                 {planet.name === 'Saturn' && (
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <div 
-                      className="border-2 border-yellow-300/60 rounded-full"
+                      className="border-2 border-yellow-300/80 rounded-full"
                       style={{
-                        width: '40px',
-                        height: '20px',
-                        animation: 'saturn-ring 8s linear infinite',
-                        boxShadow: '0 0 10px rgba(255, 215, 0, 0.4)'
+                        width: '45px',
+                        height: '22px',
+                        animation: 'spin 12s linear infinite',
+                        boxShadow: '0 0 15px rgba(255, 215, 0, 0.6)'
                       }}
                     ></div>
                   </div>
@@ -82,6 +77,11 @@ const SolarBackground = () => {
             </div>
           </div>
         ))}
+        
+        {/* Central Sun - Perfectly Centered Above All Orbits */}
+        <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-gradient-to-r from-yellow-300 via-orange-400 to-yellow-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-30">
+          <div className="w-full h-full rounded-full animate-pulse shadow-[0_0_40px_rgba(255,215,0,0.9),0_0_80px_rgba(255,165,0,0.7),0_0_120px_rgba(255,140,0,0.5)]"></div>
+        </div>
       </div>
 
       {/* Scattered Background Planets */}

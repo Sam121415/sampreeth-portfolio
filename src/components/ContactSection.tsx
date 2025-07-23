@@ -8,20 +8,23 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [message, setMessage] = useState('');
+  const [confirmation, setConfirmation] = useState<{subject: string, message: string} | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('idle');
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!message.trim()) return;
+    
     setIsSubmitting(true);
     setSubmitStatus('sending');
+
+    // Split message into subject and message (first line as subject, rest as message)
+    const lines = message.split('\n');
+    const subject = lines[0] || 'Portfolio Contact';
+    const messageBody = lines.slice(1).join('\n') || lines[0];
 
     try {
       const response = await fetch('https://formspree.io/f/xpwzgdnr', {
@@ -30,25 +33,25 @@ const ContactSection = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          _replyto: formData.email,
+          subject: subject,
+          message: messageBody,
+          fullMessage: message,
         }),
       });
 
       if (response.ok) {
         setSubmitStatus('success');
+        setConfirmation({ subject, message: messageBody });
         toast({
           title: "Message sent successfully ✅",
           description: "Thank you for reaching out. I'll get back to you soon.",
         });
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setMessage('');
         
         setTimeout(() => {
           setSubmitStatus('idle');
-        }, 3000);
+          setConfirmation(null);
+        }, 5000);
       } else {
         throw new Error('Failed to send message');
       }
@@ -65,11 +68,8 @@ const ContactSection = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(e.target.value);
   };
 
   const handleEmailClick = () => {
@@ -154,61 +154,39 @@ const ContactSection = () => {
 
           <Card className="premium-form-card bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
             <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Input
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
-                    />
+              {confirmation ? (
+                <div className="space-y-4 text-center">
+                  <div className="text-green-400 text-xl font-semibold mb-4">✅ Message Sent Successfully!</div>
+                  <div className="space-y-2 p-4 bg-slate-800/50 rounded-lg">
+                    <div><strong className="text-yellow-400">Subject:</strong> {confirmation.subject}</div>
+                    <div><strong className="text-yellow-400">Message:</strong> {confirmation.message}</div>
                   </div>
-                  <div>
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="Your Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
-                    />
-                  </div>
+                  <p className="text-gray-300">Thank you for reaching out. I'll get back to you soon!</p>
                 </div>
-                
-                <Input
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
-                />
-                
-                <Textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white resize-none"
-                />
-                
-                <Button
-                  type="button"
-                  onClick={() => window.open('mailto:ksampreeth12@gmail.com?subject=Portfolio Contact&body=Hi Sampreeth,', '_blank')}
-                  className="premium-button-compact w-full"
-                >
-                  <Send className="w-4 h-4 mr-2" />
-                  <span className="premium-button-text-glow">
-                    Send Message
-                  </span>
-                </Button>
-              </form>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <Textarea
+                    name="message"
+                    placeholder="Your Message (First line will be the subject)"
+                    value={message}
+                    onChange={handleChange}
+                    required
+                    rows={8}
+                    className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white resize-none"
+                  />
+                  
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="premium-button-compact w-full"
+                  >
+                    <Send className="w-4 h-4 mr-2" />
+                    <span className="premium-button-text-glow">
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                    </span>
+                  </Button>
+                </form>
+              )}
             </CardContent>
           </Card>
         </div>
