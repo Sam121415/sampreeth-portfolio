@@ -8,6 +8,7 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
+  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const { toast } = useToast();
 
@@ -23,15 +24,10 @@ const ContactSection = () => {
       return;
     }
 
-    // Split message into subject and message (first line as subject, rest as message)
-    const lines = message.split('\n');
-    const subject = lines[0] || 'Portfolio Contact';
-    const messageBody = lines.slice(1).join('\n') || lines[0];
-
-    // Create mailto link
+    // Create mailto link with separate subject and message
     const emailParams = new URLSearchParams({
-      subject: subject,
-      body: messageBody
+      subject: subject.trim() || 'Portfolio Contact',
+      body: message.trim()
     });
     
     const mailtoLink = `mailto:ksampreeth12@gmail.com?${emailParams.toString()}`;
@@ -46,7 +42,11 @@ const ContactSection = () => {
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleSubjectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSubject(e.target.value);
+  };
+
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
   };
 
@@ -133,13 +133,21 @@ const ContactSection = () => {
           <Card className="premium-form-card bg-slate-900/80 border-blue-500/30 backdrop-blur-sm">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
+                <Input
+                  name="subject"
+                  placeholder="Subject"
+                  value={subject}
+                  onChange={handleSubjectChange}
+                  className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white"
+                />
+                
                 <Textarea
                   name="message"
-                  placeholder="Your Message (First line will be the subject)"
+                  placeholder="Your Message"
                   value={message}
-                  onChange={handleChange}
+                  onChange={handleMessageChange}
                   required
-                  rows={8}
+                  rows={6}
                   className="premium-input bg-slate-800 border-gray-600 focus:border-blue-500 text-white resize-none"
                 />
                 
