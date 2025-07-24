@@ -18,7 +18,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-white" style={{ scrollBehavior: 'smooth' }}>
       <Header />
-      <SolarBackground />
       <FloatingElements />
       
       <main>
