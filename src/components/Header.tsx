@@ -111,6 +111,9 @@ const Header = () => {
                       ? 'text-yellow-400 premium-active-nav' 
                       : 'text-gray-300 hover:text-blue-400'
                   }`}
+                  style={{
+                    animation: activeSection === item.id ? 'nav-flash 2s ease-in-out infinite' : 'none'
+                  }}
                 >
                   {item.label}
                   {activeSection === item.id && (

@@ -86,63 +86,129 @@ const HeroSection = () => {
         <div className="absolute inset-0 dark-space-bg"></div>
         <div className="absolute inset-0 enhanced-falling-stars opacity-90"></div>
         
-        {/* Premium Solar System - Always Visible */}
-        <div className="absolute top-8 right-4 md:top-12 md:right-8 lg:top-16 lg:right-12 pointer-events-none z-10">
+        {/* Background Galaxies */}
+        <div className="absolute top-10 left-10 w-32 h-32 md:w-40 md:h-40 opacity-30 pointer-events-none z-5">
+          <div 
+            className="w-full h-full rounded-full"
+            style={{
+              background: 'radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, rgba(75, 0, 130, 0.3) 30%, rgba(25, 25, 112, 0.2) 60%, transparent 100%)',
+              animation: 'spin 120s linear infinite',
+              boxShadow: '0 0 50px rgba(138, 43, 226, 0.3), 0 0 100px rgba(75, 0, 130, 0.2)'
+            }}
+          />
+        </div>
+
+        <div className="absolute bottom-20 right-20 w-28 h-28 md:w-36 md:h-36 opacity-25 pointer-events-none z-5">
+          <div 
+            className="w-full h-full rounded-full"
+            style={{
+              background: 'radial-gradient(circle, rgba(255, 20, 147, 0.4) 0%, rgba(139, 69, 19, 0.3) 30%, rgba(128, 0, 128, 0.2) 60%, transparent 100%)',
+              animation: 'spin 180s linear infinite reverse',
+              boxShadow: '0 0 60px rgba(255, 20, 147, 0.3), 0 0 120px rgba(139, 69, 19, 0.2)'
+            }}
+          />
+        </div>
+
+        {/* Black Hole */}
+        <div className="absolute top-1/3 left-1/4 w-16 h-16 md:w-20 md:h-20 opacity-70 pointer-events-none z-8">
+          <div 
+            className="w-full h-full rounded-full relative"
+            style={{
+              background: 'radial-gradient(circle, #000000 30%, rgba(128, 0, 128, 0.8) 50%, rgba(255, 255, 255, 0.1) 80%, transparent 100%)',
+              boxShadow: '0 0 30px rgba(128, 0, 128, 0.8), 0 0 60px rgba(75, 0, 130, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.9)',
+              animation: 'spin 8s linear infinite'
+            }}
+          >
+            {/* Accretion Disk */}
+            <div 
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-12 md:w-28 md:h-14 border border-purple-400/40 rounded-full"
+              style={{
+                animation: 'spin 4s linear infinite',
+                boxShadow: '0 0 20px rgba(128, 0, 128, 0.6)'
+              }}
+            />
+            <div 
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-10 md:w-24 md:h-12 border border-purple-300/30 rounded-full"
+              style={{
+                animation: 'spin 6s linear infinite reverse'
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Enhanced Premium Solar System - Drifting Motion */}
+        <div 
+          className="absolute top-8 right-4 md:top-12 md:right-8 lg:top-16 lg:right-12 pointer-events-none z-10"
+          style={{
+            animation: 'solar-drift 600s ease-in-out infinite',
+            willChange: 'transform'
+          }}
+        >
           <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px]">
             
-            {/* Planet Orbits with Glowing Rings */}
+            {/* Planet Orbits with Enhanced Glowing Rings */}
             {[
-              { name: 'Mercury', size: 12, orbit: 60, speed: 8, color: 'linear-gradient(45deg, #8C7853, #BFB5A0)', glow: 'rgba(140, 120, 83, 0.8)' },
-              { name: 'Venus', size: 14, orbit: 80, speed: 12, color: 'linear-gradient(45deg, #FFC649, #FFB347)', glow: 'rgba(255, 198, 73, 0.9)' },
-              { name: 'Earth', size: 16, orbit: 100, speed: 16, color: 'linear-gradient(45deg, #6B93D6, #4FC3F7, #66BB6A)', glow: 'rgba(107, 147, 214, 1)' },
-              { name: 'Mars', size: 14, orbit: 120, speed: 20, color: 'linear-gradient(45deg, #CD5C5C, #FF6B35)', glow: 'rgba(205, 92, 92, 0.9)' },
-              { name: 'Jupiter', size: 24, orbit: 150, speed: 24, color: 'linear-gradient(45deg, #D2691E, #FF8C00, #F4A460)', glow: 'rgba(210, 105, 30, 1)' },
-              { name: 'Saturn', size: 20, orbit: 180, speed: 28, color: 'linear-gradient(45deg, #FAD5A5, #FFEAA7)', glow: 'rgba(250, 213, 165, 0.9)' }
+              { name: 'Mercury', size: 12, orbit: 50, speed: 8, color: 'linear-gradient(45deg, #8C7853, #BFB5A0)', glow: 'rgba(140, 120, 83, 0.8)' },
+              { name: 'Venus', size: 14, orbit: 65, speed: 12, color: 'linear-gradient(45deg, #FFC649, #FFB347)', glow: 'rgba(255, 198, 73, 0.9)' },
+              { name: 'Earth', size: 16, orbit: 80, speed: 16, color: 'linear-gradient(45deg, #6B93D6, #4FC3F7, #66BB6A)', glow: 'rgba(107, 147, 214, 1)' },
+              { name: 'Mars', size: 14, orbit: 95, speed: 20, color: 'linear-gradient(45deg, #CD5C5C, #FF6B35)', glow: 'rgba(205, 92, 92, 0.9)' },
+              { name: 'Jupiter', size: 24, orbit: 120, speed: 24, color: 'linear-gradient(45deg, #D2691E, #FF8C00, #F4A460)', glow: 'rgba(210, 105, 30, 1)' },
+              { name: 'Saturn', size: 20, orbit: 145, speed: 28, color: 'linear-gradient(45deg, #FAD5A5, #FFEAA7)', glow: 'rgba(250, 213, 165, 0.9)' }
             ].map((planet, index) => (
               <div key={planet.name} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {/* Glowing Orbit Ring */}
+                {/* Enhanced Glowing Orbit Ring */}
                 <div 
-                  className="border border-white/30 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  className="border border-white/40 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                   style={{
                     width: `${planet.orbit}px`,
                     height: `${planet.orbit}px`,
                     animation: `spin ${planet.speed}s linear infinite`,
-                    boxShadow: `0 0 10px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.2)`
+                    boxShadow: `0 0 15px rgba(255, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2)`,
+                    willChange: 'transform'
                   }}
                 >
-                  {/* Planet */}
+                  {/* Enhanced Planet */}
                   <div 
                     style={{
                       position: 'absolute',
-                      top: '-6px',
+                      top: '-8px',
                       left: '50%',
                       transform: 'translateX(-50%)',
                       width: `${planet.size}px`,
                       height: `${planet.size}px`,
                       borderRadius: '50%',
                       background: planet.color,
-                      boxShadow: `0 0 20px ${planet.glow}, 0 0 40px ${planet.glow.replace('1)', '0.6)')}, 0 0 60px ${planet.glow.replace('1)', '0.3)')}`,
-                      animation: `spin ${planet.speed / 2}s linear infinite reverse`
+                      boxShadow: `0 0 25px ${planet.glow}, 0 0 50px ${planet.glow.replace('1)', '0.6)')}, 0 0 75px ${planet.glow.replace('1)', '0.3)')}`,
+                      animation: `spin ${planet.speed / 2}s linear infinite reverse`,
+                      willChange: 'transform'
                     }}
                   >
-                    {/* Saturn's Rings */}
+                    {/* Enhanced Saturn's Rings */}
                     {planet.name === 'Saturn' && (
                       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <div 
-                          className="border-2 border-yellow-300/80 rounded-full"
-                          style={{
-                            width: '32px',
-                            height: '16px',
-                            animation: 'spin 12s linear infinite',
-                            boxShadow: '0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4)'
-                          }}
-                        ></div>
-                        <div 
-                          className="border border-yellow-200/60 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                          className="border-2 border-yellow-300/90 rounded-full"
                           style={{
                             width: '36px',
                             height: '18px',
+                            animation: 'spin 12s linear infinite',
+                            boxShadow: '0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3)'
+                          }}
+                        ></div>
+                        <div 
+                          className="border border-yellow-200/70 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                          style={{
+                            width: '40px',
+                            height: '20px',
                             animation: 'spin 15s linear infinite reverse'
+                          }}
+                        ></div>
+                        <div 
+                          className="border border-yellow-100/50 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                          style={{
+                            width: '44px',
+                            height: '22px',
+                            animation: 'spin 18s linear infinite'
                           }}
                         ></div>
                       </div>
@@ -152,21 +218,29 @@ const HeroSection = () => {
               </div>
             ))}
             
-            {/* Central Sun - Perfectly Centered and Glowing */}
-            <div className="absolute top-1/2 left-1/2 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 transform -translate-x-1/2 -translate-y-1/2 z-30">
+            {/* Enhanced Central Sun - Perfectly Centered */}
+            <div className="absolute top-1/2 left-1/2 w-14 h-14 md:w-18 md:h-18 lg:w-22 lg:h-22 transform -translate-x-1/2 -translate-y-1/2 z-30">
               <div 
-                className="w-full h-full rounded-full animate-pulse"
+                className="w-full h-full rounded-full"
                 style={{
-                  background: 'radial-gradient(circle, #FFD700 0%, #FFA500 50%, #FF8C00 100%)',
-                  boxShadow: '0 0 40px rgba(255, 215, 0, 0.9), 0 0 80px rgba(255, 165, 0, 0.7), 0 0 120px rgba(255, 140, 0, 0.5)',
-                  animation: 'pulse 3s ease-in-out infinite'
+                  background: 'radial-gradient(circle, #FFD700 0%, #FFA500 40%, #FF8C00 80%, #FF6347 100%)',
+                  boxShadow: '0 0 50px rgba(255, 215, 0, 1), 0 0 100px rgba(255, 165, 0, 0.8), 0 0 150px rgba(255, 140, 0, 0.6), 0 0 200px rgba(255, 99, 71, 0.4)',
+                  animation: 'pulse 3s ease-in-out infinite, spin 25s linear infinite'
                 }}
               ></div>
               <div 
-                className="absolute inset-0 rounded-full opacity-80"
+                className="absolute inset-0 rounded-full opacity-90"
                 style={{
-                  background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%)',
-                  animation: 'spin 20s linear infinite'
+                  background: 'radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, transparent 80%)',
+                  animation: 'spin 30s linear infinite reverse'
+                }}
+              ></div>
+              {/* Solar Flares */}
+              <div 
+                className="absolute inset-0 rounded-full opacity-60"
+                style={{
+                  background: 'conic-gradient(from 0deg, transparent 0%, rgba(255, 215, 0, 0.3) 10%, transparent 20%, rgba(255, 165, 0, 0.3) 30%, transparent 40%)',
+                  animation: 'spin 15s linear infinite'
                 }}
               ></div>
             </div>
